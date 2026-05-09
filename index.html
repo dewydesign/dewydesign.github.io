@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dwey design — Digital Design Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal:       #5ddec8;
+      --teal-dark:  #35b8a3;
+      --teal-light: #b2f0e8;
+      --beige:      #f5f0e8;
+      --beige-dark: #ede5d8;
+      --cream:      #faf7f2;
+      --rose:       #f0d8cc;
+      --rose-dark:  #c9a090;
+      --sage:       #b8c8b0;
+      --brown:      #3d3330;
+      --brown-light:#7a6a60;
+      --text:       #2e2420;
+      --text-light: #7a6a60;
+      --white:      #fffefb;
+      --shadow:     rgba(61,51,48,0.10);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; }
+
+    /* ─── NAV ─────────────────────────────── */
+    nav {
+      position: fixed; top:0; left:0; right:0; z-index:100;
+      background: rgba(250,247,242,0.93); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--beige-dark);
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 0 5%; height: 64px;
+    }
+    .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+    .nav-logo img { height: 36px; width: auto; object-fit: contain; }
+    .nav-logo-text { font-size:1.2rem; font-weight:700; letter-spacing:0.08em; color:var(--brown); }
+    .nav-logo-text span { color:var(--teal-dark); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { text-decoration:none; font-size:0.88rem; font-weight:500; color:var(--text-light); letter-spacing:0.04em; transition:color .2s; }
+    .nav-links a:hover { color:var(--teal-dark); }
+    .nav-cart { background:var(--teal-dark); color:var(--white); border:none; cursor:pointer; padding:8px 20px; border-radius:50px; font-family:inherit; font-size:0.85rem; font-weight:500; letter-spacing:0.04em; transition:background .2s; }
+    .nav-cart:hover { background:var(--brown); }
+
+    /* ─── HERO ──────────────────────────────── */
+    #hero {
+      min-height:100vh; display:flex; align-items:center; justify-content:center;
+      padding:100px 5% 60px;
+      background:
+        radial-gradient(ellipse 55% 55% at 80% 15%, rgba(93,222,200,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 45% 45% at 20% 80%, #f0ddd0 0%, transparent 65%),
+        var(--cream);
+      position:relative; overflow:hidden;
+    }
+    .hero-inner { max-width:940px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+    .hero-text .label { font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--teal-dark); font-weight:700; margin-bottom:1rem; }
+    .hero-text h1 { font-size:clamp(2rem,5vw,3.4rem); font-weight:700; line-height:1.25; color:var(--brown); margin-bottom:1.2rem; }
+    .hero-text h1 em { font-style:normal; color:var(--teal-dark); }
+    .hero-break { display:block; height:0.45em; }
+
+    .hero-text p { font-size:0.92rem; color:var(--text-light); margin-bottom:2rem; max-width:360px; line-height:1.9; }
+    .hero-cta { display:flex; gap:1rem; flex-wrap:wrap; }
+    .btn-primary { background:var(--brown); color:var(--white); padding:14px 0; border-radius:50px; text-decoration:none; font-size:0.9rem; font-weight:500; letter-spacing:0.04em; border:none; cursor:pointer; font-family:inherit; display:inline-block; transition:background .2s, transform .2s; width:172px; text-align:center; }
+    .btn-primary:hover { background:var(--teal-dark); transform:translateY(-2px); }
+    .btn-outline { background:transparent; color:var(--teal-dark); border:1.5px solid var(--teal-dark); padding:13px 0; border-radius:50px; text-decoration:none; font-size:0.9rem; font-weight:500; letter-spacing:0.04em; cursor:pointer; font-family:inherit; display:inline-block; transition:all .2s; width:172px; text-align:center; }
+    .btn-outline:hover { background:var(--teal-dark); color:var(--white); transform:translateY(-2px); }
+    .hero-visual { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .hero-card { background:var(--white); border-radius:16px; padding:1.5rem 1.2rem; box-shadow:0 6px 24px var(--shadow); display:flex; flex-direction:column; gap:0.6rem; transition:transform .3s; cursor:pointer; }
+    .hero-card:hover { transform:translateY(-6px); }
+    .hero-card:nth-child(1) { background:#f8f0ea; margin-top:1.5rem; }
+    .hero-card:nth-child(2) { background:rgba(93,222,200,0.10); }
+    .hero-card:nth-child(3) { background:#fdf5ee; }
+    .hero-card:nth-child(4) { background:#edf5f8; margin-top:1.5rem; }
+    .hero-card .card-icon { font-size:1.8rem; }
+    .hero-card .card-name { font-size:0.78rem; font-weight:700; letter-spacing:0.04em; color:var(--brown); }
+    .hero-card .card-sub { font-size:0.72rem; color:var(--text-light); }
+    .hero-card .card-price { font-size:0.82rem; font-weight:700; color:var(--teal-dark); margin-top:auto; }
+
+    /* ─── SECTIONS ─────────────────────────── */
+    section { padding:80px 5%; }
+    .section-label { font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--teal-dark); font-weight:700; margin-bottom:0.8rem; }
+    .section-title { font-size:clamp(1.6rem,3vw,2.4rem); font-weight:700; color:var(--brown); margin-bottom:0.6rem; }
+    .section-desc { font-size:0.9rem; color:var(--text-light); max-width:480px; line-height:1.9; }
+    .section-head { margin-bottom:3rem; }
+
+    /* ─── CATEGORIES ───────────────────────── */
+    #categories { background:var(--beige); }
+    .cat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:1.2rem; }
+    .cat-item { background:var(--white); border-radius:20px; padding:2rem 1.5rem; text-align:center; cursor:pointer; transition:all .3s; border:2px solid transparent; text-decoration:none; color:inherit; display:block; }
+    .cat-item:hover { border-color:var(--teal); transform:translateY(-4px); box-shadow:0 8px 24px var(--shadow); }
+    .cat-emoji { font-size:2.2rem; margin-bottom:0.8rem; }
+    .cat-name { font-size:0.85rem; font-weight:700; color:var(--brown); margin-bottom:0.3rem; }
+    .cat-count { font-size:0.73rem; color:var(--text-light); }
+
+    /* ─── PRODUCTS ─────────────────────────── */
+    #products { background:var(--cream); }
+    .product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.5rem; }
+    .product-card { background:var(--white); border-radius:20px; overflow:hidden; box-shadow:0 4px 16px var(--shadow); transition:all .3s; cursor:pointer; }
+    .product-card:hover { transform:translateY(-6px); box-shadow:0 12px 32px var(--shadow); }
+    .product-thumb { height:180px; display:flex; align-items:center; justify-content:center; font-size:3.5rem; position:relative; }
+    .product-thumb .badge { position:absolute; top:12px; right:12px; background:var(--teal-dark); color:var(--white); font-size:0.68rem; font-weight:700; padding:4px 10px; border-radius:50px; letter-spacing:0.05em; }
+    .product-body { padding:1.4rem; }
+    .product-tag { font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal-dark); font-weight:700; margin-bottom:0.5rem; }
+    .product-name { font-size:0.95rem; font-weight:700; color:var(--brown); margin-bottom:0.4rem; }
+    .product-desc { font-size:0.8rem; color:var(--text-light); line-height:1.7; margin-bottom:1rem; }
+    .product-footer { display:flex; align-items:center; justify-content:space-between; }
+    .product-price { font-size:1.05rem; font-weight:700; color:var(--brown); }
+    .buy-btn { background:rgba(93,222,200,0.15); color:var(--teal-dark); border:none; cursor:pointer; font-family:inherit; padding:8px 18px; border-radius:50px; font-size:0.8rem; font-weight:700; transition:all .2s; }
+    .buy-btn:hover { background:var(--teal-dark); color:var(--white); }
+
+    /* ─── ABOUT ─────────────────────────────── */
+    #about { background:linear-gradient(135deg,rgba(93,222,200,0.10) 0%, #f0e8df 100%); }
+    .about-inner { max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+    .about-visual { background:var(--white); border-radius:24px; padding:2.5rem; text-align:center; box-shadow:0 8px 32px var(--shadow); }
+    .about-avatar { font-size:5rem; margin-bottom:1rem; }
+    .about-name { font-size:1.1rem; font-weight:700; color:var(--brown); }
+    .about-role { font-size:0.82rem; color:var(--text-light); margin-bottom:1.2rem; }
+    .about-tags { display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; }
+    .about-tag { background:rgba(93,222,200,0.12); border-radius:50px; padding:5px 14px; font-size:0.75rem; font-weight:500; color:var(--teal-dark); }
+    .about-stats { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:2rem; }
+    .stat-box { background:white; border-radius:16px; padding:1.2rem; text-align:center; box-shadow:0 2px 8px var(--shadow); }
+    .stat-num { font-size:1.6rem; font-weight:700; color:var(--teal-dark); }
+    .stat-label { font-size:0.75rem; color:var(--text-light); }
+
+    /* ─── PROCESS ──────────────────────────── */
+    #process { background:var(--beige); }
+    .process-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1.5rem; counter-reset:step; }
+    .process-item { background:white; border-radius:20px; padding:2rem 1.5rem; position:relative; box-shadow:0 4px 16px var(--shadow); }
+    .process-item::before { counter-increment:step; content:"0" counter(step); font-size:0.7rem; font-weight:700; letter-spacing:0.1em; color:var(--teal-dark); margin-bottom:1rem; display:block; }
+    .process-icon { font-size:2rem; margin-bottom:0.8rem; }
+    .process-title { font-size:0.9rem; font-weight:700; color:var(--brown); margin-bottom:0.5rem; }
+    .process-desc { font-size:0.8rem; color:var(--text-light); line-height:1.8; }
+
+    /* ─── CONTACT ──────────────────────────── */
+    #contact { background:var(--cream); }
+    .contact-inner { max-width:640px; margin:0 auto; }
+    .contact-form { display:flex; flex-direction:column; gap:1rem; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .form-group { display:flex; flex-direction:column; gap:0.4rem; }
+    .form-group label { font-size:0.8rem; font-weight:700; color:var(--brown); letter-spacing:0.04em; }
+    .form-group input, .form-group textarea, .form-group select { background:var(--white); border:1.5px solid var(--beige-dark); border-radius:12px; padding:12px 16px; font-family:inherit; font-size:0.88rem; color:var(--text); outline:none; transition:border-color .2s; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color:var(--teal); }
+    .form-group textarea { height:130px; resize:vertical; }
+    .submit-btn { background:var(--teal-dark); color:var(--white); border:none; cursor:pointer; font-family:inherit; padding:16px; border-radius:12px; font-size:0.95rem; font-weight:700; letter-spacing:0.04em; transition:background .2s; margin-top:0.5rem; }
+    .submit-btn:hover { background:var(--brown); }
+    .contact-info { display:flex; gap:2rem; margin-top:2.5rem; flex-wrap:wrap; }
+    .contact-info-item { display:flex; align-items:center; gap:0.6rem; font-size:0.85rem; color:var(--text-light); }
+    .contact-info-item strong { color:var(--brown); }
+
+    /* ─── PAYMENT MODAL ────────────────────── */
+    .modal-overlay { position:fixed; inset:0; z-index:200; background:rgba(46,36,32,0.45); backdrop-filter:blur(4px); display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .3s; padding:20px; }
+    .modal-overlay.open { opacity:1; pointer-events:all; }
+    .modal { background:var(--white); border-radius:24px; padding:2.5rem; max-width:480px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.15); transform:translateY(20px); transition:transform .3s; max-height:90vh; overflow-y:auto; }
+    .modal-overlay.open .modal { transform:translateY(0); }
+    .modal-header { display:flex; justify-content:space-between; align-items:start; margin-bottom:1.5rem; }
+    .modal-title { font-size:1.1rem; font-weight:700; color:var(--brown); }
+    .modal-close { background:none; border:none; cursor:pointer; font-size:1.4rem; color:var(--text-light); line-height:1; padding:2px 6px; border-radius:8px; transition:background .2s; }
+    .modal-close:hover { background:var(--beige); }
+    .modal-product { background:rgba(93,222,200,0.10); border-radius:16px; padding:1.2rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; }
+    .modal-product-thumb { font-size:2.5rem; }
+    .modal-product-info .name { font-size:0.9rem; font-weight:700; color:var(--brown); }
+    .modal-product-info .price { font-size:1rem; font-weight:700; color:var(--teal-dark); margin-top:4px; }
+    .modal-section-title { font-size:0.78rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-light); margin-bottom:0.8rem; }
+    .payment-methods { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.6rem; margin-bottom:1.5rem; }
+    .pay-method { border:1.5px solid var(--beige-dark); border-radius:12px; padding:0.8rem 0.5rem; text-align:center; cursor:pointer; font-size:0.78rem; font-weight:500; color:var(--text-light); transition:all .2s; }
+    .pay-method:hover, .pay-method.selected { border-color:var(--teal); background:rgba(93,222,200,0.10); color:var(--teal-dark); }
+    .pay-method .pay-icon { font-size:1.4rem; display:block; margin-bottom:4px; }
+    .modal-form { display:flex; flex-direction:column; gap:0.8rem; margin-bottom:1.5rem; }
+    .modal-form input { background:var(--beige); border:1.5px solid transparent; border-radius:12px; padding:12px 14px; font-family:inherit; font-size:0.88rem; outline:none; transition:border-color .2s; }
+    .modal-form input:focus { border-color:var(--teal); background:white; }
+    .card-row { display:grid; grid-template-columns:2fr 1fr 1fr; gap:0.6rem; }
+    .order-total { background:var(--beige); border-radius:12px; padding:1rem 1.2rem; margin-bottom:1.2rem; }
+    .total-row { display:flex; justify-content:space-between; font-size:0.85rem; color:var(--text-light); margin-bottom:0.4rem; }
+    .total-row.final { font-weight:700; color:var(--brown); font-size:1rem; border-top:1px solid var(--beige-dark); padding-top:0.6rem; margin-top:0.4rem; }
+    .pay-btn { width:100%; background:var(--teal-dark); color:white; border:none; cursor:pointer; font-family:inherit; padding:16px; border-radius:14px; font-size:1rem; font-weight:700; letter-spacing:0.04em; transition:background .2s; }
+    .pay-btn:hover { background:var(--brown); }
+    .secure-note { text-align:center; font-size:0.75rem; color:var(--text-light); margin-top:0.8rem; }
+
+    /* ─── FOOTER ────────────────────────────── */
+    footer { background:var(--brown); color:rgba(255,255,255,0.7); padding:3rem 5%; display:flex; flex-wrap:wrap; gap:2rem; justify-content:space-between; align-items:center; }
+    .footer-logo { font-size:1.2rem; font-weight:700; color:white; letter-spacing:0.08em; }
+    .footer-logo span { color:var(--teal); }
+    .footer-links { display:flex; gap:1.5rem; flex-wrap:wrap; }
+    .footer-links a { color:rgba(255,255,255,0.6); text-decoration:none; font-size:0.82rem; transition:color .2s; }
+    .footer-links a:hover { color:white; }
+    .footer-copy { font-size:0.78rem; }
+
+    /* ─── TOAST ─────────────────────────────── */
+    #toast { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(20px); background:var(--teal-dark); color:white; padding:12px 28px; border-radius:50px; font-size:0.88rem; font-weight:500; opacity:0; transition:all .3s; z-index:300; white-space:nowrap; }
+    #toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+    /* ─── ANIMATIONS ─────────────────────────── */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+    .hero-text { animation:fadeUp .8s ease both; }
+    .hero-visual { animation:fadeUp .8s .2s ease both; }
+
+    /* ─── RESPONSIVE ─────────────────────────── */
+    @media (max-width:700px) {
+      .hero-inner, .about-inner { grid-template-columns:1fr; gap:2rem; }
+      .hero-text h1 { font-size:2rem; }
+      .form-row { grid-template-columns:1fr; }
+      .card-row { grid-template-columns:1fr 1fr; }
+      .nav-logo-text { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBmaWx0ZXI9InVybCgjZmlsdGVyMF9kXzVfMikiPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQ2My41MDYgMTk5LjIzNUM1MjUuMTc0IDE5Ny4zODEgNTc5LjE1IDIwOC41MTIgNjI0LjkwMyAyMzMuMjU3TDYyNS45NzMgMjMzLjgzM0M2NzEuMTczIDI1OC4zNDggNzA2LjM0MyAyOTQuMzc3IDczMS4zOTEgMzQxLjUzN0M3NTYuNjI4IDM4OC44NjEgNzY5Ljk2MiA0NDUuNDg1IDc3MS45MjcgNTEwLjk0NUM3NzMuOTA0IDU3Ni44MTUgNzYzLjkwMiA2MzQuNjMyIDc0MS4zNzkgNjgzLjk3OEw3NDEuMzc1IDY4My45ODhMNzQxLjM3IDY4My45OThDNzE4Ljc5MiA3MzMuMjM5IDY4NC43NjQgNzcxLjg0NCA2MzkuNDMgNzk5LjQ4MUw2MzkuNDExIDc5OS40OTNMNjM5LjM5MiA3OTkuNTA1QzU5My45ODUgODI2Ljk3IDUzOC43ODYgODQxLjM0NiA0NzQuMzkxIDg0My4yODFMMjcwLjg0NCA4NDkuMzk4TDI1MS41MTkgMjA1LjYwNkw0NjMuNTA2IDE5OS4yMzVaTTU3Ni40MTIgMzE1LjgwNEM1NDYuMDQ1IDI5OC43MTkgNTA3Ljk1OCAyOTAuNDU1IDQ2MS40NTkgMjkxLjg1M0wzNTUuMTUgMjk1LjA0N0wzNjguOTI0IDc1My44OTVMNDY2Ljc5MyA3NTAuOTUzQzUxNi4yMTUgNzQ5LjQ2OCA1NTUuNzczIDczOC43MjcgNTg2LjI0OSA3MTkuNTc4QzYxNi44NjggNzAwLjM0IDYzOS4yOTQgNjczLjY3NyA2NTMuNjY5IDYzOS4yMUM2NjguMTc4IDYwNC40MjEgNjc0Ljk0OCA1NjIuNzc2IDY3My40ODEgNTEzLjkwNEM2NzIuMDI2IDQ2NS40MjUgNjYyLjg4IDQyNC42NiA2NDYuNTIzIDM5MS4yMDVMNjQ2LjUxOCAzOTEuMTkzTDY0Ni41MTIgMzkxLjE4QzYzMC4yNTUgMzU3Ljc1MSA2MDYuOTI4IDMzMi43ODkgNTc2LjQ2NSAzMTUuODMzTDU3Ni40MTIgMzE1LjgwNFpNNzI1LjU3OSAzNTkuMDA0QzcyNS45MSAzNTkuNjk4IDcyNi4yMzggMzYwLjM5NiA3MjYuNTY1IDM2MS4wOTRDNzI2LjQ5NCAzNjAuOTQyIDcyNi40MjQgMzYwLjc4OSA3MjYuMzUyIDM2MC42MzdDNzI2LjA5NiAzNjAuMDkxIDcyNS44MzggMzU5LjU0NyA3MjUuNTc5IDM1OS4wMDRaTTcyMi4yNDcgMzUyLjI0N0M3MjIuOTQgMzUzLjYwNiA3MjMuNjIzIDM1NC45NzMgNzI0LjI5NiAzNTYuMzQ4QzcyMy45MjggMzU1LjU5NyA3MjMuNTU4IDM1NC44NDcgNzIzLjE4NSAzNTQuMTAxQzcyMy4wMDUgMzUzLjc0MSA3MjIuODI0IDM1My4zODIgNzIyLjY0MiAzNTMuMDIzQzcyMi41MTEgMzUyLjc2NCA3MjIuMzc5IDM1Mi41MDYgNzIyLjI0NyAzNTIuMjQ3Wk03MjAuOTkxIDM0OS44MTNDNzIxLjM3NSAzNTAuNTQ4IDcyMS43NTYgMzUxLjI4NiA3MjIuMTM0IDM1Mi4wMjZDNzIxLjkzOSAzNTEuNjQzIDcyMS43NDMgMzUxLjI2IDcyMS41NDYgMzUwLjg3OUM3MjEuMzYyIDM1MC41MjMgNzIxLjE3NyAzNTAuMTY4IDcyMC45OTEgMzQ5LjgxM1pNNzEyLjU3MyAzMzQuNzc0QzcxMy40MjMgMzM2LjE4OSA3MTQuMjY0IDMzNy42MTYgNzE1LjA5NCAzMzkuMDU1QzcxNC4zNTIgMzM3Ljc2NyA3MTMuNjAxIDMzNi40OSA3MTIuODQyIDMzNS4yMjJDNzEyLjc1MyAzMzUuMDcyIDcxMi42NjMgMzM0LjkyMyA3MTIuNTczIDMzNC43NzRaTTcxMS4xNzggMzMyLjQ3OUM3MTEuMTIgMzMyLjM4NSA3MTEuMDYzIDMzMi4yOSA3MTEuMDA1IDMzMi4xOTZDNzEwLjg4NiAzMzIuMDAyIDcxMC43NjUgMzMxLjgwOCA3MTAuNjQ0IDMzMS42MTRDNzEwLjgyMyAzMzEuOTAxIDcxMSAzMzIuMTkgNzExLjE3OCAzMzIuNDc5Wk03MDUuNTA2IDMyMy42MzhDNzA1LjQzOSAzMjMuNTM4IDcwNS4zNzMgMzIzLjQzOCA3MDUuMzA2IDMyMy4zMzlDNzA1LjI2OSAzMjMuMjg1IDcwNS4yMzIgMzIzLjIzMSA3MDUuMTk2IDMyMy4xNzdDNzA1LjI5OSAzMjMuMzMxIDcwNS40MDMgMzIzLjQ4NCA3MDUuNTA2IDMyMy42MzhaTTYwMC41MTUgMzE1LjY0MUM2MDEuNDUzIDMxNi4zMTUgNjAyLjM4MyAzMTYuOTk5IDYwMy4zMDYgMzE3LjY5TDYwMS45MTcgMzE2LjY1OUM2MDEuNDUyIDMxNi4zMTggNjAwLjk4NCAzMTUuOTc4IDYwMC41MTUgMzE1LjY0MVpNNzI4Ljk0NSAzNjYuMzI1QzcyOC45MjMgMzY2LjI3NiA3MjguOTAyIDM2Ni4yMjcgNzI4Ljg4IDM2Ni4xNzlDNzI4Ljg2NyAzNjYuMTQ5IDcyOC44NTMgMzY2LjExOSA3MjguODQgMzY2LjA4OUM3MjguODc1IDM2Ni4xNjggNzI4LjkxIDM2Ni4yNDYgNzI4Ljk0NSAzNjYuMzI1Wk03MjQuNzg3IDM1Ny4zNTNDNzI0LjcxNSAzNTcuMjA1IDcyNC42NDIgMzU3LjA1NyA3MjQuNTY5IDM1Ni45MDlDNzI0LjcxOSAzNTcuMjE1IDcyNC44NjggMzU3LjUyMiA3MjUuMDE2IDM1Ny44M0M3MjQuOTQgMzU3LjY3MSA3MjQuODY0IDM1Ny41MTIgNzI0Ljc4NyAzNTcuMzUzWk03MjUuMzEzIDM1OC40NDVDNzI1LjIxNiAzNTguMjQzIDcyNS4xMTggMzU4LjA0MSA3MjUuMDIxIDM1Ny44NEM3MjUuMTk3IDM1OC4yMDYgNzI1LjM3MyAzNTguNTcyIDcyNS41NDggMzU4LjkzOUM3MjUuNDcgMzU4Ljc3NCA3MjUuMzkxIDM1OC42MDkgNzI1LjMxMyAzNTguNDQ1WiIgZmlsbD0iIzgwRURFMiIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTM3Mi45OSAyNDIuNDM5QzM3NC4xNjIgMjQyLjQzOSAzNzUuMTEyIDI0My4zOSAzNzUuMTEzIDI0NC41NjNWMjgzLjY0OUg0NzQuNDY2QzUyMS4xMjkgMjgzLjY0OSA1NzIuMjYgMjkxLjQ1OSA2MTEuNzMxIDMyMy44MDlDNjUxLjI4NCAzNTYuMjI3IDY3OC42OTEgNDEyLjkxMiA2NzguNjkxIDUwOS42NjRDNjc4LjY5MSA2MDYuNDk1IDY0OC4wNTEgNjYzLjY4MiA2MDYuOTM1IDY5Ni41OTVDNTY1LjkxIDcyOS40MzUgNTE0LjgyNyA3MzcuODAzIDQ3NC40NjYgNzM3LjgwM0gzNzUuMTEzVjc3My45MTRDMzc1LjExMyA3NzUuMDg3IDM3NC4xNjIgNzc2LjAzOSAzNzIuOTkgNzc2LjAzOUMzNzEuODE3IDc3Ni4wMzggMzcwLjg2NyA3NzUuMDg3IDM3MC44NjcgNzczLjkxNFY3MzcuODAzSDM0Ny4wOUMzNDUuOTE4IDczNy44MDMgMzQ0Ljk2NyA3MzYuODUyIDM0NC45NjcgNzM1LjY3OUMzNDQuOTY3IDczNC41MDUgMzQ1LjkxOCA3MzMuNTU0IDM0Ny4wOSA3MzMuNTU0SDM3MC44NjdWMjg3Ljg5N0gzNDcuMDlDMzQ1LjkxOCAyODcuODk3IDM0NC45NjggMjg2Ljk0NiAzNDQuOTY3IDI4NS43NzNDMzQ0Ljk2NyAyODQuNiAzNDUuOTE4IDI4My42NDkgMzQ3LjA5IDI4My42NDlIMzcwLjg2N1YyNDQuNTYzQzM3MC44NjcgMjQzLjM5IDM3MS44MTcgMjQyLjQzOSAzNzIuOTkgMjQyLjQzOVpNMzc1LjExMyA3MzMuNTU0SDQ3NC40NjZDNTE0LjM1MSA3MzMuNTU0IDU2NC4zMTkgNzI1LjI2OCA2MDQuMjgzIDY5My4yNzhDNjQ0LjE1NiA2NjEuMzYgNjc0LjQ0NSA2MDUuNTM5IDY3NC40NDUgNTA5LjY2NEM2NzQuNDQ1IDQxMy43MDggNjQ3LjI5MiAzNTguNDQ3IDYwOS4wNDEgMzI3LjA5NkM1NzAuNzA3IDI5NS42NzggNTIwLjc4NiAyODcuODk3IDQ3NC40NjYgMjg3Ljg5N0gzNzUuMTEzVjczMy41NTRaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTI2Ny4yNjggMTQ2QzI2OC40NDEgMTQ2IDI2OS4zOTEgMTQ2Ljk1MSAyNjkuMzkxIDE0OC4xMjRWMTgzLjgxMUg0NzQuNDY2QzUzMS41ODUgMTgzLjgxMSA2MTAuMTE1IDE5NS40NDUgNjc0LjQxNyAyNDIuMDc5QzczOC44NDIgMjg4LjgwMiA3ODguNjU4IDM3MC40MjEgNzg4LjY1OCA1MDkuNjY0Qzc4OC42NTggNjQ4Ljg3NSA3NDEuMDk0IDcyOS44NjEgNjc3Ljc3OSA3NzYuODFDNjE0LjU5NCA4MjMuNjYyIDUzNi4wNjcgODM2LjM1NSA0NzQuNTg0IDgzOS43NjFMNDc0LjUyNSA4MzkuNzY0SDI2OS4zOTFWODc1Ljg3NkMyNjkuMzkxIDg3Ny4wNDkgMjY4LjQ0MSA4NzggMjY3LjI2OCA4NzhDMjY2LjA5NiA4NzggMjY1LjE0NiA4NzcuMDQ5IDI2NS4xNDYgODc1Ljg3NlY4MzkuNzY0SDIzNy4xMjNDMjM1Ljk1MSA4MzkuNzY0IDIzNSA4MzguODEzIDIzNSA4MzcuNjRDMjM1IDgzNi40NjcgMjM1Ljk1MSA4MzUuNTE2IDIzNy4xMjMgODM1LjUxNkgyNjUuMTQ2VjE4OC4wNTlIMjM3LjEyM0MyMzUuOTUxIDE4OC4wNTkgMjM1IDE4Ny4xMDggMjM1IDE4NS45MzVDMjM1IDE4NC43NjIgMjM1Ljk1MSAxODMuODExIDIzNy4xMjMgMTgzLjgxMUgyNjUuMTQ2VjE0OC4xMjRDMjY1LjE0NiAxNDYuOTUxIDI2Ni4wOTYgMTQ2IDI2Ny4yNjggMTQ2Wk0yNjkuMzkxIDgzNS41MTZINDc0LjQwNkM1MzUuNjE4IDgzMi4xMiA2MTMuMDk2IDgxOS40ODUgNjc1LjI1MSA3NzMuMzk3QzczNy4yOTQgNzI3LjM5MSA3ODQuNDEyIDY0Ny43ODggNzg0LjQxMiA1MDkuNjY0Qzc4NC40MTIgMzcxLjU3MSA3MzUuMDg3IDI5MS4zMjUgNjcxLjkyNSAyNDUuNTE4QzYwOC42NCAxOTkuNjIyIDUzMS4xMzUgMTg4LjA2IDQ3NC40NjYgMTg4LjA1OUgyNjkuMzkxVjgzNS41MTZaIiBmaWxsPSJibGFjayIvPgo8L2c+CjxkZWZzPgo8ZmlsdGVyIGlkPSJmaWx0ZXIwX2RfNV8yIiB4PSIyMzMuNiIgeT0iMTQ2IiB3aWR0aD0iNTU2LjQ1OCIgaGVpZ2h0PSI3MzUuNCIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiPgo8ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCIvPgo8ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlQWxwaGEiIHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAxMjcgMCIgcmVzdWx0PSJoYXJkQWxwaGEiLz4KPGZlT2Zmc2V0IGR5PSIyIi8+CjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjAuNyIvPgo8ZmVDb21wb3NpdGUgaW4yPSJoYXJkQWxwaGEiIG9wZXJhdG9yPSJvdXQiLz4KPGZlQ29sb3JNYXRyaXggdHlwZT0ibWF0cml4IiB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAuMjUgMCIvPgo8ZmVCbGVuZCBtb2RlPSJub3JtYWwiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9ImVmZmVjdDFfZHJvcFNoYWRvd181XzIiLz4KPGZlQmxlbmQgbW9kZT0ibm9ybWFsIiBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJlZmZlY3QxX2Ryb3BTaGFkb3dfNV8yIiByZXN1bHQ9InNoYXBlIi8+CjwvZmlsdGVyPgo8L2RlZnM+Cjwvc3ZnPgo=" alt="dwey design logo" />
+    <span class="nav-logo-text">Dewy <span>Design</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#categories">Shop</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cart" onclick="showToast('🛒 Cart coming soon!')">Cart 0</button>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="label">✦ Digital Design Store</p>
+      <h1>Design that makes<br />your everyday<br /><span class="hero-break"></span><em>more beautiful</em></h1>
+      <p>Clarity in beauty. Function in form.
+Every template, illustration, and kit is made to bring intention to your daily workflow.</p>
+      <div class="hero-cta">
+        <a href="#products" class="btn-primary">Browse Products</a>
+        <a href="#contact" class="btn-outline">Custom Order</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card" onclick="openPayModal('📊 Monthly Budget Excel','$8.99')">
+        <div class="card-icon">📊</div>
+        <div class="card-name">Budget Planner</div>
+        <div class="card-sub">Excel Template</div>
+        <div class="card-price">$8.99</div>
+      </div>
+      <div class="hero-card" onclick="openPayModal('🌿 GoodNotes Study Kit','$6.99')">
+        <div class="card-icon">🌿</div>
+        <div class="card-name">Study Kit</div>
+        <div class="card-sub">GoodNotes</div>
+        <div class="card-price">$6.99</div>
+      </div>
+      <div class="hero-card" onclick="openPayModal('🗂 Notion Life OS','$12.99')">
+        <div class="card-icon">🗂</div>
+        <div class="card-name">Life OS</div>
+        <div class="card-sub">Notion Template</div>
+        <div class="card-price">$12.99</div>
+      </div>
+      <div class="hero-card" onclick="openPayModal('🎨 Brand Kit Bundle','$24.99')">
+        <div class="card-icon">🎨</div>
+        <div class="card-name">Brand Kit</div>
+        <div class="card-sub">Branding Pack</div>
+        <div class="card-price">$24.99</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CATEGORIES ─────────────────────────── -->
+<section id="categories">
+  <div class="section-head">
+    <p class="section-label">Categories</p>
+    <h2 class="section-title">Browse by Type</h2>
+    <p class="section-desc">Select a category to discover what you need.</p>
+  </div>
+  <div class="cat-grid">
+    <a href="#products" class="cat-item">
+      <div class="cat-emoji">📊</div>
+      <div class="cat-name">Excel Templates</div>
+      <div class="cat-count">Budget · Planner · Business</div>
+    </a>
+    <a href="#products" class="cat-item">
+      <div class="cat-emoji">📓</div>
+      <div class="cat-name">GoodNotes</div>
+      <div class="cat-count">Diary · Study · Weekly</div>
+    </a>
+    <a href="#products" class="cat-item">
+      <div class="cat-emoji">🗂</div>
+      <div class="cat-name">Notion Templates</div>
+      <div class="cat-count">Life · Work · Reading Log</div>
+    </a>
+    <a href="#products" class="cat-item">
+      <div class="cat-emoji">🖼</div>
+      <div class="cat-name">Illustrations</div>
+      <div class="cat-count">Characters · Patterns · Clipart</div>
+    </a>
+    <a href="#products" class="cat-item">
+      <div class="cat-emoji">✨</div>
+      <div class="cat-name">Branding Design</div>
+      <div class="cat-count">Logo · Business Card · SNS Kit</div>
+    </a>
+  </div>
+</section>
+
+<!-- ─── PRODUCTS ──────────────────────────── -->
+<section id="products">
+  <div class="section-head">
+    <p class="section-label">Products</p>
+    <h2 class="section-title">Best Sellers</h2>
+    <p class="section-desc">Elevate your everyday with thoughtful design.</p>
+  </div>
+  <div class="product-grid">
+
+    <div class="product-card" onclick="openPayModal('📊 Monthly Budget Excel Pack','$8.99')">
+      <div class="product-thumb" style="background:#fdf0e8;">📊<span class="badge">BEST</span></div>
+      <div class="product-body">
+        <div class="product-tag">Excel Template</div>
+        <div class="product-name">Monthly Budget Excel Pack</div>
+        <div class="product-desc">Auto-calculated income & expense tracker in a fresh pastel layout — make budgeting enjoyable.</div>
+        <div class="product-footer">
+          <span class="product-price">$8.99</span>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openPayModal('🌿 GoodNotes All-in-One Study Kit','$6.99')">
+      <div class="product-thumb" style="background:rgba(93,222,200,0.12);">📓</div>
+      <div class="product-body">
+        <div class="product-tag">GoodNotes</div>
+        <div class="product-name">All-in-One Study Kit</div>
+        <div class="product-desc">Weekly, daily & monthly planners + note templates. Study beautifully.</div>
+        <div class="product-footer">
+          <span class="product-price">$6.99</span>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openPayModal('🗂 Notion Life OS Pro','$12.99')">
+      <div class="product-thumb" style="background:#edf5f8;">🗂<span class="badge">NEW</span></div>
+      <div class="product-body">
+        <div class="product-tag">Notion Template</div>
+        <div class="product-name">Life OS Pro</div>
+        <div class="product-desc">Goals, reading, habits, diary — all in one space. Manage your whole life in Notion.</div>
+        <div class="product-footer">
+          <span class="product-price">$12.99</span>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openPayModal('🎨 Minimal Brand Kit','$24.99')">
+      <div class="product-thumb" style="background:#faeae0;">🎨</div>
+      <div class="product-body">
+        <div class="product-tag">Branding Pack</div>
+        <div class="product-name">Minimal Brand Kit</div>
+        <div class="product-desc">Logo + business card + SNS feed + Instagram story templates — brand in a box.</div>
+        <div class="product-footer">
+          <span class="product-price">$24.99</span>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openPayModal('🖼 Pastel Clipart Set · 40 pcs','$5.99')">
+      <div class="product-thumb" style="background:#f0e8f4;">🖼</div>
+      <div class="product-body">
+        <div class="product-tag">Illustration</div>
+        <div class="product-name">Pastel Clipart Set · 40 pcs</div>
+        <div class="product-desc">Commercial use OK · High-res PNG · Perfect for GoodNotes, PPT & sticker printing.</div>
+        <div class="product-footer">
+          <span class="product-price">$5.99</span>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openPayModal('📅 Annual Planner 2025','$7.99')">
+      <div class="product-thumb" style="background:#e8f0f4;">📅<span class="badge">SALE</span></div>
+      <div class="product-body">
+        <div class="product-tag">Excel + PDF</div>
+        <div class="product-name">Annual Planner 2025</div>
+        <div class="product-desc">Yearly, quarterly, monthly & weekly — 4-level planner. Printable PDF + editable Excel included.</div>
+        <div class="product-footer">
+          <span class="product-price">$7.99</span>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── ABOUT ─────────────────────────────── -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-visual">
+      <div class="about-avatar">🌸</div>
+      <div class="about-name">dwey</div>
+      <div class="about-role">Digital Designer · Creator</div>
+      <div class="about-tags">
+        <span class="about-tag">🎨 Illustration</span>
+        <span class="about-tag">📐 Templates</span>
+        <span class="about-tag">✨ Branding</span>
+        <span class="about-tag">🌿 Pastel</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <p class="section-label">About</p>
+      <h2 class="section-title">Hi, I'm dwey 🌸</h2>
+      <p class="section-desc">
+        I'm a designer who loves beautiful things and organized spaces.<br /><br />
+        Every product here is something I'd use myself — made with care so your everyday feels a little more joyful.<br /><br />
+        I hope dwey design becomes a small moment of delight in your day ☁️
+      </p>
+      <div class="about-stats">
+        <div class="stat-box"><div class="stat-num">120+</div><div class="stat-label">Products</div></div>
+        <div class="stat-box"><div class="stat-num">2,400+</div><div class="stat-label">Happy Customers</div></div>
+        <div class="stat-box"><div class="stat-num">4.9 ⭐</div><div class="stat-label">Avg. Rating</div></div>
+        <div class="stat-box"><div class="stat-num">Instant</div><div class="stat-label">Download</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESS ────────────────────────────── -->
+<section id="process">
+  <div class="section-head">
+    <p class="section-label">How It Works</p>
+    <h2 class="section-title">Super Simple Process</h2>
+    <p class="section-desc">Download link sent to your email instantly after purchase.</p>
+  </div>
+  <div class="process-grid">
+    <div class="process-item"><div class="process-icon">🔍</div><div class="process-title">Browse</div><div class="process-desc">Find the template or design you love.</div></div>
+    <div class="process-item"><div class="process-icon">💳</div><div class="process-title">Pay Securely</div><div class="process-desc">Card, PayPal, and more — fast and safe checkout.</div></div>
+    <div class="process-item"><div class="process-icon">📧</div><div class="process-title">Check Email</div><div class="process-desc">Instant download link delivered straight to your inbox.</div></div>
+    <div class="process-item"><div class="process-icon">⬇️</div><div class="process-title">Download & Enjoy</div><div class="process-desc">Click the link and start using — no installation needed.</div></div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ────────────────────────────── -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-head" style="text-align:center;">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-desc" style="margin:0 auto;">Custom orders, collabs, or any questions — I'll reply within 1–2 days 💌</p>
+    </div>
+    <form class="contact-form" onsubmit="handleContact(event)">
+      <div class="form-row">
+        <div class="form-group"><label>Name *</label><input type="text" id="c-name" placeholder="Your name" required /></div>
+        <div class="form-group"><label>Email *</label><input type="email" id="c-email" placeholder="hello@email.com" required /></div>
+      </div>
+      <div class="form-group">
+        <label>Inquiry Type</label>
+        <select id="c-type">
+          <option>Custom Order</option>
+          <option>General Question</option>
+          <option>Payment / Download Issue</option>
+          <option>Collaboration</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Subject</label><input type="text" id="c-subject" placeholder="What's it about?" /></div>
+      <div class="form-group"><label>Message *</label><textarea id="c-message" placeholder="Tell me what you need! For custom orders, include size, colors, and intended use." required></textarea></div>
+      <button type="submit" class="submit-btn">✉️ Send Message</button>
+    </form>
+    <div class="contact-info">
+      <div class="contact-info-item">📧 <strong>chloe@dewydesign.com</strong></div>
+      <div class="contact-info-item">⏰ <span>Response within <strong>1–2 days</strong></span></div>
+      <div class="contact-info-item">🌏 <strong>Worldwide · Digital Delivery</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────── -->
+<footer>
+  <div class="footer-logo">Dewy <span>Design</span></div>
+  <div class="footer-links">
+    <a href="#">Terms of Use</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Refund Policy</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 dewy design. All rights reserved.</div>
+</footer>
+
+<!-- ─── PAYMENT MODAL ─────────────────────── -->
+<div class="modal-overlay" id="payModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Checkout</div>
+      <button class="modal-close" onclick="closePayModal()">✕</button>
+    </div>
+    <div class="modal-product">
+      <div class="modal-product-thumb" id="m-thumb">📊</div>
+      <div class="modal-product-info">
+        <div class="name" id="m-name">Product</div>
+        <div class="price" id="m-price">$0.00</div>
+      </div>
+    </div>
+    <div class="modal-section-title">Payment Method</div>
+    <div class="payment-methods">
+      <div class="pay-method selected" onclick="selectPay(this)"><span class="pay-icon">💳</span>Card</div>
+      <div class="pay-method" onclick="selectPay(this)"><span class="pay-icon">🅿️</span>PayPal</div>
+      <div class="pay-method" onclick="selectPay(this)"><span class="pay-icon">🍎</span>Apple Pay</div>
+      <div class="pay-method" onclick="selectPay(this)"><span class="pay-icon">🇬</span>Google Pay</div>
+      <div class="pay-method" onclick="selectPay(this)"><span class="pay-icon">₿</span>Crypto</div>
+      <div class="pay-method" onclick="selectPay(this)"><span class="pay-icon">🏦</span>Bank</div>
+    </div>
+    <div class="modal-section-title">Your Details</div>
+    <div class="modal-form">
+      <input type="text" placeholder="Full name" />
+      <input type="email" placeholder="Email address (download link will be sent here)" />
+    </div>
+    <div class="modal-section-title">Card Information</div>
+    <div class="modal-form">
+      <input type="text" placeholder="Card number  1234  5678  9012  3456" maxlength="19" oninput="formatCard(this)" />
+      <div class="card-row">
+        <input type="text" placeholder="Cardholder name" />
+        <input type="text" placeholder="MM / YY" maxlength="5" oninput="formatExpiry(this)" />
+        <input type="text" placeholder="CVC" maxlength="3" />
+      </div>
+    </div>
+    <div class="order-total">
+      <div class="total-row"><span>Subtotal</span><span id="t-sub">$0.00</span></div>
+      <div class="total-row"><span>Tax (10%)</span><span id="t-tax">$0.00</span></div>
+      <div class="total-row final"><span>Total</span><span id="t-total">$0.00</span></div>
+    </div>
+    <button class="pay-btn" onclick="handlePay()">🔒 Complete Purchase</button>
+    <p class="secure-note">🔐 SSL Encrypted · Secure Payment · Instant Email Delivery</p>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+  function openPayModal(name, price) {
+    const emoji = name.charAt(0);
+    document.getElementById('m-thumb').textContent = emoji;
+    document.getElementById('m-name').textContent = name.slice(2).trim();
+    document.getElementById('m-price').textContent = price;
+    const raw = parseFloat(price.replace(/[^0-9.]/g,''));
+    const tax = (raw * 0.1).toFixed(2);
+    const total = (raw + parseFloat(tax)).toFixed(2);
+    document.getElementById('t-sub').textContent = '$' + raw.toFixed(2);
+    document.getElementById('t-tax').textContent = '$' + tax;
+    document.getElementById('t-total').textContent = '$' + total;
+    document.getElementById('payModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePayModal() {
+    document.getElementById('payModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('payModal').addEventListener('click', function(e) { if (e.target === this) closePayModal(); });
+  function selectPay(el) {
+    document.querySelectorAll('.pay-method').forEach(m => m.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+  function handlePay() { closePayModal(); showToast('🎉 Payment complete! Check your email for the download link 📧'); }
+  function formatCard(input) { let v = input.value.replace(/\D/g,'').substring(0,16); input.value = v.replace(/(.{4})/g,'$1 ').trim(); }
+  function formatExpiry(input) { let v = input.value.replace(/\D/g,'').substring(0,4); if (v.length>2) v = v.substring(0,2)+' / '+v.substring(2); input.value = v; }
+  function handleContact(e) {
+    e.preventDefault();
+    const name = document.getElementById('c-name').value;
+    showToast(`✉️ Message sent, ${name}! I'll get back to you soon 💌`);
+    e.target.reset();
+  }
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3500);
+  }
+</script>
+</body>
+</html>
