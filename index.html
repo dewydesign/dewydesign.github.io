@@ -21,13 +21,12 @@
       --text:       #2e2420;
       --text-light: #7a6a60;
       --white:      #fffefb;
-      --shadow:     rgba(61,51,48,0.10);
+      --shadow:      rgba(61,51,48,0.10);
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Noto Sans KR', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; }
 
-    /* ─── NAV ─────────────────────────────── */
     nav {
       position: fixed; top:0; left:0; right:0; z-index:100;
       background: rgba(250,247,242,0.93); backdrop-filter: blur(12px);
@@ -36,16 +35,14 @@
       padding: 0 5%; height: 64px;
     }
     .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
-    .nav-logo img { height: 36px; width: auto; object-fit: contain; }
-    .nav-logo-text { font-size:1.2rem; font-weight:700; letter-spacing:0.08em; color:var(--brown); }
-    .nav-logo-text span { color:var(--teal-dark); }
+    .nav-logo img { height: 44px; width: auto; object-fit: contain; mix-blend-mode: multiply; }
     .nav-links { display:flex; gap:2rem; list-style:none; }
     .nav-links a { text-decoration:none; font-size:0.88rem; font-weight:500; color:var(--text-light); letter-spacing:0.04em; transition:color .2s; }
     .nav-links a:hover { color:var(--teal-dark); }
+    .nav-actions { display:flex; align-items:center; gap:1rem; }
     .nav-cart { background:var(--teal-dark); color:var(--white); border:none; cursor:pointer; padding:8px 20px; border-radius:50px; font-family:inherit; font-size:0.85rem; font-weight:500; letter-spacing:0.04em; transition:background .2s; }
     .nav-cart:hover { background:var(--brown); }
 
-    /* ─── HERO ──────────────────────────────── */
     #hero {
       min-height:100vh; display:flex; align-items:center; justify-content:center;
       padding:100px 5% 60px;
@@ -56,11 +53,11 @@
       position:relative; overflow:hidden;
     }
     .hero-inner { max-width:940px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+    .hero-text { text-align: left; }
     .hero-text .label { font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--teal-dark); font-weight:700; margin-bottom:1rem; }
     .hero-text h1 { font-size:clamp(2rem,5vw,3.4rem); font-weight:700; line-height:1.25; color:var(--brown); margin-bottom:1.2rem; }
     .hero-text h1 em { font-style:normal; color:var(--teal-dark); }
     .hero-break { display:block; height:0.45em; }
-
     .hero-text p { font-size:0.92rem; color:var(--text-light); margin-bottom:2rem; max-width:360px; line-height:1.9; }
     .hero-cta { display:flex; gap:1rem; flex-wrap:wrap; }
     .btn-primary { background:var(--brown); color:var(--white); padding:14px 0; border-radius:50px; text-decoration:none; font-size:0.9rem; font-weight:500; letter-spacing:0.04em; border:none; cursor:pointer; font-family:inherit; display:inline-block; transition:background .2s, transform .2s; width:172px; text-align:center; }
@@ -68,7 +65,7 @@
     .btn-outline { background:transparent; color:var(--teal-dark); border:1.5px solid var(--teal-dark); padding:13px 0; border-radius:50px; text-decoration:none; font-size:0.9rem; font-weight:500; letter-spacing:0.04em; cursor:pointer; font-family:inherit; display:inline-block; transition:all .2s; width:172px; text-align:center; }
     .btn-outline:hover { background:var(--teal-dark); color:var(--white); transform:translateY(-2px); }
     .hero-visual { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-    .hero-card { background:var(--white); border-radius:16px; padding:1.5rem 1.2rem; box-shadow:0 6px 24px var(--shadow); display:flex; flex-direction:column; gap:0.6rem; transition:transform .3s; cursor:pointer; }
+    .hero-card { background:var(--white); border-radius:16px; padding:1.5rem 1.2rem; box-shadow:0 6px 24px var(--shadow); display:flex; flex-direction:column; gap:0.6rem; transition:transform .3s; cursor:pointer; text-decoration:none; text-align:left; }
     .hero-card:hover { transform:translateY(-6px); }
     .hero-card:nth-child(1) { background:#f8f0ea; margin-top:1.5rem; }
     .hero-card:nth-child(2) { background:rgba(93,222,200,0.10); }
@@ -79,14 +76,12 @@
     .hero-card .card-sub { font-size:0.72rem; color:var(--text-light); }
     .hero-card .card-price { font-size:0.82rem; font-weight:700; color:var(--teal-dark); margin-top:auto; }
 
-    /* ─── SECTIONS ─────────────────────────── */
     section { padding:80px 5%; }
     .section-label { font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--teal-dark); font-weight:700; margin-bottom:0.8rem; }
     .section-title { font-size:clamp(1.6rem,3vw,2.4rem); font-weight:700; color:var(--brown); margin-bottom:0.6rem; }
     .section-desc { font-size:0.9rem; color:var(--text-light); max-width:480px; line-height:1.9; }
     .section-head { margin-bottom:3rem; }
 
-    /* ─── CATEGORIES ───────────────────────── */
     #categories { background:var(--beige); }
     .cat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:1.2rem; }
     .cat-item { background:var(--white); border-radius:20px; padding:2rem 1.5rem; text-align:center; cursor:pointer; transition:all .3s; border:2px solid transparent; text-decoration:none; color:inherit; display:block; }
@@ -95,23 +90,21 @@
     .cat-name { font-size:0.85rem; font-weight:700; color:var(--brown); margin-bottom:0.3rem; }
     .cat-count { font-size:0.73rem; color:var(--text-light); }
 
-    /* ─── PRODUCTS ─────────────────────────── */
     #products { background:var(--cream); }
     .product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.5rem; }
-    .product-card { background:var(--white); border-radius:20px; overflow:hidden; box-shadow:0 4px 16px var(--shadow); transition:all .3s; cursor:pointer; }
+    .product-card { background:var(--white); border-radius:20px; overflow:hidden; box-shadow:0 4px 16px var(--shadow); transition:all .3s; cursor:pointer; display:flex; flex-direction:column; }
     .product-card:hover { transform:translateY(-6px); box-shadow:0 12px 32px var(--shadow); }
     .product-thumb { height:180px; display:flex; align-items:center; justify-content:center; font-size:3.5rem; position:relative; }
     .product-thumb .badge { position:absolute; top:12px; right:12px; background:var(--teal-dark); color:var(--white); font-size:0.68rem; font-weight:700; padding:4px 10px; border-radius:50px; letter-spacing:0.05em; }
-    .product-body { padding:1.4rem; }
+    .product-body { padding:1.4rem; display:flex; flex-direction:column; flex-grow:1; }
     .product-tag { font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal-dark); font-weight:700; margin-bottom:0.5rem; }
     .product-name { font-size:0.95rem; font-weight:700; color:var(--brown); margin-bottom:0.4rem; }
-    .product-desc { font-size:0.8rem; color:var(--text-light); line-height:1.7; margin-bottom:1rem; }
-    .product-footer { display:flex; align-items:center; justify-content:space-between; }
+    .product-desc { font-size:0.8rem; color:var(--text-light); line-height:1.7; margin-bottom:1.1rem; flex-grow:1; }
+    .product-footer { display:flex; align-items:center; justify-content:space-between; margin-top:auto; }
     .product-price { font-size:1.05rem; font-weight:700; color:var(--brown); }
     .buy-btn { background:rgba(93,222,200,0.15); color:var(--teal-dark); border:none; cursor:pointer; font-family:inherit; padding:8px 18px; border-radius:50px; font-size:0.8rem; font-weight:700; transition:all .2s; }
     .buy-btn:hover { background:var(--teal-dark); color:var(--white); }
 
-    /* ─── ABOUT ─────────────────────────────── */
     #about { background:linear-gradient(135deg,rgba(93,222,200,0.10) 0%, #f0e8df 100%); }
     .about-inner { max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
     .about-visual { background:var(--white); border-radius:24px; padding:2.5rem; text-align:center; box-shadow:0 8px 32px var(--shadow); }
@@ -120,12 +113,15 @@
     .about-role { font-size:0.82rem; color:var(--text-light); margin-bottom:1.2rem; }
     .about-tags { display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; }
     .about-tag { background:rgba(93,222,200,0.12); border-radius:50px; padding:5px 14px; font-size:0.75rem; font-weight:500; color:var(--teal-dark); }
-    .about-stats { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:2rem; }
+    .about-text { display:flex; flex-direction:column; gap:1.2rem; }
+    .about-text .label { font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--teal-dark); font-weight:700; }
+    .about-text h2 { font-size:2rem; font-weight:700; color:var(--brown); line-height:1.3; }
+    .about-text p { font-size:0.92rem; color:var(--text-light); line-height:1.8; }
+    .about-stats { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem; width:100%; }
     .stat-box { background:white; border-radius:16px; padding:1.2rem; text-align:center; box-shadow:0 2px 8px var(--shadow); }
     .stat-num { font-size:1.6rem; font-weight:700; color:var(--teal-dark); }
     .stat-label { font-size:0.75rem; color:var(--text-light); }
 
-    /* ─── PROCESS ──────────────────────────── */
     #process { background:var(--beige); }
     .process-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1.5rem; counter-reset:step; }
     .process-item { background:white; border-radius:20px; padding:2rem 1.5rem; position:relative; box-shadow:0 4px 16px var(--shadow); }
@@ -134,36 +130,35 @@
     .process-title { font-size:0.9rem; font-weight:700; color:var(--brown); margin-bottom:0.5rem; }
     .process-desc { font-size:0.8rem; color:var(--text-light); line-height:1.8; }
 
-    /* ─── CONTACT ──────────────────────────── */
     #contact { background:var(--cream); }
     .contact-inner { max-width:640px; margin:0 auto; }
     .contact-form { display:flex; flex-direction:column; gap:1rem; }
     .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
     .form-group { display:flex; flex-direction:column; gap:0.4rem; }
-    .form-group label { font-size:0.8rem; font-weight:700; color:var(--brown); letter-spacing:0.04em; }
+    .form-group label { font-size:0.8rem; font-weight:700; color:var(--brown); letter-spacing:0.04em; text-align:left; }
     .form-group input, .form-group textarea, .form-group select { background:var(--white); border:1.5px solid var(--beige-dark); border-radius:12px; padding:12px 16px; font-family:inherit; font-size:0.88rem; color:var(--text); outline:none; transition:border-color .2s; }
     .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color:var(--teal); }
     .form-group textarea { height:130px; resize:vertical; }
     .submit-btn { background:var(--teal-dark); color:var(--white); border:none; cursor:pointer; font-family:inherit; padding:16px; border-radius:12px; font-size:0.95rem; font-weight:700; letter-spacing:0.04em; transition:background .2s; margin-top:0.5rem; }
     .submit-btn:hover { background:var(--brown); }
-    .contact-info { display:flex; gap:2rem; margin-top:2.5rem; flex-wrap:wrap; }
+    .contact-info { display:flex; gap:2rem; margin-top:2.5rem; flex-wrap:wrap; justify-content:center; }
     .contact-info-item { display:flex; align-items:center; gap:0.6rem; font-size:0.85rem; color:var(--text-light); }
     .contact-info-item strong { color:var(--brown); }
 
-    /* ─── PAYMENT MODAL ────────────────────── */
     .modal-overlay { position:fixed; inset:0; z-index:200; background:rgba(46,36,32,0.45); backdrop-filter:blur(4px); display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .3s; padding:20px; }
     .modal-overlay.open { opacity:1; pointer-events:all; }
     .modal { background:var(--white); border-radius:24px; padding:2.5rem; max-width:480px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.15); transform:translateY(20px); transition:transform .3s; max-height:90vh; overflow-y:auto; }
     .modal-overlay.open .modal { transform:translateY(0); }
-    .modal-header { display:flex; justify-content:space-between; align-items:start; margin-bottom:1.5rem; }
+    .modal-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; }
     .modal-title { font-size:1.1rem; font-weight:700; color:var(--brown); }
     .modal-close { background:none; border:none; cursor:pointer; font-size:1.4rem; color:var(--text-light); line-height:1; padding:2px 6px; border-radius:8px; transition:background .2s; }
     .modal-close:hover { background:var(--beige); }
     .modal-product { background:rgba(93,222,200,0.10); border-radius:16px; padding:1.2rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; }
     .modal-product-thumb { font-size:2.5rem; }
+    .modal-product-info { text-align: left; }
     .modal-product-info .name { font-size:0.9rem; font-weight:700; color:var(--brown); }
     .modal-product-info .price { font-size:1rem; font-weight:700; color:var(--teal-dark); margin-top:4px; }
-    .modal-section-title { font-size:0.78rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-light); margin-bottom:0.8rem; }
+    .modal-section-title { font-size:0.78rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-light); margin-bottom:0.8rem; text-align:left; }
     .payment-methods { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.6rem; margin-bottom:1.5rem; }
     .pay-method { border:1.5px solid var(--beige-dark); border-radius:12px; padding:0.8rem 0.5rem; text-align:center; cursor:pointer; font-size:0.78rem; font-weight:500; color:var(--text-light); transition:all .2s; }
     .pay-method:hover, .pay-method.selected { border-color:var(--teal); background:rgba(93,222,200,0.10); color:var(--teal-dark); }
@@ -179,41 +174,134 @@
     .pay-btn:hover { background:var(--brown); }
     .secure-note { text-align:center; font-size:0.75rem; color:var(--text-light); margin-top:0.8rem; }
 
-    /* ─── FOOTER ────────────────────────────── */
+    .cart-sidebar { position: fixed; right: -400px; top: 0; bottom: 0; width: 380px; max-width: 100%; background: var(--white); z-index: 150; box-shadow: -10px 0 30px rgba(0,0,0,0.08); transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; }
+    .cart-sidebar.open { right: 0; }
+    .cart-header { padding: 1.5rem; border-bottom: 1px solid var(--beige-dark); display: flex; justify-content: space-between; align-items: center; }
+    .cart-header h3 { font-size: 1.1rem; font-weight: 700; color: var(--brown); }
+    .close-cart-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-light); }
+    .cart-items-container { flex-grow: 1; overflow-y: auto; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    .cart-item-row { display: flex; gap: 1rem; align-items: center; padding-bottom: 1rem; border-bottom: 1px dashed var(--beige-dark); }
+    .cart-item-emoji { font-size: 2rem; background: var(--beige); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 12px; }
+    .cart-item-details { flex-grow: 1; text-align: left; }
+    .cart-item-name { font-size: 0.85rem; font-weight: 700; color: var(--brown); }
+    .cart-item-price { font-size: 0.8rem; color: var(--teal-dark); font-weight: bold; }
+    .remove-item-btn { background: none; border: none; color: #ff6b6b; cursor: pointer; font-size: 0.8rem; font-weight: bold; }
+    .cart-empty-message { text-align: center; color: var(--text-light); margin-top: 3rem; font-size: 0.9rem; }
+    .cart-footer { padding: 1.5rem; border-top: 1px solid var(--beige-dark); background: var(--cream); }
+    .cart-total-row { display: flex; justify-content: space-between; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; color: var(--brown); }
+    .checkout-btn { width: 100%; background: var(--teal-dark); color: white; border: none; padding: 14px; border-radius: 50px; font-weight: bold; font-family: inherit; cursor: pointer; transition: background 0.2s; }
+    .checkout-btn:hover { background: var(--brown); }
+    .cart-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.3); backdrop-filter: blur(2px); z-index: 140; display: none; }
+    .cart-backdrop.show { display: block; }
+
     footer { background:var(--brown); color:rgba(255,255,255,0.7); padding:3rem 5%; display:flex; flex-wrap:wrap; gap:2rem; justify-content:space-between; align-items:center; }
-    .footer-logo { font-size:1.2rem; font-weight:700; color:white; letter-spacing:0.08em; }
-    .footer-logo span { color:var(--teal); }
+    .footer-logo { display:flex; align-items:center; text-decoration:none; }
+    .footer-logo img { height:38px; width:auto; object-fit:contain; filter:brightness(0) invert(1); opacity:0.9; }
     .footer-links { display:flex; gap:1.5rem; flex-wrap:wrap; }
     .footer-links a { color:rgba(255,255,255,0.6); text-decoration:none; font-size:0.82rem; transition:color .2s; }
     .footer-links a:hover { color:white; }
     .footer-copy { font-size:0.78rem; }
 
-    /* ─── TOAST ─────────────────────────────── */
-    #toast { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(20px); background:var(--teal-dark); color:white; padding:12px 28px; border-radius:50px; font-size:0.88rem; font-weight:500; opacity:0; transition:all .3s; z-index:300; white-space:nowrap; }
+    #toast { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(20px); background:var(--teal-dark); color:white; padding:12px 28px; border-radius:50px; font-size:0.88rem; font-weight:500; opacity:0; transition:all .3s; z-index:300; white-space:nowrap; pointer-events: none; }
     #toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
 
-    /* ─── ANIMATIONS ─────────────────────────── */
     @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
     .hero-text { animation:fadeUp .8s ease both; }
     .hero-visual { animation:fadeUp .8s .2s ease both; }
 
-    /* ─── RESPONSIVE ─────────────────────────── */
     @media (max-width:700px) {
       .hero-inner, .about-inner { grid-template-columns:1fr; gap:2rem; }
       .hero-text h1 { font-size:2rem; }
       .form-row { grid-template-columns:1fr; }
       .card-row { grid-template-columns:1fr 1fr; }
-      .nav-logo-text { display:none; }
+      .nav-links { gap: 1rem; }
     }
+
+    .product-page-container {
+      --sand: #F2D9B3; --cocoa: #6B5344; --sage: #B2B2A2; --greige: #E0DDD5; --white: #FAFAF8; --dark: #2E2A27;
+      font-family: 'Inter', sans-serif; background: var(--white); color: var(--dark); font-size: 15px; line-height: 1.7;
+      padding-top: 64px;
+    }
+    .product-page-container * { box-sizing: border-box; }
+    .product-page-container .p-hero { background: var(--sand); padding: 80px 40px; text-align: center; }
+    .product-page-container .p-badge { display: inline-block; background: var(--cocoa); color: #fff; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 24px; }
+    .product-page-container .p-hero h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 300; color: var(--cocoa); line-height: 1.3; margin-bottom: 16px; }
+    .product-page-container .p-hero h1 span { font-weight: 600; }
+    .product-page-container .p-hero p { font-size: 16px; color: var(--cocoa); opacity: 0.8; max-width: 560px; margin: 0 auto 32px; }
+    .product-page-container .p-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .product-page-container .p-tags span { background: rgba(107,83,68,0.12); color: var(--cocoa); font-size: 12px; padding: 5px 14px; border-radius: 20px; }
+    .product-page-container section { padding: 64px 40px; max-width: 960px; margin: 0 auto; background: transparent; }
+    .product-page-container .p-section-label { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; font-weight: normal; }
+    .product-page-container h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 300; color: var(--cocoa); margin-bottom: 32px; line-height: 1.3; }
+    .product-page-container h2 strong { font-weight: 600; }
+    .product-page-container .p-divider { height: 1px; background: var(--greige); max-width: 960px; margin: 0 auto; display: block; }
+    .product-page-container .p-features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .product-page-container .p-feature-card { background: var(--greige); border-radius: 12px; padding: 28px 24px; }
+    .product-page-container .p-feature-card .icon { font-size: 28px; margin-bottom: 14px; }
+    .product-page-container .p-feature-card h3 { font-size: 15px; font-weight: 600; color: var(--cocoa); margin-bottom: 8px; }
+    .product-page-container .p-feature-card p { font-size: 13px; color: #6b6560; line-height: 1.7; margin: 0; }
+    .product-page-container .p-included-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+    .product-page-container .p-included-item { background: var(--sand); border-radius: 10px; padding: 20px; text-align: center; }
+    .product-page-container .p-included-item .file-icon { font-size: 32px; margin-bottom: 10px; }
+    .product-page-container .p-included-item h4 { font-size: 13px; font-weight: 600; color: var(--cocoa); margin-bottom: 4px; }
+    .product-page-container .p-included-item p { font-size: 12px; color: #8a7e77; margin: 0; }
+    .product-page-container .p-lock-section { background: var(--greige); border-radius: 16px; padding: 48px 32px; text-align: center; }
+    .product-page-container .p-lock-section .lock-icon { font-size: 36px; margin-bottom: 16px; }
+    .product-page-container .p-lock-section h3 { font-size: 18px; font-weight: 500; color: var(--cocoa); margin-bottom: 8px; }
+    .product-page-container .p-lock-section p { font-size: 13px; color: #8a7e77; margin-bottom: 24px; }
+    .product-page-container .p-pw-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .product-page-container .p-pw-input { padding: 11px 18px; border: 1.5px solid var(--sage); border-radius: 24px; font-size: 13px; font-family: 'Inter', sans-serif; outline: none; background: var(--white); color: var(--dark); width: 220px; transition: border-color 0.2s; }
+    .product-page-container .p-pw-input:focus { border-color: var(--cocoa); }
+    .product-page-container .p-btn-unlock { padding: 11px 24px; background: var(--cocoa); color: #fff; border: none; border-radius: 24px; font-size: 13px; font-family: 'Inter', sans-serif; font-weight: 500; cursor: pointer; transition: opacity 0.2s; }
+    .product-page-container .p-btn-unlock:hover { opacity: 0.85; }
+    .product-page-container .p-error-msg { color: #b94040; font-size: 12px; margin-top: 12px; display: none; }
+    .product-page-container .p-download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .product-page-container .p-download-card { border: 1.5px solid var(--greige); border-radius: 12px; padding: 24px 20px; text-align: center; }
+    .product-page-container .p-download-card:hover { border-color: var(--cocoa); }
+    .product-page-container .p-download-card .d-icon { font-size: 32px; margin-bottom: 12px; }
+    .product-page-container .p-dl-badge { display: inline-block; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; background: var(--greige); color: var(--sage); padding: 3px 10px; border-radius: 10px; margin-bottom: 12px; }
+    .product-page-container .p-download-card h4 { font-size: 13px; font-weight: 600; color: var(--cocoa); margin-bottom: 4px; }
+    .product-page-container .p-download-card p { font-size: 12px; color: #8a7e77; margin-bottom: 16px; line-height: 1.5; }
+    .product-page-container .p-btn-download { display: inline-block; background: var(--cocoa); color: #fff; font-size: 12px; font-family: 'Inter', sans-serif; font-weight: 500; padding: 9px 20px; border-radius: 20px; text-decoration: none; transition: opacity 0.2s; }
+    .product-page-container .p-btn-download:hover { opacity: 0.85; }
+    .product-page-container .p-btn-download.outline { background: transparent; border: 1.5px solid var(--cocoa); color: var(--cocoa); }
+    .product-page-container .p-download-note { margin-top: 24px; background: var(--sand); border-radius: 10px; padding: 16px 20px; font-size: 13px; color: var(--cocoa); line-height: 1.8; }
+    .product-page-container .p-unlock-success { background: var(--sand); border-radius: 10px; padding: 14px 20px; font-size: 13px; color: var(--cocoa); text-align: center; margin-bottom: 28px; }
+    .product-page-container .p-steps { display: flex; flex-direction: column; }
+    .product-page-container .p-step { display: flex; gap: 24px; align-items: flex-start; padding: 24px 0; border-bottom: 1px solid var(--greige); }
+    .product-page-container .p-step:last-child { border-bottom: none; }
+    .product-page-container .p-step-num { width: 36px; height: 36px; min-width: 36px; background: var(--cocoa); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; }
+    .product-page-container .p-step-content h3 { font-size: 15px; font-weight: 600; color: var(--cocoa); margin-bottom: 6px; }
+    .product-page-container .p-step-content p { font-size: 13px; color: #6b6560; line-height: 1.7; margin: 0; }
+    .product-page-container .p-step-content code { display: inline-block; background: var(--greige); color: var(--cocoa); font-size: 12px; padding: 2px 8px; border-radius: 4px; font-family: monospace; margin-top: 6px; }
+    .product-page-container .p-tab-wrapper { margin-top: 8px; }
+    .product-page-container .p-tabs { display: flex; gap: 8px; margin-bottom: 24px; }
+    .product-page-container .p-tab-btn { padding: 8px 20px; border-radius: 20px; border: 1.5px solid var(--greige); background: transparent; font-size: 13px; font-family: 'Inter', sans-serif; cursor: pointer; color: var(--dark); transition: all 0.2s; }
+    .product-page-container .p-tab-btn.active { background: var(--cocoa); border-color: var(--cocoa); color: #fff; }
+    .product-page-container .p-tab-content { display: none; }
+    .product-page-container .p-tab-content.active { display: block; }
+    .product-page-container .p-highlight { background: var(--sand); border-left: 3px solid var(--cocoa); border-radius: 8px; padding: 18px 20px; font-size: 13px; color: var(--cocoa); margin-top: 16px; }
+    .product-page-container .p-faq-list { display: flex; flex-direction: column; gap: 16px; }
+    .product-page-container .p-faq-item { border: 1px solid var(--greige); border-radius: 10px; overflow: hidden; }
+    .product-page-container .p-faq-q { width: 100%; text-align: left; background: transparent; border: none; padding: 18px 20px; font-size: 14px; font-weight: 500; font-family: 'Inter', sans-serif; color: var(--cocoa); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .product-page-container .p-faq-q:hover { background: var(--greige); }
+    .product-page-container .p-faq-a { display: none; padding: 0 20px 18px; font-size: 13px; color: #6b6560; line-height: 1.8; text-align: left; }
+    .product-page-container .p-faq-a.open { display: block; }
+    .product-page-container .p-footer { background: var(--cocoa); color: rgba(255,255,255,0.75); text-align: center; padding: 40px 24px; font-size: 13px; display: block; }
+    .product-page-container .p-footer strong { color: #fff; font-weight: 600; letter-spacing: 1px; }
+    .product-page-container .p-footer p { margin-top: 8px; margin-bottom: 0; }
+    .product-page-container .back-btn-container { max-width: 960px; margin: 0 auto; padding: 20px 40px 0; }
+    .product-page-container .back-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--cocoa); text-decoration: none; cursor: pointer; background: rgba(107,83,68,0.08); padding: 8px 16px; border-radius: 20px; transition: background 0.2s; border: none; font-family: inherit; }
+    .product-page-container .back-btn:hover { background: rgba(107,83,68,0.15); }
+    #store-view { display: block; }
   </style>
 </head>
 <body>
 
-<!-- ─── NAV ─────────────────────────────────── -->
+<div id="store-view">
 <nav>
-  <a href="#" class="nav-logo">
-    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBmaWx0ZXI9InVybCgjZmlsdGVyMF9kXzVfMikiPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQ2My41MDYgMTk5LjIzNUM1MjUuMTc0IDE5Ny4zODEgNTc5LjE1IDIwOC41MTIgNjI0LjkwMyAyMzMuMjU3TDYyNS45NzMgMjMzLjgzM0M2NzEuMTczIDI1OC4zNDggNzA2LjM0MyAyOTQuMzc3IDczMS4zOTEgMzQxLjUzN0M3NTYuNjI4IDM4OC44NjEgNzY5Ljk2MiA0NDUuNDg1IDc3MS45MjcgNTEwLjk0NUM3NzMuOTA0IDU3Ni44MTUgNzYzLjkwMiA2MzQuNjMyIDc0MS4zNzkgNjgzLjk3OEw3NDEuMzc1IDY4My45ODhMNzQxLjM3IDY4My45OThDNzE4Ljc5MiA3MzMuMjM5IDY4NC43NjQgNzcxLjg0NCA2MzkuNDMgNzk5LjQ4MUw2MzkuNDExIDc5OS40OTNMNjM5LjM5MiA3OTkuNTA1QzU5My45ODUgODI2Ljk3IDUzOC43ODYgODQxLjM0NiA0NzQuMzkxIDg0My4yODFMMjcwLjg0NCA4NDkuMzk4TDI1MS41MTkgMjA1LjYwNkw0NjMuNTA2IDE5OS4yMzVaTTU3Ni40MTIgMzE1LjgwNEM1NDYuMDQ1IDI5OC43MTkgNTA3Ljk1OCAyOTAuNDU1IDQ2MS40NTkgMjkxLjg1M0wzNTUuMTUgMjk1LjA0N0wzNjguOTI0IDc1My44OTVMNDY2Ljc5MyA3NTAuOTUzQzUxNi4yMTUgNzQ5LjQ2OCA1NTUuNzczIDczOC43MjcgNTg2LjI0OSA3MTkuNTc4QzYxNi44NjggNzAwLjM0IDYzOS4yOTQgNjczLjY3NyA2NTMuNjY5IDYzOS4yMUM2NjguMTc4IDYwNC40MjEgNjc0Ljk0OCA1NjIuNzc2IDY3My40ODEgNTEzLjkwNEM2NzIuMDI2IDQ2NS40MjUgNjYyLjg4IDQyNC42NiA2NDYuNTIzIDM5MS4yMDVMNjQ2LjUxOCAzOTEuMTkzTDY0Ni41MTIgMzkxLjE4QzYzMC4yNTUgMzU3Ljc1MSA2MDYuOTI4IDMzMi43ODkgNTc2LjQ2NSAzMTUuODMzTDU3Ni40MTIgMzE1LjgwNFpNNzI1LjU3OSAzNTkuMDA0QzcyNS45MSAzNTkuNjk4IDcyNi4yMzggMzYwLjM5NiA3MjYuNTY1IDM2MS4wOTRDNzI2LjQ5NCAzNjAuOTQyIDcyNi40MjQgMzYwLjc4OSA3MjYuMzUyIDM2MC42MzdDNzI2LjA5NiAzNjAuMDkxIDcyNS44MzggMzU5LjU0NyA3MjUuNTc5IDM1OS4wMDRaTTcyMi4yNDcgMzUyLjI0N0M3MjIuOTQgMzUzLjYwNiA3MjMuNjIzIDM1NC45NzMgNzI0LjI5NiAzNTYuMzQ4QzcyMy45MjggMzU1LjU5NyA3MjMuNTU4IDM1NC44NDcgNzIzLjE4NSAzNTQuMTAxQzcyMy4wMDUgMzUzLjc0MSA3MjIuODI0IDM1My4zODIgNzIyLjY0MiAzNTMuMDIzQzcyMi41MTEgMzUyLjc2NCA3MjIuMzc5IDM1Mi41MDYgNzIyLjI0NyAzNTIuMjQ3Wk03MjAuOTkxIDM0OS44MTNDNzIxLjM3NSAzNTAuNTQ4IDcyMS43NTYgMzUxLjI4NiA3MjIuMTM0IDM1Mi4wMjZDNzIxLjkzOSAzNTEuNjQzIDcyMS43NDMgMzUxLjI2IDcyMS41NDYgMzUwLjg3OUM3MjEuMzYyIDM1MC41MjMgNzIxLjE3NyAzNTAuMTY4IDcyMC45OTEgMzQ5LjgxM1pNNzEyLjU3MyAzMzQuNzc0QzcxMy40MjMgMzM2LjE4OSA3MTQuMjY0IDMzNy42MTYgNzE1LjA5NCAzMzkuMDU1QzcxNC4zNTIgMzM3Ljc2NyA3MTMuNjAxIDMzNi40OSA3MTIuODQyIDMzNS4yMjJDNzEyLjc1MyAzMzUuMDcyIDcxMi42NjMgMzM0LjkyMyA3MTIuNTczIDMzNC43NzRaTTcxMS4xNzggMzMyLjQ3OUM3MTEuMTIgMzMyLjM4NSA3MTEuMDYzIDMzMi4yOSA3MTEuMDA1IDMzMi4xOTZDNzEwLjg4NiAzMzIuMDAyIDcxMC43NjUgMzMxLjgwOCA3MTAuNjQ0IDMzMS42MTRDNzEwLjgyMyAzMzEuOTAxIDcxMSAzMzIuMTkgNzExLjE3OCAzMzIuNDc5Wk03MDUuNTA2IDMyMy42MzhDNzA1LjQzOSAzMjMuNTM4IDcwNS4zNzMgMzIzLjQzOCA3MDUuMzA2IDMyMy4zMzlDNzA1LjI2OSAzMjMuMjg1IDcwNS4yMzIgMzIzLjIzMSA3MDUuMTk2IDMyMy4xNzdDNzA1LjI5OSAzMjMuMzMxIDcwNS40MDMgMzIzLjQ4NCA3MDUuNTA2IDMyMy42MzhaTTYwMC41MTUgMzE1LjY0MUM2MDEuNDUzIDMxNi4zMTUgNjAyLjM4MyAzMTYuOTk5IDYwMy4zMDYgMzE3LjY5TDYwMS45MTcgMzE2LjY1OUM2MDEuNDUyIDMxNi4zMTggNjAwLjk4NCAzMTUuOTc4IDYwMC41MTUgMzE1LjY0MVpNNzI4Ljk0NSAzNjYuMzI1QzcyOC45MjMgMzY2LjI3NiA3MjguOTAyIDM2Ni4yMjcgNzI4Ljg4IDM2Ni4xNzlDNzI4Ljg2NyAzNjYuMTQ5IDcyOC44NTMgMzY2LjExOSA3MjguODQgMzY2LjA4OUM3MjguODc1IDM2Ni4xNjggNzI4LjkxIDM2Ni4yNDYgNzI4Ljk0NSAzNjYuMzI1Wk03MjQuNzg3IDM1Ny4zNTNDNzI0LjcxNSAzNTcuMjA1IDcyNC42NDIgMzU3LjA1NyA3MjQuNTY5IDM1Ni45MDlDNzI0LjcxOSAzNTcuMjE1IDcyNC44NjggMzU3LjUyMiA3MjUuMDE2IDM1Ny44M0M3MjQuOTQgMzU3LjY3MSA3MjQuODY0IDM1Ny41MTIgNzI0Ljc4NyAzNTcuMzUzWk03MjUuMzEzIDM1OC40NDVDNzI1LjIxNiAzNTguMjQzIDcyNS4xMTggMzU4LjA0MSA3MjUuMDIxIDM1Ny44NEM3MjUuMTk3IDM1OC4yMDYgNzI1LjM3MyAzNTguNTcyIDcyNS41NDggMzU4LjkzOUM3MjUuNDcgMzU4Ljc3NCA3MjUuMzkxIDM1OC42MDkgNzI1LjMxMyAzNTguNDQ1WiIgZmlsbD0iIzgwRURFMiIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTM3Mi45OSAyNDIuNDM5QzM3NC4xNjIgMjQyLjQzOSAzNzUuMTEyIDI0My4zOSAzNzUuMTEzIDI0NC41NjNWMjgzLjY0OUg0NzQuNDY2QzUyMS4xMjkgMjgzLjY0OSA1NzIuMjYgMjkxLjQ1OSA2MTEuNzMxIDMyMy44MDlDNjUxLjI4NCAzNTYuMjI3IDY3OC42OTEgNDEyLjkxMiA2NzguNjkxIDUwOS42NjRDNjc4LjY5MSA2MDYuNDk1IDY0OC4wNTEgNjYzLjY4MiA2MDYuOTM1IDY5Ni41OTVDNTY1LjkxIDcyOS40MzUgNTE0LjgyNyA3MzcuODAzIDQ3NC40NjYgNzM3LjgwM0gzNzUuMTEzVjc3My45MTRDMzc1LjExMyA3NzUuMDg3IDM3NC4xNjIgNzc2LjAzOSAzNzIuOTkgNzc2LjAzOUMzNzEuODE3IDc3Ni4wMzggMzcwLjg2NyA3NzUuMDg3IDM3MC44NjcgNzczLjkxNFY3MzcuODAzSDM0Ny4wOUMzNDUuOTE4IDczNy44MDMgMzQ0Ljk2NyA3MzYuODUyIDM0NC45NjcgNzM1LjY3OUMzNDQuOTY3IDczNC41MDUgMzQ1LjkxOCA3MzMuNTU0IDM0Ny4wOSA3MzMuNTU0SDM3MC44NjdWMjg3Ljg5N0gzNDcuMDlDMzQ1LjkxOCAyODcuODk3IDM0NC45NjggMjg2Ljk0NiAzNDQuOTY3IDI4NS43NzNDMzQ0Ljk2NyAyODQuNiAzNDUuOTE4IDI4My42NDkgMzQ3LjA5IDI4My42NDlIMzcwLjg2N1YyNDQuNTYzQzM3MC44NjcgMjQzLjM5IDM3MS44MTcgMjQyLjQzOSAzNzIuOTkgMjQyLjQzOVpNMzc1LjExMyA3MzMuNTU0SDQ3NC40NjZDNTE0LjM1MSA3MzMuNTU0IDU2NC4zMTkgNzI1LjI2OCA2MDQuMjgzIDY5My4yNzhDNjQ0LjE1NiA2NjEuMzYgNjc0LjQ0NSA2MDUuNTM5IDY3NC40NDUgNTA5LjY2NEM2NzQuNDQ1IDQxMy43MDggNjQ3LjI5MiAzNTguNDQ3IDYwOS4wNDEgMzI3LjA5NkM1NzAuNzA3IDI5NS42NzggNTIwLjc4NiAyODcuODk3IDQ3NC40NjYgMjg3Ljg5N0gzNzUuMTEzVjczMy41NTRaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTI2Ny4yNjggMTQ2QzI2OC40NDEgMTQ2IDI2OS4zOTEgMTQ2Ljk1MSAyNjkuMzkxIDE0OC4xMjRWMTgzLjgxMUg0NzQuNDY2QzUzMS41ODUgMTgzLjgxMSA2MTAuMTE1IDE5NS40NDUgNjc0LjQxNyAyNDIuMDc5QzczOC44NDIgMjg4LjgwMiA3ODguNjU4IDM3MC40MjEgNzg4LjY1OCA1MDkuNjY0Qzc4OC42NTggNjQ4Ljg3NSA3NDEuMDk0IDcyOS44NjEgNjc3Ljc3OSA3NzYuODFDNjE0LjU5NCA4MjMuNjYyIDUzNi4wNjcgODM2LjM1NSA0NzQuNTg0IDgzOS43NjFMNDc0LjUyNSA4MzkuNzY0SDI2OS4zOTFWODc1Ljg3NkMyNjkuMzkxIDg3Ny4wNDkgMjY4LjQ0MSA4NzggMjY3LjI2OCA4NzhDMjY2LjA5NiA4NzggMjY1LjE0NiA4NzcuMDQ5IDI2NS4xNDYgODc1Ljg3NlY4MzkuNzY0SDIzNy4xMjNDMjM1Ljk1MSA4MzkuNzY0IDIzNSA4MzguODEzIDIzNSA4MzcuNjRDMjM1IDgzNi40NjcgMjM1Ljk1MSA4MzUuNTE2IDIzNy4xMjMgODM1LjUxNkgyNjUuMTQ2VjE4OC4wNTlIMjM3LjEyM0MyMzUuOTUxIDE4OC4wNTkgMjM1IDE4Ny4xMDggMjM1IDE4NS45MzVDMjM1IDE4NC43NjIgMjM1Ljk1MSAxODMuODExIDIzNy4xMjMgMTgzLjgxMUgyNjUuMTQ2VjE0OC4xMjRDMjY1LjE0NiAxNDYuOTUxIDI2Ni4wOTYgMTQ2IDI2Ny4yNjggMTQ2Wk0yNjkuMzkxIDgzNS41MTZINDc0LjQwNkM1MzUuNjE4IDgzMi4xMiA2MTMuMDk2IDgxOS40ODUgNjc1LjI1MSA3NzMuMzk3QzczNy4yOTQgNzI3LjM5MSA3ODQuNDEyIDY0Ny43ODggNzg0LjQxMiA1MDkuNjY0Qzc4NC40MTIgMzcxLjU3MSA3MzUuMDg3IDI5MS4zMjUgNjcxLjkyNSAyNDUuNTE4QzYwOC42NCAxOTkuNjIyIDUzMS4xMzUgMTg4LjA2IDQ3NC40NjYgMTg4LjA1OUgyNjkuMzkxVjgzNS41MTZaIiBmaWxsPSJibGFjayIvPgo8L2c+CjxkZWZzPgo8ZmlsdGVyIGlkPSJmaWx0ZXIwX2RfNV8yIiB4PSIyMzMuNiIgeT0iMTQ2IiB3aWR0aD0iNTU2LjQ1OCIgaGVpZ2h0PSI3MzUuNCIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiPgo8ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCIvPgo8ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlQWxwaGEiIHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAxMjcgMCIgcmVzdWx0PSJoYXJkQWxwaGEiLz4KPGZlT2Zmc2V0IGR5PSIyIi8+CjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjAuNyIvPgo8ZmVDb21wb3NpdGUgaW4yPSJoYXJkQWxwaGEiIG9wZXJhdG9yPSJvdXQiLz4KPGZlQ29sb3JNYXRyaXggdHlwZT0ibWF0cml4IiB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAuMjUgMCIvPgo8ZmVCbGVuZCBtb2RlPSJub3JtYWwiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9ImVmZmVjdDFfZHJvcFNoYWRvd181XzIiLz4KPGZlQmxlbmQgbW9kZT0ibm9ybWFsIiBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJlZmZlY3QxX2Ryb3BTaGFkb3dfNV8yIiByZXN1bHQ9InNoYXBlIi8+CjwvZmlsdGVyPgo8L2RlZnM+Cjwvc3ZnPgo=" alt="dwey design logo" />
-    <span class="nav-logo-text">Dewy <span>Design</span></span>
+  <a href="#" class="nav-logo" onclick="showStore()">
+    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjA0OCIgaGVpZ2h0PSIxMDI0IiB2aWV3Qm94PSIwIDAgMjA0OCAxMDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfNDRfMTApIj4KPHBhdGggZD0iTTg5OS45NTYgMzc1QzkwNy40OTUgMzczLjUzMyA5MTIuNTk0IDM3Ni45MDYgOTE5LjQ5NSAzODEuNzQzQzkyNi4zOTYgMzg1Ljc3NCA5MzMuMTIgMzg2LjAzMiA5NDIuNDk1IDM4Ni4wMzJDOTQzLjUyNiAzODUuODkyIDk0NC42NzEgMzg1LjcxNyA5NDUuODk4IDM4NS41MjlDOTU3Ljc2OSAzODMuNzE4IDk3Ny4zNDIgMzgwLjczMiA5NzUuNzM3IDM5Ni4wOTRDOTcyLjczMSA0MDcuNTc0IDk3MC41NzggNDI5LjA3MSA5NjkuODc4IDQzOC4zODRDOTY5LjY4MSA0NDMuMjMxIDk2OS45MTMgNDUwLjIxMSA5NzAuMTQyIDQ1Ny4xMTFDOTcwLjM2OSA0NjMuOTI3IDk3MC41OTIgNDcwLjY2NiA5NzAuMzk4IDQ3NS4xOTVDOTY5LjYxNyA0OTYuNjggOTY5LjE2MSA1MTkuMzM2IDk2OS4wMzEgNTQzLjE2NEM5NjkuMDMxIDU1Ni40NDUgOTY4LjE4NSA1NjkuNTMxIDk2Ni40OTIgNTgyLjQyMkM5NjQuNzk5IDYwMC4xOTUgOTYyLjE5NSA2MTIuMzcgOTU4LjU1IDYyMy44MjhDOTU1LjAzNCA2MzUuNDE3IDk1MC40MTIgNjQ2LjA5NCA5NDQuNjgyIDY1NS44NTlDOTM5LjA4NCA2NjUuNzU1IDkzMi4xODIgNjc0LjIxOSA5MjMuOTc5IDY4MS4yNUM5MTUuOTA2IDY4OC40MTEgOTA2LjQ2NiA2OTQuMDEgODk1LjY1OSA2OTguMDQ3Qzg4NC45ODIgNzAyLjA4MyA4NzIuODcyIDcwNC4xMDIgODU5LjMzMSA3MDQuMTAyQzg0Ni43MDEgNzA0LjEwMiA4MzUuNzYzIDcwMi43OTkgODI2LjUxOCA3MDAuMTk1QzgxNy4yNzQgNjk3LjU5MSA4MDkuNTkxIDY5My44OCA4MDMuNDcxIDY4OS4wNjJDNzk3LjQ4MiA2ODQuMzc1IDc5Mi45OSA2NzguNzExIDc4OS45OTUgNjcyLjA3Qzc4Ny4xMyA2NjUuNDMgNzg1LjY5OCA2NTguMTM4IDc4NS42OTggNjUwLjE5NUM3ODUuNjk4IDY0Mi4yNTMgNzg3LjA2NSA2MzUuMDI2IDc4OS44IDYyOC41MTZDNzkyLjUzNCA2MjIuMTM1IDc5Ni4xMTUgNjE2LjczMiA4MDAuNTQyIDYxMi4zMDVDODA0Ljk2OSA2MDcuODc4IDgwOS45ODIgNjA0LjQ5MiA4MTUuNTgxIDYwMi4xNDhDODIxLjE4IDU5OS42NzUgODI2Ljg0NCA1OTguNDM4IDgzMi41NzMgNTk4LjQzOEM4MzkuODY0IDU5OC40MzggODQ2Ljc2NiA2MDAuNTIxIDg1My4yNzYgNjA0LjY4OEM4NjUuMDUgNjEzLjU1NiA4NjEuMzA3IDYyMS4xNDMgODU3Ljk2NCA2MjMuODI4Qzg1Ni41MzEgNjI0LjQ3OSA4NTUuMjI5IDYyNS4zOTEgODU0LjA1NyA2MjYuNTYyQzg1Mi44ODYgNjI3LjczNCA4NTEuOTA5IDYyOS4wMzcgODUxLjEyOCA2MzAuNDY5Qzg1MC40NzcgNjMyLjAzMSA4NTAuMTUxIDYzMy42NTkgODUwLjE1MSA2MzUuMzUyQzg1MC4xNTEgNjM3LjMwNSA4NTAuNTQyIDYzOC45MzIgODUxLjMyMyA2NDAuMjM0Qzg1Mi4xMDQgNjQxLjY2NyA4NTMuMDE2IDY0Mi43NzMgODU0LjA1NyA2NDMuNTU1Qzg1NS4yMjkgNjQ0LjMzNiA4NTYuNDY2IDY0NC44NTcgODU3Ljc2OCA2NDUuMTE3Qzg1OS4yIDY0NS41MDggODYwLjUwMyA2NDUuNzAzIDg2MS42NzUgNjQ1LjcwM0M4NjMuNDk3IDY0NS43MDMgODY1Ljc3NiA2NDUuMzEyIDg2OC41MTEgNjQ0LjUzMUM4NzEuMjQ1IDY0My43NSA4NzQuMDQ1IDY0Mi4xMjIgODc2LjkwOSA2MzkuNjQ4Qzg3OS45MDQgNjM3LjE3NCA4ODIuODM0IDYzMy43MjQgODg1LjY5OCA2MjkuMjk3Qzg4OC42OTMgNjI0Ljg3IDg5MS4yOTcgNjE4Ljk0NSA4OTMuNTExIDYxMS41MjNDODk1Ljg1NCA2MDQuMjMyIDg5Ny42NzcgNTk1LjMxMiA4OTkuMTA5IDU3OS44ODNDODk5LjE3NCA1NzEuMDY3IDg5Ny41MDcgNTU1LjU5OSA4OTAuMzIgNTY0LjI1OEM4ODYuNjc0IDU2OS44NTcgODgyLjc2OCA1NzQuMjE5IDg3OC42MDEgNTc3LjM0NEM4NzQuNTY1IDU4MC40NjkgODcwLjI2OCA1ODIuNTUyIDg2NS43MTEgNTgzLjU5NEM4NjEuMjg0IDU4NC42MzUgODU2LjUzMSA1ODUuMTU2IDg1MS40NTMgNTg1LjE1NkM4NDUuMDczIDU4NS4xNTYgODM4LjM2NyA1ODQuMDQ5IDgzMS4zMzYgNTgxLjgzNkM4MjQuNDM1IDU3OS40OTIgODE4LjA1NCA1NzUuNDU2IDgxMi4xOTUgNTY5LjcyN0M4MDYuNDY2IDU2My44NjcgODAxLjcxMyA1NTUuOTI0IDc5Ny45MzcgNTQ1Ljg5OEM3OTQuMTYxIDUzNS44NzIgNzkzLjU3NSA1MjguODkxIDc5Mi4yNzMgNTA3LjYxN0M3OTEuMzUzIDQ5Mi41ODggNzkxLjM4IDQ4Mi42MzQgNzkxLjQwMyA0NzQuMTgxQzc5MS40MTMgNDcwLjY2OSA3OTEuNDIyIDQ2Ny40MTYgNzkxLjM2MiA0NjQuMTY1Qzc5MS4zNjIgNDU2Ljc0MyA3OTEuMjMyIDQ0OC4zNDUgNzkwLjk3MSA0MzguOTdDNzkwLjcxMSA0MjkuNTk1IDc5MC4xMjUgNDIwLjQxNSA3ODkuMjE0IDQxMS40MzFDNzg4LjU0MSA0MDMuNyA3ODcuNTc5IDM5OS4zIDc4Ni4zMjkgMzkzLjU3OEM3ODYuMTI2IDM5Mi42NSA3ODUuOTE2IDM5MS42ODcgNzg1LjY5OCAzOTAuNjdDNzgzLjMwOCAzNzUuNDU3IDgwMC4zMDcgMzc1LjU3MSA4MDcuODA3IDM3OC42NTdDODE1LjMwNyAzODEuNzQzIDgyNy4yMzUgMzgyLjY4NiA4MzQuOTE3IDM4Mi42ODZDODM5Ljk5NSAzODIuNjg2IDg0NC41NTIgMzgyLjM3MSA4NDguNTg5IDM4MS43NDNDODY2LjY2MyAzNzQuMjk3IDg2Ny4wNTcgMzg1LjQwNCA4NjQuOTk1IDM4OS42OTNDODY0LjYwNyAzOTEuNzYgODY0LjIxOSAzOTMuNTYzIDg2My44MzIgMzk1LjM2NUM4NjMuMDQ3IDM5OS4wMTQgODYyLjI2NCA0MDIuNjYyIDg2MS40NzkgNDA4LjUwMUM4NjAuMzA3IDQxNy4yMjUgODU5LjMzMSA0MjYuNzk1IDg1OC41NSA0MzcuMjEyQzg1OC4wNTEgNDQzLjc4MSA4NTguNDAxIDQ1My45NDUgODU4LjcxOSA0NjMuMTgxQzg1OC45IDQ2OC40MDcgODU5LjA3IDQ3My4zMzcgODU5LjA3IDQ3Ny4xNDhDODU5LjA3IDQ4NS4wOTEgODU5LjY1NiA0OTEuODYyIDg2MC44MjggNDk3LjQ2MUM4NjIgNTAzLjA2IDg2My41NjIgNTA3LjY4MiA4NjUuNTE1IDUxMS4zMjhDODY3LjU5OSA1MTQuODQ0IDg2OS45NDIgNTE3LjQ0OCA4NzIuNTQ3IDUxOS4xNDFDODc1LjI4MSA1MjAuODMzIDg3OC4yMTEgNTIxLjY4IDg4MS4zMzYgNTIxLjY4Qzg4Ni4yODQgNTIxLjY4IDg5Mi4zNzEgNTE4LjM0NCA4OTQuNSA1MTUuMzQ0Qzg5Ni42MjkgNTEyLjM0NCA4OTguOTc5IDUwNy42MTcgOTAwLjY3MiA1MDAuMzkxQzkwMi41IDQ4Ny4zNDQgOTAwLjE2NyA0NzEuNTMyIDg5OC45NzkgNDY1LjUzMkM4OTguMDE1IDQ2MC42NjIgODk3LjI1NSA0NTIuMjA3IDg5Ni41NjcgNDQ0LjU1TDg5Ni41NjYgNDQ0LjUzNUM4OTYuMTk1IDQ0MC40MDYgODk1Ljg0NSA0MzYuNTA5IDg5NS40OTUgNDMzLjUzMkM4OTUuMTg4IDQzMC45MjQgODk0Ljk2NiA0MjguMjEzIDg5NC43MzYgNDI1LjM5NEM4OTQuMjE1IDQxOS4wMjMgODkzLjY0OCA0MTIuMDg5IDg5MS45NDggNDA0LjQ5MkM4ODkuNDk1IDM5Ni4wOTQgODg4LjQ5NSAzNzUgODk5Ljk1NiAzNzVaTTQ1Mi41OTIgMzYzLjYzOEM0NjAuMDg3IDM2Mi43MTIgNDY3LjM2MiAzNjIuNjY2IDQ3NC40MTkgMzYzLjVDNDgxLjYwNCAzNjQuMzE4IDQ4OC4wMjEgMzY2LjM0NyA0OTMuNjY5IDM2OS41ODVDNDk5LjQ0NiAzNzIuODA3IDUwNC4yNjggMzc3LjMyOSA1MDguMTM2IDM4My4xNDhDNTExLjk4NyAzODguODM5IDUxNC40NjQgMzk2LjE0MiA1MTUuNTY1IDQwNS4wNTlDNTE2Ljc2MiA0MTQuNzUxIDUxNi41MDYgNDI0LjM2MSA1MTQuNzk2IDQzMy44ODdDNTEzLjIxNSA0NDMuMzk3IDUwOS4zNzQgNDUyLjEzNiA1MDMuMjc0IDQ2MC4xMDVDNDk3LjE3NCA0NjguMDc1IDQ4OC40NDIgNDc0LjkyNiA0NzcuMDggNDgwLjY1OUM0NjUuODQ3IDQ4Ni4zNzYgNDUxLjEyIDQ5MC4zNTkgNDMyLjg5OSA0OTIuNjA5QzQzNC4xOTggNDk4Ljg3NyA0MzYuMTQ1IDUwNC4wMTYgNDM4LjczOSA1MDguMDI1QzQ0MS40NjMgNTEyLjAxOCA0NDQuNDcgNTE1LjEyNCA0NDcuNzYxIDUxNy4zNDJDNDUxLjA1MyA1MTkuNTU5IDQ1NC40NTkgNTIxLjEwNiA0NTcuOTc4IDUyMS45ODNDNDYxLjQ5OCA1MjIuODYxIDQ2NC43MTEgNTIzLjM4MiA0NjcuNjE4IDUyMy41NDhDNDcwLjUyNCA1MjMuNzE0IDQ3Mi45NDcgNTIzLjY3NyA0NzQuODg2IDUyMy40MzhMNDc3Ljc5MyA1MjMuMDc5QzQ4NS42OTMgNTIxLjE4NSA0OTIuNjEgNTE4LjIzMSA0OTguNTQzIDUxNC4yMTlDNTAxLjA5NyA1MTIuNTkxIDUwMy41NDcgNTEwLjY0OCA1MDUuODkyIDUwOC4zOTFDNTA4LjIyMSA1MDYuMDA0IDUxMC4yNTIgNTAzLjMyNiA1MTEuOTg0IDUwMC4zNTdDNTE0LjIwNiA0OTYuOTM0IDUxNi40ODcgNDk2LjQgNTIwLjQ1NyA0OTUuOTFDNTIzLjYzMiA0OTUuNTE5IDUyNi44MDkgNDk5LjI5IDUyNy44MjcgNTAyLjU1N0M1MjguODQ0IDUwNS44MjQgNTMwLjc5NiA1MTQuMDQgNTMxLjU3OCA1MjAuMzcyQzUzMy4wMTQgNTMyLjAwMiA1MzIuMjA3IDU0Mi45OTIgNTI5LjE1NSA1NTMuMzRDNTI2LjIxNyA1NjMuNTQyIDUyMS41MDMgNTcyLjY1MiA1MTUuMDE1IDU4MC42NjlDNTA4LjUyNyA1ODguNjg2IDUwMC40MTggNTk1LjI2NCA0OTAuNjg4IDYwMC40MDFDNDgxLjEwMyA2MDUuNjUyIDQ3MC4zNjYgNjA5LjAxMiA0NTguNDc3IDYxMC40OEM0NDYuODQ3IDYxMS45MTcgNDM1LjM1NyA2MTEuMzAyIDQyNC4wMDggNjA4LjYzN0M0MTIuNzg3IDYwNS45NTUgNDAyLjQ0MSA2MDAuODA0IDM5Mi45NzIgNTkzLjE4NEMzODMuNjE3IDU4NS40MTggMzc1LjU1NyA1NzQuODY3IDM2OC43OTQgNTYxLjUzM0MzNjIuMTYgNTQ4LjE4MyAzNTcuNjE0IDUzMS41NTggMzU1LjE1NiA1MTEuNjU3QzM1Mi40OTEgNDkwLjA3NyAzNTMuMjMgNDcwLjU2OCAzNTcuMzc0IDQ1My4xMzJDMzYxLjUxOCA0MzUuNjk2IDM2OC4xMjkgNDIwLjcwOSAzNzcuMjA4IDQwOC4xNzRDMzg2LjI3MSAzOTUuNTA5IDM5Ny4yOTMgMzg1LjQyNCA0MTAuMjcyIDM3Ny45MTdDNDIzLjM2NSAzNzAuMjY1IDQzNy40NzIgMzY1LjUwNSA0NTIuNTkyIDM2My42MzhaTTYwNi4xODcgMzY4Ljg3NUM2MjUuNjg3IDM2Ni4zNzUgNjI1LjA4NiAzODIuNSA2MjAuNTk0IDQwMS40NDVDNjIwLjAyOSA0MDYuNjM4IDYxOS4zNjggNDEwLjgxMSA2MTguNzggNDE0LjUyNkM2MTcuOTA0IDQyMC4wNjIgNjE3LjE4NyA0MjQuNTg1IDYxNy4xODcgNDI5Ljk2MUM2MTQuNzU4IDQ0Ny4yNjYgNjE3Ljc0OCA0NTIuOTY5IDYyMC41OTQgNDU2Ljg3NUM2MjIuOTM4IDQ2MC4wOTQgNjMyLjQyMiA0NTcuMzQ3IDY0MS42ODcgNDQ1LjM3NUM2NDguMTg3IDQzNi45NzcgNjYwLjk1OCA0MjUuNTg2IDY3MC45ODQgNDQ3LjkzQzY3NS4wMSA0NTQuNyA2ODEuODk3IDQ2Mi42NjcgNjkwLjEyNSA0NTkuNjQ4QzY5Ny4xNTUgNDU3LjA2OSA2OTUuMzc0IDQ1MC42ODYgNjkzLjE2OCA0NDIuNzgyQzY5Mi4zMTcgNDM5LjczMyA2OTEuNDAyIDQzNi40NTcgNjkwLjkwNiA0MzMuMDg2QzY5MC43MSA0MzEuNzUyIDY5MC40OTQgNDMwLjM0NSA2OTAuMjcxIDQyOC44OTFDNjg4Ljg0MyA0MTkuNTYgNjg3LjExMyA0MDguMjU4IDY4OC4xODcgNDAxLjQ0NUM2ODguMDM0IDM4OC4yMjEgNjk0LjE4NyAzNzQuMzc1IDcxMC44MjggMzgwLjM1MkM3MjIuMjQzIDM4My40NzkgNzI1LjgxOSAzODMuMDYyIDczMi40MzQgMzgzLjAxM0M3MzMuMjcxIDM4My4wMDYgNzM0LjEyMiAzODMgNzM1IDM4M0M3MzguODQ4IDM4MyA3NDQuMDE2IDM4Mi41NzYgNzQ3LjA3NCAzODEuNzU3Qzc0OS40OTkgMzgxLjEwNyA3NTEuOTc0IDM4MC40NDQgNzU0Ljk2OSAzODAuMTU2Qzc3MC4yNSAzNzUuODYgNzY4LjE4NyA0MDEuMzgzIDc2Ni42ODcgNDE1LjM3NUM3NjUuOTMxIDQyMi40MjYgNzY0LjU0IDQyOS4xNzMgNzYzLjA5MSA0MzYuMjA3Qzc2MS42NjMgNDQzLjEzMSA3NjAuMTc5IDQ1MC4zMzMgNzU5LjE4NyA0NTguMzc1Qzc1Ny42NTUgNDcwLjc5MyA3NTYuMTUxIDQ4MC4yODEgNzU0LjgxMSA0ODguNzM2Qzc1My44MzEgNDk0LjkyIDc1Mi45MzkgNTAwLjU1MyA3NTIuMTg3IDUwNi4zNzVDNzUwLjc0IDUxNy41NzUgNzQ5LjI5MyA1MjYuMzYzIDc0Ny41NTUgNTM2LjkxN0M3NDYuMjkxIDU0NC41OTcgNzQ0Ljg3MiA1NTMuMjEzIDc0My4xODcgNTY0LjM3NUM3MzguNjk1IDU5NC4xMzYgNzM3LjMyNCA2MDIuODg2IDcxOC40NDUgNjA3LjY5NUM3MTAuNzQ5IDYwOS42NTYgNjkxLjY4NyA2MTEuMzQgNjgwLjc1IDYwNy44OTFDNjcyLjgzOCA2MDUuMzk2IDY3MS40NzcgNTkwLjg5IDY3MC42NzMgNTgyLjMxQzY3MC41MDUgNTgwLjUxOSA2NzAuMzYxIDU3OC45ODYgNjcwLjE4NyA1NzcuODc1QzY2OS44NjUgNTc1LjgxOSA2NjkuNTU4IDU3My41MTUgNjY5LjIyOSA1NzEuMDUzQzY2OC41MjkgNTY1LjgwNSA2NjcuNzMzIDU1OS44MzMgNjY2LjQ5MiA1NTMuOTg0QzY2NC43OTkgNTQ1LjM5MSA2NjIuNzgxIDUzNy4zMTggNjYwLjQzNyA1MjkuNzY2QzY1NS41OTQgNTIwLjQ3OCA2NDguNjUzIDUyNi4wMjYgNjQ1Ljc4OSA1MjkuOTYxQzY0NC4wOTYgNTM2LjczMiA2NDIuNjY0IDU0My44OTMgNjQxLjQ5MiA1NTEuNDQ1QzY0MC4zMiA1NTguODY3IDYzOS40NzQgNTY2Ljg3NSA2MzguOTUzIDU3NS40NjlDNjM4Ljk1MyA1OTguMTI1IDYyNy4wNjIgNjAxLjU0NyA2MTkuMTg3IDYwMy4yMDNDNjE3LjUzOSA2MDMuMzE2IDYxNS45NjYgNjAzLjQyNyA2MTQuNDU1IDYwMy41MzRDNjAwLjI2MyA2MDQuNTM4IDU5MS4zODggNjA1LjE2NiA1NzQuNSA2MDMuMjAzQzU2NC42ODcgNTk5LjM3NSA1NjMuMjcyIDU4Mi44NzUgNTYxLjgwNCA1NjEuNDA2QzU2MC43NjMgNTQ2LjE3MiA1NTkuMzk2IDUzMC45MzcgNTU3LjcwMyA1MTUuNzAzQzU1Ni4wMSA1MDAuNDY5IDU1NC4xMjIgNDg1LjU2IDU1Mi4wMzkgNDcwLjk3N0M1NTAuMDg2IDQ1Ni4zOTMgNTQ4LjAwMiA0NDIuNzIxIDU0NS43ODkgNDI5Ljk2MUM1NDMuNzA1IDQxNy4yMDEgNTQxLjYyMiA0MDUuNzQyIDUzOS41MzkgMzk1LjU4NkM1MzYgMzg1LjQzIDUzOS41MzkgMzY0LjM3NSA1NjAuMTg3IDM3MC4zNzVDNTY4LjE4NyAzNzUuMzc1IDU3NS41ODUgMzc3LjkxMiA1ODAuNjg3IDM3Ny4zNzVDNTg1LjY3IDM3Ni44NSA1OTAuMTQgMzc0LjgzMyA1OTQuNDcxIDM3Mi44NzhDNTk4LjM5OCAzNzEuMTA2IDYwMi4yMTEgMzY5LjM4NSA2MDYuMTg3IDM2OC44NzVaTTIwOS44NTEgMzIwQzIxOC43MDUgMzIwIDIyOC4wMTUgMzIwLjY1MSAyMzcuNzgxIDMyMS45NTNDMjQ3LjY3NyAzMjMuMTI1IDI1Ny4zMTIgMzI1LjUzNCAyNjYuNjg3IDMyOS4xOEMyNzYuMTkyIDMzMi44MjYgMjg1LjI0MiAzMzcuOTY5IDI5My44MzYgMzQ0LjYwOUMzMDIuNDI5IDM1MS4yNSAzMDkuOTgyIDM1OS45NzQgMzE2LjQ5MiAzNzAuNzgxQzMyMy4wMDIgMzgxLjU4OSAzMjguMTQ2IDM5NC44MDUgMzMxLjkyMiA0MTAuNDNDMzM1LjgyOCA0MjUuOTI0IDMzNy43ODEgNDQ0LjQxNCAzMzcuNzgxIDQ2NS44OThDMzM3Ljc4MSA0ODcuMTIyIDMzNS40MzcgNTA1LjM1MiAzMzAuNzUgNTIwLjU4NkMzMjYuMDYyIDUzNS44MiAzMjMuMTgyIDU0OS4zNjIgMzE1LjUgNTYwLjAzOUMzMDYuODA1IDU3Ny41ODYgMjkxLjUgNTg3LjUgMjc5LjUgNTkzQzI1MCA2MDQuNSAxNzMuMTg3IDYwNy44NDkgMTQ2LjU3IDYwNi4zMjhDMTEzLjY3NiA2MDQuNDQ5IDExMS45MDEgNTc2LjExOCAxMTUuMTI1IDU2Mi4xODhDMTE3LjA3OCA1NTMuNTk0IDExOC43MDUgNTQ0LjkzNSAxMjAuMDA4IDUzNi4yMTFDMTIxLjQ0IDUyNy4zNTcgMTIyLjYxMiA1MTguODI4IDEyMy41MjMgNTEwLjYyNUMxMjUuNjA3IDQ5MS4zNTQgMTI2Ljc3OCA0NzEuNTYyIDEyNy4wMzkgNDUxLjI1QzEyNi43NzggNDMxLjA2OCAxMjUuODAyIDQxMi4xMjIgMTI0LjEwOSAzOTQuNDE0QzEyMy4zMjggMzg2Ljg2MiAxMjIuMzUxIDM3OS4zMSAxMjEuMTc5IDM3MS43NThDMTIwLjEzOCAzNjQuMDc2IDExOC44MzYgMzU2Ljg0OSAxMTcuMjczIDM1MC4wNzhDMTE1LjcxMSAzNDMuMTc3IDExMy44MjMgMzM2Ljk5MiAxMTEuNjA5IDMzMS41MjNDMTA3LjkyOSAzMjAgMTIxLjc4OCAzMjAuOTIgMTI5Ljk5MiAzMjEuNDY0QzEzMC41MzEgMzIxLjUgMTMxLjA0NyAzMjEuNTM0IDEzMS41MzEgMzIxLjU2MkMxNDAuMjU1IDMyMi4wODMgMTQ3LjkzNyAzMjIuMzQ0IDE1NC41NzggMzIyLjM0NEMxNTguODc1IDMyMi4zNDQgMTYzLjA0MiAzMjIuMjE0IDE2Ny4wNzggMzIxLjk1M0MxNzEuMTE0IDMyMS42OTMgMTc1LjI4MSAzMjEuNDMyIDE3OS41NzggMzIxLjE3MkMxODMuODc1IDMyMC45MTEgMTg4LjQzMiAzMjAuNjUxIDE5My4yNSAzMjAuMzkxQzE5OC4xOTggMzIwLjEzIDIwMy43MzIgMzIwIDIwOS44NTEgMzIwWk0yMjEuMzc1IDM4MS45MTRDMjE4LjM4IDM4MS45MTQgMjE1LjY0NiAzODMuNDc3IDIxMy4xNzIgMzg2LjYwMkMyMTAuODI4IDM4OS41OTYgMjA4LjgxIDM5NC40NzkgMjA3LjExNyA0MDEuMjVDMjA1LjQyNCA0MDguMDIxIDIwNC4xMjIgNDE2Ljc0NSAyMDMuMjExIDQyNy40MjJDMjAyLjI5OSA0MzcuOTY5IDIwMS44NDQgNDUwLjc5NCAyMDEuODQ0IDQ2NS44OThDMjAxLjg0NCA0ODEuNzg0IDIwMi4yMzQgNDk1LjA2NSAyMDMuMDE1IDUwNS43NDJDMjAzLjkyNyA1MTYuMjg5IDIwNS4xNjQgNTI0Ljc1MyAyMDYuNzI2IDUzMS4xMzNDMjA4LjQxOSA1MzcuNTEzIDIxMC40MzcgNTQyLjA3IDIxMi43ODEgNTQ0LjgwNUMyMTUuMjU1IDU0Ny40MDkgMjE4LjEyIDU0OC43MTEgMjIxLjM3NSA1NDguNzExQzIyNy43NTUgNTQ4LjcxMSAyMzIuODMzIDU0MS43NDUgMjM2LjYwOSA1MjcuODEyQzI0MC4zODUgNTEzLjg4IDI0Mi4yNzMgNDkxLjgxIDI0Mi4yNzMgNDYxLjYwMkMyNDIuMjczIDQ0Ni4zNjcgMjQxLjgxNyA0MzMuNjcyIDI0MC45MDYgNDIzLjUxNkMyMzkuOTk1IDQxMy4zNTkgMjM4LjYyNyA0MDUuMjIxIDIzNi44MDQgMzk5LjEwMkMyMzUuMTEyIDM5Mi44NTIgMjMyLjk2MyAzODguNDI0IDIzMC4zNTkgMzg1LjgyQzIyNy43NTUgMzgzLjIxNiAyMjQuNzYgMzgxLjkxNCAyMjEuMzc1IDM4MS45MTRaTTQ2MS44MzYgNDE5LjM3QzQ1OS41NDUgNDE3LjgxNiA0NTYuNzg0IDQxNy4yMzkgNDUzLjU1MyA0MTcuNjM4QzQ0OS4wMzEgNDE4LjE5NiA0NDUuMTE5IDQxOS45OTEgNDQxLjgyIDQyMy4wMjJDNDM4LjY1IDQyNi4wMzggNDM2LjAxMyA0MjkuNjQ0IDQzMy45MDcgNDMzLjg0QzQzMS45MzEgNDM4LjAyIDQzMC40NTMgNDQyLjUzMSA0MjkuNDc3IDQ0Ny4zNzVDNDI4LjUwMSA0NTIuMjE5IDQyOC4wNjcgNDU2LjY2OCA0MjguMTc0IDQ2MC43MjJDNDMxLjc3NiA0NjAuMTQ2IDQzNS44ODkgNDU4LjkxNiA0NDAuNTExIDQ1Ny4wMzNDNDQ1LjExNiA0NTUuMDIxIDQ0OS40IDQ1Mi41MjQgNDUzLjM2MSA0NDkuNTQyQzQ1Ny4zMjIgNDQ2LjU2IDQ2MC41MDEgNDQzLjA4NSA0NjIuODk3IDQzOS4xMTVDNDY1LjQyMiA0MzUuMTMgNDY2LjM5NyA0MzAuODExIDQ2NS44MjMgNDI2LjE1OUM0NjUuNDU2IDQyMy4xODcgNDY0LjEyNyA0MjAuOTI0IDQ2MS44MzYgNDE5LjM3WiIgZmlsbD0iIzdBQUE5MSIvPgo8cGF0aCBkPSJNMTA5MS41MiA1ODMuOTZDMTA4OC4zNSA1ODMuOTYgMTA4NS44MyA1ODMuNCAxMDgzLjk2IDU4Mi4yOEMxMDgyLjI4IDU4MS4xNiAxMDgxLjA3IDU3OS42NjcgMTA4MC4zMiA1NzcuOEMxMDc5LjU3IDU3NS43NDcgMTA3OS4yIDU3My41MDcgMTA3OS4yIDU3MS4wOFY0MDAuODRDMTA3OS4yIDM5OC40MTMgMTA3OS40OCAzOTYuMjY3IDEwODAuMDQgMzk0LjRDMTA4MC43OSAzOTIuNTMzIDEwODIuMDkgMzkxLjA0IDEwODMuOTYgMzg5LjkyQzEwODUuODMgMzg4LjggMTA4OC40NCAzODguMjQgMTA5MS44IDM4OC4yNEwxMTQ2Ljk2IDM4OC41MkMxMTYwLjc3IDM4OC41MiAxMTczLjI4IDM5MC44NTMgMTE4NC40OCAzOTUuNTJDMTE5NS44NyA0MDAgMTIwNS41NyA0MDYuNDQgMTIxMy42IDQxNC44NEMxMjIxLjYzIDQyMy4yNCAxMjI3Ljc5IDQzMy40MTMgMTIzMi4wOCA0NDUuMzZDMTIzNi4zNyA0NTcuMzA3IDEyMzguNTIgNDcwLjU2IDEyMzguNTIgNDg1LjEyQzEyMzguNTIgNTAwLjI0IDEyMzYuMzcgNTEzLjg2NyAxMjMyLjA4IDUyNkMxMjI3Ljc5IDUzOC4xMzMgMTIyMS41MyA1NDguNDkzIDEyMTMuMzIgNTU3LjA4QzEyMDUuMjkgNTY1LjY2NyAxMTk1LjU5IDU3Mi4yOTMgMTE4NC4yIDU3Ni45NkMxMTcyLjgxIDU4MS42MjcgMTE2MC4xMiA1ODMuOTYgMTE0Ni4xMiA1ODMuOTZIMTA5MS41MlpNMTEwNC40IDU1OC40OEgxMTQ2Ljk2QzExNjAuNTkgNTU4LjQ4IDExNzIuMzUgNTU1LjU4NyAxMTgyLjI0IDU0OS44QzExOTIuMTMgNTQzLjgyNyAxMTk5Ljc5IDUzNS41MiAxMjA1LjIgNTI0Ljg4QzEyMTAuNjEgNTE0LjA1MyAxMjEzLjMyIDUwMS4yNjcgMTIxMy4zMiA0ODYuNTJDMTIxMy4zMiA0NzEuNTg3IDEyMTAuNjEgNDU4LjcwNyAxMjA1LjIgNDQ3Ljg4QzExOTkuNzkgNDM3LjA1MyAxMTkyLjA0IDQyOC43NDcgMTE4MS45NiA0MjIuOTZDMTE3Mi4wNyA0MTYuOTg3IDExNjAuMzEgNDE0IDExNDYuNjggNDE0SDExMDQuNFY1NTguNDhaIiBmaWxsPSIjMkYyNDIxIi8+CjxwYXRoIGQ9Ik0xMzQ0Ljc1IDU4NS4zNkMxMzMzLjU1IDU4NS4zNiAxMzIzLjU2IDU4My40OTMgMTMxNC43OSA1NzkuNzZDMTMwNi4wMSA1NzYuMDI3IDEyOTguNTUgNTcwLjk4NyAxMjkyLjM5IDU2NC42NEMxMjg2LjQxIDU1OC4xMDcgMTI4MS44NCA1NTAuNjQgMTI3OC42NyA1NDIuMjRDMTI3NS40OSA1MzMuODQgMTI3My45MSA1MjQuNzg3IDEyNzMuOTEgNTE1LjA4QzEyNzMuOTEgNTAyLjIgMTI3Ni44OSA0OTAuNzIgMTI4Mi44NyA0ODAuNjRDMTI4OC44NCA0NzAuNTYgMTI5Ny4wNSA0NjIuNjI3IDEzMDcuNTEgNDU2Ljg0QzEzMTguMTUgNDUwLjg2NyAxMzMwLjI4IDQ0Ny44OCAxMzQzLjkxIDQ0Ny44OEMxMzUzLjI0IDQ0Ny44OCAxMzYxLjU1IDQ0OS4zNzMgMTM2OC44MyA0NTIuMzZDMTM3Ni4yOSA0NTUuMTYgMTM4Mi42NCA0NTguOTg3IDEzODcuODcgNDYzLjg0QzEzOTMuMDkgNDY4LjY5MyAxMzk3LjExIDQ3NC4xMDcgMTM5OS45MSA0ODAuMDhDMTQwMi43MSA0ODYuMDUzIDE0MDQuMTEgNDkyLjAyNyAxNDA0LjExIDQ5OEMxNDA0LjExIDUwNy41MiAxNDAxLjg3IDUxNC4yNCAxMzk3LjM5IDUxOC4xNkMxMzkyLjkxIDUyMS44OTMgMTM4Ny40IDUyMy43NiAxMzgwLjg3IDUyMy43NkgxMjk5Ljk1QzEyOTkuNzYgNTMxLjk3MyAxMzAxLjkxIDUzOS4wNjcgMTMwNi4zOSA1NDUuMDRDMTMxMS4wNSA1NTAuODI3IDEzMTYuODQgNTU1LjMwNyAxMzIzLjc1IDU1OC40OEMxMzMwLjg0IDU2MS42NTMgMTMzNy45MyA1NjMuMjQgMTM0NS4wMyA1NjMuMjRDMTM1MC4yNSA1NjMuMjQgMTM1NC43MyA1NjIuOTYgMTM1OC40NyA1NjIuNEMxMzYyLjIgNTYxLjg0IDEzNjUuNDcgNTYxLjA5MyAxMzY4LjI3IDU2MC4xNkMxMzcxLjA3IDU1OS4yMjcgMTM3My40OSA1NTguMjkzIDEzNzUuNTUgNTU3LjM2QzEzNzcuNiA1NTYuNDI3IDEzNzkuMzcgNTU1LjQ5MyAxMzgwLjg3IDU1NC41NkMxMzgyLjU1IDU1My42MjcgMTM4NC4xMyA1NTIuOTczIDEzODUuNjMgNTUyLjZDMTM4Ny4zMSA1NTIuMjI3IDEzODguODkgNTUyLjQxMyAxMzkwLjM5IDU1My4xNkMxMzkyLjA3IDU1My43MiAxMzkzLjM3IDU1NC45MzMgMTM5NC4zMSA1NTYuOEMxMzk1LjQzIDU1OC4yOTMgMTM5Ni4xNyA1NTkuNjkzIDEzOTYuNTUgNTYxQzEzOTYuOTIgNTYyLjMwNyAxMzk3LjExIDU2My43MDcgMTM5Ny4xMSA1NjUuMkMxMzk3LjExIDU2Ny44MTMgMTM5NC44NyA1NzAuNzA3IDEzOTAuMzkgNTczLjg4QzEzODUuOTEgNTc3LjA1MyAxMzc5LjY1IDU3OS43NiAxMzcxLjYzIDU4MkMxMzYzLjc5IDU4NC4yNCAxMzU0LjgzIDU4NS4zNiAxMzQ0Ljc1IDU4NS4zNlpNMTI5OS45NSA1MDcuMjRIMTM3MC4yM0MxMzczLjc3IDUwNy4yNCAxMzc2LjM5IDUwNi43NzMgMTM3OC4wNyA1MDUuODRDMTM3OS45MyA1MDQuOTA3IDEzODAuODcgNTAyLjM4NyAxMzgwLjg3IDQ5OC4yOEMxMzgwLjg3IDQ5My4wNTMgMTM3OS4yOCA0ODguMzg3IDEzNzYuMTEgNDg0LjI4QzEzNzIuOTMgNDc5Ljk4NyAxMzY4LjU1IDQ3Ni41MzMgMTM2Mi45NSA0NzMuOTJDMTM1Ny41MyA0NzEuMzA3IDEzNTEuMjggNDcwIDEzNDQuMTkgNDcwQzEzMzUuOTcgNDcwIDEzMjguNDEgNDcxLjY4IDEzMjEuNTEgNDc1LjA0QzEzMTQuNzkgNDc4LjIxMyAxMzA5LjQ3IDQ4Mi42IDEzMDUuNTUgNDg4LjJDMTMwMS42MyA0OTMuOCAxMjk5Ljc2IDUwMC4xNDcgMTI5OS45NSA1MDcuMjRaIiBmaWxsPSIjMkYyNDIxIi8+CjxwYXRoIGQ9Ik0xNDg1LjYgNTg1LjM2QzE0ODEuMTIgNTg1LjM2IDE0NzYuNDUgNTg0Ljg5MyAxNDcxLjYgNTgzLjk2QzE0NjYuNzQgNTgzLjAyNyAxNDYxLjk4IDU4MS43MiAxNDU3LjMyIDU4MC4wNEMxNDUyLjg0IDU3OC4xNzMgMTQ0OC44MiA1NzYuMDI3IDE0NDUuMjggNTczLjZDMTQ0MS45MiA1NzEuMTczIDE0MzkuNCA1NjguNDY3IDE0MzcuNzIgNTY1LjQ4QzE0MzYuNzggNTYzLjYxMyAxNDM2LjIyIDU2MS45MzMgMTQzNi4wNCA1NjAuNDRDMTQzNS44NSA1NTguNzYgMTQzNi4xMyA1NTcuMTczIDE0MzYuODggNTU1LjY4QzE0MzcuNjIgNTU0LjE4NyAxNDM4Ljc0IDU1Mi42OTMgMTQ0MC4yNCA1NTEuMkMxNDQyLjEgNTQ4Ljk2IDE0NDMuOTcgNTQ3LjkzMyAxNDQ1Ljg0IDU0OC4xMkMxNDQ3LjcgNTQ4LjEyIDE0NTAuMDQgNTQ5LjMzMyAxNDUyLjg0IDU1MS43NkMxNDU0Ljg5IDU1My4wNjcgMTQ1Ny4zMiA1NTQuNTYgMTQ2MC4xMiA1NTYuMjRDMTQ2Mi45MiA1NTcuNzMzIDE0NjUuODEgNTU5LjEzMyAxNDY4LjggNTYwLjQ0QzE0NzEuNzggNTYxLjU2IDE0NzQuNzcgNTYyLjU4NyAxNDc3Ljc2IDU2My41MkMxNDgwLjkzIDU2NC4yNjcgMTQ4NC4wMSA1NjQuNjQgMTQ4NyA1NjQuNjRDMTQ5NS41OCA1NjQuNjQgMTUwMi40OSA1NjMuMDUzIDE1MDcuNzIgNTU5Ljg4QzE1MTIuOTQgNTU2LjUyIDE1MTUuNTYgNTUyLjEzMyAxNTE1LjU2IDU0Ni43MkMxNTE1LjU2IDU0My41NDcgMTUxNC45IDU0MC44NCAxNTEzLjYgNTM4LjZDMTUxMi4yOSA1MzYuMzYgMTUxMC41MiA1MzQuNDkzIDE1MDguMjggNTMzQzE1MDYuMDQgNTMxLjMyIDE1MDMuNTIgNTI5LjkyIDE1MDAuNzIgNTI4LjhDMTQ5Ny45MiA1MjcuNjggMTQ5NC43NCA1MjYuNjUzIDE0OTEuMiA1MjUuNzJDMTQ4Ny44NCA1MjQuNiAxNDg0LjQ4IDUyMy41NzMgMTQ4MS4xMiA1MjIuNjRDMTQ3Ni4wOCA1MjEuMzMzIDE0NzEuMTMgNTE5Ljg0IDE0NjYuMjggNTE4LjE2QzE0NjEuNDIgNTE2LjQ4IDE0NTcuMDQgNTE0LjMzMyAxNDUzLjEyIDUxMS43MkMxNDQ5LjIgNTA4LjkyIDE0NDYuMDIgNTA1LjQ2NyAxNDQzLjYgNTAxLjM2QzE0NDEuMTcgNDk3LjA2NyAxNDM5Ljk2IDQ5MS42NTMgMTQzOS45NiA0ODUuMTJDMTQzOS45NiA0NzcuNDY3IDE0NDEuOTIgNDcwLjg0IDE0NDUuODQgNDY1LjI0QzE0NDkuNzYgNDU5LjY0IDE0NTUuMjYgNDU1LjM0NyAxNDYyLjM2IDQ1Mi4zNkMxNDY5LjQ1IDQ0OS4xODcgMTQ3Ny43NiA0NDcuNiAxNDg3LjI4IDQ0Ny42QzE0OTEuMzggNDQ3LjYgMTQ5NS4yMSA0NDcuODggMTQ5OC43NiA0NDguNDRDMTUwMi4zIDQ0OSAxNTA1LjY2IDQ0OS45MzMgMTUwOC44NCA0NTEuMjRDMTUxMi4yIDQ1Mi4zNiAxNTE1LjM3IDQ1My43NiAxNTE4LjM2IDQ1NS40NEMxNTIxLjM0IDQ1Ni45MzMgMTUyNC4yNCA0NTguOCAxNTI3LjA0IDQ2MS4wNEMxNTMwLjQgNDYzLjI4IDE1MzIuMTcgNDY1LjcwNyAxNTMyLjM2IDQ2OC4zMkMxNTMyLjU0IDQ3MC45MzMgMTUzMS41MiA0NzMuNjQgMTUyOS4yOCA0NzYuNDRDMTUyNy42IDQ3OC44NjcgMTUyNS43MyA0ODAuNDUzIDE1MjMuNjggNDgxLjJDMTUyMS42MiA0ODEuNzYgMTUxOS41NyA0ODEuMiAxNTE3LjUyIDQ3OS41MkMxNTE0LjUzIDQ3Ny4yOCAxNTExLjM2IDQ3NS4zMiAxNTA4IDQ3My42NEMxNTA0LjY0IDQ3MS45NiAxNTAxLjE4IDQ3MC41NiAxNDk3LjY0IDQ2OS40NEMxNDk0LjA5IDQ2OC4zMiAxNDkwLjQ1IDQ2Ny43NiAxNDg2LjcyIDQ2Ny43NkMxNDgyLjA1IDQ2Ny43NiAxNDc3Ljg1IDQ2OC41MDcgMTQ3NC4xMiA0NzBDMTQ3MC41NyA0NzEuMzA3IDE0NjcuNzcgNDczLjM2IDE0NjUuNzIgNDc2LjE2QzE0NjMuODUgNDc4Ljc3MyAxNDYyLjkyIDQ4MS43NiAxNDYyLjkyIDQ4NS4xMkMxNDYyLjkyIDQ4OC4xMDcgMTQ2My42NiA0OTAuNTMzIDE0NjUuMTYgNDkyLjRDMTQ2Ni44NCA0OTQuMjY3IDE0NjguODkgNDk1Ljg1MyAxNDcxLjMyIDQ5Ny4xNkMxNDczLjkzIDQ5OC40NjcgMTQ3Ni45MiA0OTkuNjggMTQ4MC4yOCA1MDAuOEMxNDgzLjgyIDUwMS43MzMgMTQ4Ny40NiA1MDIuNjY3IDE0OTEuMiA1MDMuNkMxNDk2LjYxIDUwNC45MDcgMTUwMi4xMiA1MDYuNDkzIDE1MDcuNzIgNTA4LjM2QzE1MTMuNSA1MTAuMDQgMTUxOC42NCA1MTIuMzczIDE1MjMuMTIgNTE1LjM2QzE1MjcuNzggNTE4LjE2IDE1MzEuNTIgNTIxLjk4NyAxNTM0LjMyIDUyNi44NEMxNTM3LjMgNTMxLjUwNyAxNTM4LjggNTM3Ljc2IDE1MzguOCA1NDUuNkMxNTM4LjggNTU3LjkyIDE1MzMuOTQgNTY3LjYyNyAxNTI0LjI0IDU3NC43MkMxNTE0LjUzIDU4MS44MTMgMTUwMS42NSA1ODUuMzYgMTQ4NS42IDU4NS4zNloiIGZpbGw9IiMyRjI0MjEiLz4KPHBhdGggZD0iTTE1OTEuMTUgNTgzLjk2QzE1ODcuNjEgNTgzLjk2IDE1ODQuOSA1ODMuNCAxNTgzLjAzIDU4Mi4yOEMxNTgxLjM1IDU4MS4zNDcgMTU4MC4yMyA1NzkuOTQ3IDE1NzkuNjcgNTc4LjA4QzE1NzkuMTEgNTc2LjIxMyAxNTc4LjgzIDU3My45NzMgMTU3OC44MyA1NzEuMzZWNDYwLjc2QzE1NzguODMgNDU4LjE0NyAxNTc5LjExIDQ1NS45MDcgMTU3OS42NyA0NTQuMDRDMTU4MC4yMyA0NTIuMTczIDE1ODEuMzUgNDUwLjc3MyAxNTgzLjAzIDQ0OS44NEMxNTg0LjkgNDQ4LjkwNyAxNTg3LjcgNDQ4LjQ0IDE1OTEuNDMgNDQ4LjQ0QzE1OTQuOTggNDQ4LjQ0IDE1OTcuNTkgNDQ5IDE1OTkuMjcgNDUwLjEyQzE2MDAuOTUgNDUxLjA1MyAxNjAyLjA3IDQ1Mi40NTMgMTYwMi42MyA0NTQuMzJDMTYwMy4xOSA0NTYuMTg3IDE2MDMuNDcgNDU4LjUyIDE2MDMuNDcgNDYxLjMyVjU3MS42NEMxNjAzLjQ3IDU3NC4yNTMgMTYwMy4xOSA1NzYuNDkzIDE2MDIuNjMgNTc4LjM2QzE2MDIuMDcgNTgwLjIyNyAxNjAwLjg2IDU4MS42MjcgMTU5OC45OSA1ODIuNTZDMTU5Ny4zMSA1ODMuNDkzIDE1OTQuNyA1ODMuOTYgMTU5MS4xNSA1ODMuOTZaTTE1OTEuMTUgNDE0Ljg0QzE1ODcuMDUgNDE0Ljg0IDE1ODMuOTcgNDE0LjI4IDE1ODEuOTEgNDEzLjE2QzE1NzkuODYgNDExLjg1MyAxNTc4LjQ2IDQxMC4wOCAxNTc3LjcxIDQwNy44NEMxNTc3LjE1IDQwNS42IDE1NzYuODcgNDAyLjk4NyAxNTc2Ljg3IDQwMEMxNTc2Ljg3IDM5Ny4wMTMgMTU3Ny4yNSAzOTQuNDkzIDE1NzcuOTkgMzkyLjQ0QzE1NzguNzQgMzkwLjIgMTU4MC4xNCAzODguNjEzIDE1ODIuMTkgMzg3LjY4QzE1ODQuMjUgMzg2LjU2IDE1ODcuMzMgMzg2IDE1OTEuNDMgMzg2QzE1OTUuMzUgMzg2IDE1OTguMzQgMzg2LjU2IDE2MDAuMzkgMzg3LjY4QzE2MDIuNDUgMzg4LjggMTYwMy43NSAzOTAuNDggMTYwNC4zMSAzOTIuNzJDMTYwNS4wNiAzOTQuOTYgMTYwNS40MyAzOTcuNTczIDE2MDUuNDMgNDAwLjU2QzE2MDUuNDMgNDAzLjU0NyAxNjA1LjA2IDQwNi4xNiAxNjA0LjMxIDQwOC40QzE2MDMuNzUgNDEwLjQ1MyAxNjAyLjQ1IDQxMi4wNCAxNjAwLjM5IDQxMy4xNkMxNTk4LjM0IDQxNC4yOCAxNTk1LjI2IDQxNC44NCAxNTkxLjE1IDQxNC44NFoiIGZpbGw9IiMyRjI0MjEiLz4KPHBhdGggZD0iTTE3MDUuNTcgNjM4Ljg0QzE2OTkuMDQgNjM4Ljg0IDE2OTIuNzggNjM4LjA5MyAxNjg2LjgxIDYzNi42QzE2ODAuODQgNjM1LjEwNyAxNjc1LjYxIDYzMy4xNDcgMTY3MS4xMyA2MzAuNzJDMTY2Ni42NSA2MjguMjkzIDE2NjMuMSA2MjUuNjggMTY2MC40OSA2MjIuODhDMTY1Ny44OCA2MjAuMDggMTY1Ni41NyA2MTcuNDY3IDE2NTYuNTcgNjE1LjA0QzE2NTYuNTcgNjEzLjE3MyAxNjU2Ljg1IDYxMS41ODcgMTY1Ny40MSA2MTAuMjhDMTY1Ny45NyA2MDkuMTYgMTY1OC44MSA2MDcuOTQ3IDE2NTkuOTMgNjA2LjY0QzE2NjEuOCA2MDQuNzczIDE2NjMuMjkgNjAzLjQ2NyAxNjY0LjQxIDYwMi43MkMxNjY1LjUzIDYwMS45NzMgMTY2Ny4wMiA2MDEuNiAxNjY4Ljg5IDYwMS42QzE2NzAuNzYgNjAxLjYgMTY3Mi42MiA2MDIuMzQ3IDE2NzQuNDkgNjAzLjg0QzE2NzYuMzYgNjA1LjUyIDE2NzguNiA2MDcuMjkzIDE2ODEuMjEgNjA5LjE2QzE2ODQuMDEgNjExLjIxMyAxNjg3LjM3IDYxMi45ODcgMTY5MS4yOSA2MTQuNDhDMTY5NS40IDYxNi4xNiAxNzAwLjQ0IDYxNyAxNzA2LjQxIDYxN0MxNzEyLjU3IDYxNyAxNzE4LjA4IDYxNi4wNjcgMTcyMi45MyA2MTQuMkMxNzI3Ljc4IDYxMi4zMzMgMTczMS45OCA2MDkuNTMzIDE3MzUuNTMgNjA1LjhDMTczOS4wOCA2MDIuMDY3IDE3NDEuNzggNTk3LjQ5MyAxNzQzLjY1IDU5Mi4wOEMxNzQ1LjUyIDU4Ni44NTMgMTc0Ni40NSA1ODAuODggMTc0Ni40NSA1NzQuMTZMMTc0NS44OSA0NTcuNjhDMTc0Ni4wOCA0NTQuMTMzIDE3NDcuMSA0NTEuNjEzIDE3NDguOTcgNDUwLjEyQzE3NTEuMDIgNDQ4LjYyNyAxNzU0LjIgNDQ3Ljg4IDE3NTguNDkgNDQ3Ljg4QzE3NjIuMDQgNDQ3Ljg4IDE3NjQuNTYgNDQ4LjQ0IDE3NjYuMDUgNDQ5LjU2QzE3NjcuNzMgNDUwLjQ5MyAxNzY4Ljc2IDQ1MS44OTMgMTc2OS4xMyA0NTMuNzZDMTc2OS42OSA0NTUuNDQgMTc2OS45NyA0NTcuNTg3IDE3NjkuOTcgNDYwLjJWNTc2LjEyQzE3NjkuOTcgNTg2LjAxMyAxNzY4LjM4IDU5NC43ODcgMTc2NS4yMSA2MDIuNDRDMTc2Mi4wNCA2MTAuMjggMTc1Ny41NiA2MTYuOTA3IDE3NTEuNzcgNjIyLjMyQzE3NDUuOTggNjI3LjczMyAxNzM5LjE3IDYzMS44NCAxNzMxLjMzIDYzNC42NEMxNzIzLjQ5IDYzNy40NCAxNzE0LjkgNjM4Ljg0IDE3MDUuNTcgNjM4Ljg0Wk0xNzA0LjczIDU4MC44OEMxNjk1Ljc3IDU4MC44OCAxNjg3LjQ2IDU3OS4yOTMgMTY3OS44MSA1NzYuMTJDMTY3Mi4zNCA1NzIuNzYgMTY2NS43MiA1NjguMDkzIDE2NTkuOTMgNTYyLjEyQzE2NTQuMzMgNTU2LjE0NyAxNjQ5Ljk0IDU0OS4xNDcgMTY0Ni43NyA1NDEuMTJDMTY0My43OCA1MzMuMDkzIDE2NDIuMjkgNTI0LjMyIDE2NDIuMjkgNTE0LjhDMTY0Mi4yOSA1MDUuMjggMTY0My43OCA0OTYuNTA3IDE2NDYuNzcgNDg4LjQ4QzE2NDkuOTQgNDgwLjQ1MyAxNjU0LjMzIDQ3My40NTMgMTY1OS45MyA0NjcuNDhDMTY2NS41MyA0NjEuNTA3IDE2NzIuMDYgNDU2LjkzMyAxNjc5LjUzIDQ1My43NkMxNjg3LjE4IDQ1MC40IDE2OTUuNDkgNDQ4LjcyIDE3MDQuNDUgNDQ4LjcyQzE3MTIuNjYgNDQ4LjcyIDE3MjAuMTMgNDUwLjMwNyAxNzI2Ljg1IDQ1My40OEMxNzMzLjU3IDQ1Ni42NTMgMTczOS4yNiA0NjEuMjI3IDE3NDMuOTMgNDY3LjJDMTc0OC43OCA0NzIuOTg3IDE3NTIuNDIgNDc5Ljg5MyAxNzU0Ljg1IDQ4Ny45MkMxNzU3LjI4IDQ5NS45NDcgMTc1OC40OSA1MDQuOTA3IDE3NTguNDkgNTE0LjhDMTc1OC40OSA1MjguMjQgMTc1Ni4zNCA1MzkuOTA3IDE3NTIuMDUgNTQ5LjhDMTc0Ny43NiA1NTkuNjkzIDE3NDEuNiA1NjcuMzQ3IDE3MzMuNTcgNTcyLjc2QzE3MjUuNTQgNTc4LjE3MyAxNzE1LjkzIDU4MC44OCAxNzA0LjczIDU4MC44OFpNMTcwNi4xMyA1NTcuOTJDMTcxMy42IDU1Ny45MiAxNzIwLjMyIDU1Ni4wNTMgMTcyNi4yOSA1NTIuMzJDMTczMi4yNiA1NDguNTg3IDE3MzcuMDIgNTQzLjQ1MyAxNzQwLjU3IDUzNi45MkMxNzQ0LjEyIDUzMC4zODcgMTc0NS44OSA1MjIuODI3IDE3NDUuODkgNTE0LjI0QzE3NDUuODkgNTA1Ljg0IDE3NDQuMTIgNDk4LjQ2NyAxNzQwLjU3IDQ5Mi4xMkMxNzM3LjAyIDQ4NS41ODcgMTczMi4xNyA0ODAuNTQ3IDE3MjYuMDEgNDc3QzE3MjAuMDQgNDczLjQ1MyAxNzEzLjIyIDQ3MS42OCAxNzA1LjU3IDQ3MS42OEMxNjk3LjkyIDQ3MS42OCAxNjkxLjEgNDczLjQ1MyAxNjg1LjEzIDQ3N0MxNjc5LjE2IDQ4MC41NDcgMTY3NC40OSA0ODUuNTg3IDE2NzEuMTMgNDkyLjEyQzE2NjcuOTYgNDk4LjQ2NyAxNjY2LjM3IDUwNS45MzMgMTY2Ni4zNyA1MTQuNTJDMTY2Ni4zNyA1MjMuMTA3IDE2NjguMDUgNTMwLjY2NyAxNjcxLjQxIDUzNy4yQzE2NzQuNzcgNTQzLjU0NyAxNjc5LjQ0IDU0OC41ODcgMTY4NS40MSA1NTIuMzJDMTY5MS4zOCA1NTYuMDUzIDE2OTguMjkgNTU3LjkyIDE3MDYuMTMgNTU3LjkyWiIgZmlsbD0iIzJGMjQyMSIvPgo8cGF0aCBkPSJNMTgyNy40OSA1ODMuNjhDMTgyMy45NCA1ODMuNjggMTgyMS4yNCA1ODMuMTIgMTgxOS4zNyA1ODJDMTgxNy42OSA1ODEuMDY3IDE4MTYuNTcgNTc5LjY2NyAxODE2LjAxIDU3Ny44QzE4MTUuNjQgNTc1LjkzMyAxODE1LjQ1IDU3My42OTMgMTgxNS40NSA1NzEuMDhWNDU5LjkyQzE4MTUuNDUgNDU3LjQ5MyAxODE1LjczIDQ1NS40NCAxODE2LjI5IDQ1My43NkMxODE2Ljg1IDQ1Mi4wOCAxODE3Ljk3IDQ1MC43NzMgMTgxOS42NSA0NDkuODRDMTgyMS41MiA0NDguOTA3IDE4MjQuMjIgNDQ4LjQ0IDE4MjcuNzcgNDQ4LjQ0QzE4MzAuNTcgNDQ4LjQ0IDE4MzIuNzIgNDQ4LjgxMyAxODM0LjIxIDQ0OS41NkMxODM1Ljg5IDQ1MC4xMiAxODM3LjAxIDQ1MC45NiAxODM3LjU3IDQ1Mi4wOEMxODM4LjMyIDQ1My4yIDE4MzguNzggNDU0LjQxMyAxODM4Ljk3IDQ1NS43MkMxODM5LjE2IDQ1Ny4wMjcgMTgzOS4yNSA0NTguMjQgMTgzOS4yNSA0NTkuMzZMMTgzOC42OSA0NzIuMjRDMTg0MC41NiA0NjkuMDY3IDE4NDIuODkgNDY2LjA4IDE4NDUuNjkgNDYzLjI4QzE4NDguNDkgNDYwLjI5MyAxODUxLjc2IDQ1Ny42OCAxODU1LjQ5IDQ1NS40NEMxODU5LjIyIDQ1My4wMTMgMTg2My4yNCA0NTEuMTQ3IDE4NjcuNTMgNDQ5Ljg0QzE4NzIuMDEgNDQ4LjUzMyAxODc2Ljc3IDQ0Ny44OCAxODgxLjgxIDQ0Ny44OEMxODkwLjAyIDQ0Ny44OCAxODk3LjU4IDQ0OS4zNzMgMTkwNC40OSA0NTIuMzZDMTkxMS40IDQ1NS4xNiAxOTE3LjI4IDQ1OS4zNiAxOTIyLjEzIDQ2NC45NkMxOTI3LjE3IDQ3MC4zNzMgMTkzMSA0NzYuOTA3IDE5MzMuNjEgNDg0LjU2QzE5MzYuNDEgNDkyLjIxMyAxOTM3LjgxIDUwMC44OTMgMTkzNy44MSA1MTAuNlY1NzEuMzZDMTkzNy44MSA1NzMuOTczIDE5MzcuNTMgNTc2LjIxMyAxOTM2Ljk3IDU3OC4wOEMxOTM2LjYgNTc5Ljk0NyAxOTM1LjQ4IDU4MS4zNDcgMTkzMy42MSA1ODIuMjhDMTkzMS45MyA1ODMuMjEzIDE5MjkuMzIgNTgzLjY4IDE5MjUuNzcgNTgzLjY4QzE5MjIuMDQgNTgzLjY4IDE5MTkuMjQgNTgzLjEyIDE5MTcuMzcgNTgyQzE5MTUuNjkgNTgxLjA2NyAxOTE0LjU3IDU3OS42NjcgMTkxNC4wMSA1NzcuOEMxOTEzLjQ1IDU3NS45MzMgMTkxMy4xNyA1NzMuNjkzIDE5MTMuMTcgNTcxLjA4VjUxMC4zMkMxOTEzLjE3IDUwMi40OCAxOTExLjg2IDQ5NS42NjcgMTkwOS4yNSA0ODkuODhDMTkwNi42NCA0ODQuMDkzIDE5MDIuNzIgNDc5LjYxMyAxODk3LjQ5IDQ3Ni40NEMxODkyLjI2IDQ3My4wOCAxODg1LjY0IDQ3MS40IDE4NzcuNjEgNDcxLjRDMTg2OS45NiA0NzEuNCAxODYzLjI0IDQ3My4wOCAxODU3LjQ1IDQ3Ni40NEMxODUxLjg1IDQ3OS42MTMgMTg0Ny40NiA0ODQuMDkzIDE4NDQuMjkgNDg5Ljg4QzE4NDEuMyA0OTUuNjY3IDE4MzkuODEgNTAyLjQ4IDE4MzkuODEgNTEwLjMyVjU3MS4zNkMxODM5LjgxIDU3My45NzMgMTgzOS41MyA1NzYuMjEzIDE4MzguOTcgNTc4LjA4QzE4MzguNDEgNTc5Ljk0NyAxODM3LjIgNTgxLjM0NyAxODM1LjMzIDU4Mi4yOEMxODMzLjY1IDU4My4yMTMgMTgzMS4wNCA1ODMuNjggMTgyNy40OSA1ODMuNjhaIiBmaWxsPSIjMkYyNDIxIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfNDRfMTAiPgo8cmVjdCB3aWR0aD0iMjA0OCIgaGVpZ2h0PSIxMDI0IiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=" alt="dewy design logo" style="height:44px;width:auto;object-fit:contain;" />
   </a>
   <ul class="nav-links">
     <li><a href="#categories">Shop</a></li>
@@ -221,42 +309,42 @@
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-cart" onclick="showToast('🛒 Cart coming soon!')">Cart 0</button>
+  <div class="nav-actions">
+    <button class="nav-cart" id="cart-nav-btn" onclick="toggleCart()">Cart (0)</button>
+  </div>
 </nav>
 
-<!-- ─── HERO ─────────────────────────────────── -->
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-text">
       <p class="label">✦ Digital Design Store</p>
       <h1>Design that makes<br />your everyday<br /><span class="hero-break"></span><em>more beautiful</em></h1>
-      <p>Clarity in beauty. Function in form.
-Every template, illustration, and kit is made to bring intention to your daily workflow.</p>
+      <p>Clarity in beauty. Function in form. Every template, illustration, and kit is made to bring intention to your daily workflow.</p>
       <div class="hero-cta">
         <a href="#products" class="btn-primary">Browse Products</a>
         <a href="#contact" class="btn-outline">Custom Order</a>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-card" onclick="openPayModal('📊 Monthly Budget Excel','$8.99')">
+      <div class="hero-card" onclick="showProductPage()">
         <div class="card-icon">📊</div>
-        <div class="card-name">Budget Planner</div>
+        <div class="card-name">2026 Budget Planner</div>
         <div class="card-sub">Excel Template</div>
         <div class="card-price">$8.99</div>
       </div>
-      <div class="hero-card" onclick="openPayModal('🌿 GoodNotes Study Kit','$6.99')">
+      <div class="hero-card" onclick="openPayModal('🌿 GoodNotes Study Kit','$6.99', '🌿')">
         <div class="card-icon">🌿</div>
         <div class="card-name">Study Kit</div>
         <div class="card-sub">GoodNotes</div>
         <div class="card-price">$6.99</div>
       </div>
-      <div class="hero-card" onclick="openPayModal('🗂 Notion Life OS','$12.99')">
+      <div class="hero-card" onclick="openPayModal('🗂 Notion Life OS','$12.99', '🗂')">
         <div class="card-icon">🗂</div>
         <div class="card-name">Life OS</div>
         <div class="card-sub">Notion Template</div>
         <div class="card-price">$12.99</div>
       </div>
-      <div class="hero-card" onclick="openPayModal('🎨 Brand Kit Bundle','$24.99')">
+      <div class="hero-card" onclick="openPayModal('🎨 Brand Kit Bundle','$24.99', '🎨')">
         <div class="card-icon">🎨</div>
         <div class="card-name">Brand Kit</div>
         <div class="card-sub">Branding Pack</div>
@@ -266,7 +354,6 @@ Every template, illustration, and kit is made to bring intention to your daily w
   </div>
 </section>
 
-<!-- ─── CATEGORIES ─────────────────────────── -->
 <section id="categories">
   <div class="section-head">
     <p class="section-label">Categories</p>
@@ -274,35 +361,14 @@ Every template, illustration, and kit is made to bring intention to your daily w
     <p class="section-desc">Select a category to discover what you need.</p>
   </div>
   <div class="cat-grid">
-    <a href="#products" class="cat-item">
-      <div class="cat-emoji">📊</div>
-      <div class="cat-name">Excel Templates</div>
-      <div class="cat-count">Budget · Planner · Business</div>
-    </a>
-    <a href="#products" class="cat-item">
-      <div class="cat-emoji">📓</div>
-      <div class="cat-name">GoodNotes</div>
-      <div class="cat-count">Diary · Study · Weekly</div>
-    </a>
-    <a href="#products" class="cat-item">
-      <div class="cat-emoji">🗂</div>
-      <div class="cat-name">Notion Templates</div>
-      <div class="cat-count">Life · Work · Reading Log</div>
-    </a>
-    <a href="#products" class="cat-item">
-      <div class="cat-emoji">🖼</div>
-      <div class="cat-name">Illustrations</div>
-      <div class="cat-count">Characters · Patterns · Clipart</div>
-    </a>
-    <a href="#products" class="cat-item">
-      <div class="cat-emoji">✨</div>
-      <div class="cat-name">Branding Design</div>
-      <div class="cat-count">Logo · Business Card · SNS Kit</div>
-    </a>
+    <a href="#products" class="cat-item"><div class="cat-emoji">📊</div><div class="cat-name">Excel Templates</div><div class="cat-count">Budget · Planner · Business</div></a>
+    <a href="#products" class="cat-item"><div class="cat-emoji">📓</div><div class="cat-name">GoodNotes</div><div class="cat-count">Diary · Study · Weekly</div></a>
+    <a href="#products" class="cat-item"><div class="cat-emoji">🗂</div><div class="cat-name">Notion Templates</div><div class="cat-count">Life · Work · Reading Log</div></a>
+    <a href="#products" class="cat-item"><div class="cat-emoji">🖼</div><div class="cat-name">Illustrations</div><div class="cat-count">Characters · Patterns · Clipart</div></a>
+    <a href="#products" class="cat-item"><div class="cat-emoji">✨</div><div class="cat-name">Branding Design</div><div class="cat-count">Logo · Business Card · SNS Kit</div></a>
   </div>
 </section>
 
-<!-- ─── PRODUCTS ──────────────────────────── -->
 <section id="products">
   <div class="section-head">
     <p class="section-label">Products</p>
@@ -310,268 +376,486 @@ Every template, illustration, and kit is made to bring intention to your daily w
     <p class="section-desc">Elevate your everyday with thoughtful design.</p>
   </div>
   <div class="product-grid">
-
-    <div class="product-card" onclick="openPayModal('📊 Monthly Budget Excel Pack','$8.99')">
+    <div class="product-card" onclick="showProductPage()">
       <div class="product-thumb" style="background:#fdf0e8;">📊<span class="badge">BEST</span></div>
       <div class="product-body">
         <div class="product-tag">Excel Template</div>
-        <div class="product-name">Monthly Budget Excel Pack</div>
-        <div class="product-desc">Auto-calculated income & expense tracker in a fresh pastel layout — make budgeting enjoyable.</div>
+        <div class="product-name">2026 Dewy Budget Planner</div>
+        <div class="product-desc">Auto-calculated income &amp; expense tracker in a fresh pastel layout — make budgeting enjoyable.</div>
         <div class="product-footer">
           <span class="product-price">$8.99</span>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="showProductPage(); event.stopPropagation();">View Details</button>
         </div>
       </div>
     </div>
-
-    <div class="product-card" onclick="openPayModal('🌿 GoodNotes All-in-One Study Kit','$6.99')">
+    <div class="product-card">
       <div class="product-thumb" style="background:rgba(93,222,200,0.12);">📓</div>
       <div class="product-body">
         <div class="product-tag">GoodNotes</div>
         <div class="product-name">All-in-One Study Kit</div>
-        <div class="product-desc">Weekly, daily & monthly planners + note templates. Study beautifully.</div>
+        <div class="product-desc">Weekly, daily &amp; monthly planners + note templates. Study beautifully and track your progress.</div>
         <div class="product-footer">
           <span class="product-price">$6.99</span>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="addToCart('All-in-One Study Kit', 6.99, '📓'); event.stopPropagation();">Add to Cart</button>
         </div>
       </div>
     </div>
-
-    <div class="product-card" onclick="openPayModal('🗂 Notion Life OS Pro','$12.99')">
+    <div class="product-card">
       <div class="product-thumb" style="background:#edf5f8;">🗂<span class="badge">NEW</span></div>
       <div class="product-body">
         <div class="product-tag">Notion Template</div>
         <div class="product-name">Life OS Pro</div>
-        <div class="product-desc">Goals, reading, habits, diary — all in one space. Manage your whole life in Notion.</div>
+        <div class="product-desc">Goals, reading, habits, diary — all in one space. Manage your whole life in Notion seamlessly.</div>
         <div class="product-footer">
           <span class="product-price">$12.99</span>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="addToCart('Life OS Pro', 12.99, '🗂'); event.stopPropagation();">Add to Cart</button>
         </div>
       </div>
     </div>
-
-    <div class="product-card" onclick="openPayModal('🎨 Minimal Brand Kit','$24.99')">
+    <div class="product-card">
       <div class="product-thumb" style="background:#faeae0;">🎨</div>
       <div class="product-body">
         <div class="product-tag">Branding Pack</div>
         <div class="product-name">Minimal Brand Kit</div>
-        <div class="product-desc">Logo + business card + SNS feed + Instagram story templates — brand in a box.</div>
+        <div class="product-desc">Logo + business card + SNS feed + Instagram story templates — brand in a box for creators.</div>
         <div class="product-footer">
           <span class="product-price">$24.99</span>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="addToCart('Minimal Brand Kit', 24.99, '🎨'); event.stopPropagation();">Add to Cart</button>
         </div>
       </div>
     </div>
-
-    <div class="product-card" onclick="openPayModal('🖼 Pastel Clipart Set · 40 pcs','$5.99')">
+    <div class="product-card">
       <div class="product-thumb" style="background:#f0e8f4;">🖼</div>
       <div class="product-body">
         <div class="product-tag">Illustration</div>
         <div class="product-name">Pastel Clipart Set · 40 pcs</div>
-        <div class="product-desc">Commercial use OK · High-res PNG · Perfect for GoodNotes, PPT & sticker printing.</div>
+        <div class="product-desc">Commercial use OK · High-res PNG · Perfect for GoodNotes, presentations &amp; sticker printing.</div>
         <div class="product-footer">
           <span class="product-price">$5.99</span>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="addToCart('Pastel Clipart Set · 40 pcs', 5.99, '🖼'); event.stopPropagation();">Add to Cart</button>
         </div>
       </div>
     </div>
-
-    <div class="product-card" onclick="openPayModal('📅 Annual Planner 2025','$7.99')">
+    <div class="product-card">
       <div class="product-thumb" style="background:#e8f0f4;">📅<span class="badge">SALE</span></div>
       <div class="product-body">
         <div class="product-tag">Excel + PDF</div>
         <div class="product-name">Annual Planner 2025</div>
-        <div class="product-desc">Yearly, quarterly, monthly & weekly — 4-level planner. Printable PDF + editable Excel included.</div>
+        <div class="product-desc">Yearly, quarterly, monthly &amp; weekly — 4-level planner. Printable PDF + editable Excel included.</div>
         <div class="product-footer">
           <span class="product-price">$7.99</span>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="addToCart('Annual Planner 2025', 7.99, '📅'); event.stopPropagation();">Add to Cart</button>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ─── ABOUT ─────────────────────────────── -->
 <section id="about">
   <div class="about-inner">
     <div class="about-visual">
       <div class="about-avatar">🌸</div>
-      <div class="about-name">dwey</div>
-      <div class="about-role">Digital Designer · Creator</div>
+      <div class="about-name">Chloe</div>
+      <div class="about-role">Digital Designer &amp; Curator</div>
       <div class="about-tags">
         <span class="about-tag">🎨 Illustration</span>
         <span class="about-tag">📐 Templates</span>
         <span class="about-tag">✨ Branding</span>
-        <span class="about-tag">🌿 Pastel</span>
+        <span class="about-tag">🌿 Pastel Minimal</span>
       </div>
     </div>
     <div class="about-text">
-      <p class="section-label">About</p>
-      <h2 class="section-title">Hi, I'm dwey 🌸</h2>
-      <p class="section-desc">
-        I'm a designer who loves beautiful things and organized spaces.<br /><br />
-        Every product here is something I'd use myself — made with care so your everyday feels a little more joyful.<br /><br />
-        I hope dwey design becomes a small moment of delight in your day ☁️
-      </p>
+      <p class="label">The Designer behind Dewy</p>
+      <h2>Meet Chloe, bringing clean and calming layouts to your screens</h2>
+      <p>Hello! I'm Chloe. I design digital stationery and professional business templates to help you structure your life beautifully. I believe that productivity tools don't have to be sterile; they can be warm, intuitive, and a genuine delight to use every day.</p>
+      <p>Dewy Design was born out of a desire to merge clean, minimalist aesthetics with robust functionality. From pastel-hued budget dashboards to hyperlinked notebooks, every product is hand-crafted and thoroughly tested to elevate your creative and analytical workflows.</p>
       <div class="about-stats">
-        <div class="stat-box"><div class="stat-num">120+</div><div class="stat-label">Products</div></div>
-        <div class="stat-box"><div class="stat-num">2,400+</div><div class="stat-label">Happy Customers</div></div>
-        <div class="stat-box"><div class="stat-num">4.9 ⭐</div><div class="stat-label">Avg. Rating</div></div>
-        <div class="stat-box"><div class="stat-num">Instant</div><div class="stat-label">Download</div></div>
+        <div class="stat-box"><div class="stat-num">15k+</div><div class="stat-label">Happy Creators</div></div>
+        <div class="stat-box"><div class="stat-num">4.9★</div><div class="stat-label">Average Rating</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── PROCESS ────────────────────────────── -->
 <section id="process">
   <div class="section-head">
-    <p class="section-label">How It Works</p>
-    <h2 class="section-title">Super Simple Process</h2>
-    <p class="section-desc">Download link sent to your email instantly after purchase.</p>
+    <p class="section-label">How it works</p>
+    <h2 class="section-title">Seamless Digital Delivery</h2>
+    <p class="section-desc">Our design assets are ready to use instantly from the comfort of your workspace.</p>
   </div>
   <div class="process-grid">
-    <div class="process-item"><div class="process-icon">🔍</div><div class="process-title">Browse</div><div class="process-desc">Find the template or design you love.</div></div>
-    <div class="process-item"><div class="process-icon">💳</div><div class="process-title">Pay Securely</div><div class="process-desc">Card, PayPal, and more — fast and safe checkout.</div></div>
-    <div class="process-item"><div class="process-icon">📧</div><div class="process-title">Check Email</div><div class="process-desc">Instant download link delivered straight to your inbox.</div></div>
-    <div class="process-item"><div class="process-icon">⬇️</div><div class="process-title">Download & Enjoy</div><div class="process-desc">Click the link and start using — no installation needed.</div></div>
+    <div class="process-item"><div class="process-icon">🛍️</div><h3 class="process-title">Choose Asset</h3><p class="process-desc">Browse our curated collection of templates, planners, and brand assets.</p></div>
+    <div class="process-item"><div class="process-icon">💳</div><h3 class="process-title">Secure Checkout</h3><p class="process-desc">Use our secured billing pipeline with instant validation for global cards.</p></div>
+    <div class="process-item"><div class="process-icon">⚡</div><h3 class="process-title">Instant Download</h3><p class="process-desc">Receive an instant download link in your inbox to get started right away.</p></div>
+    <div class="process-item"><div class="process-icon">✨</div><h3 class="process-title">Elevate Life</h3><p class="process-desc">Import into your favorite programs like Excel, Notion, or GoodNotes instantly.</p></div>
   </div>
 </section>
 
-<!-- ─── CONTACT ────────────────────────────── -->
 <section id="contact">
   <div class="contact-inner">
-    <div class="section-head" style="text-align:center;">
-      <p class="section-label">Contact</p>
-      <h2 class="section-title">Get in Touch</h2>
-      <p class="section-desc" style="margin:0 auto;">Custom orders, collabs, or any questions — I'll reply within 1–2 days 💌</p>
+    <div class="section-head" style="text-align: center;">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-title">Custom Order &amp; Inquiries</h2>
+      <p class="section-desc" style="margin: 0 auto;">Need a bespoke Excel dashboard or custom business brand asset kit? Let us know what you're imagining!</p>
     </div>
-    <form class="contact-form" onsubmit="handleContact(event)">
+    <form class="contact-form" onsubmit="handleContactSubmit(event)">
       <div class="form-row">
-        <div class="form-group"><label>Name *</label><input type="text" id="c-name" placeholder="Your name" required /></div>
-        <div class="form-group"><label>Email *</label><input type="email" id="c-email" placeholder="hello@email.com" required /></div>
+        <div class="form-group"><label for="contact-name">Name</label><input type="text" id="contact-name" placeholder="Your name" required /></div>
+        <div class="form-group"><label for="contact-email">Email Address</label><input type="email" id="contact-email" placeholder="you@example.com" required /></div>
       </div>
       <div class="form-group">
-        <label>Inquiry Type</label>
-        <select id="c-type">
-          <option>Custom Order</option>
-          <option>General Question</option>
-          <option>Payment / Download Issue</option>
-          <option>Collaboration</option>
-          <option>Other</option>
+        <label for="contact-type">Inquiry Type</label>
+        <select id="contact-type">
+          <option value="custom-excel">Bespoke Excel Template</option>
+          <option value="custom-brand">Custom Brand Design</option>
+          <option value="goodnotes-planner">Personalized Digital Planner</option>
+          <option value="other">General Question / Partnership</option>
         </select>
       </div>
-      <div class="form-group"><label>Subject</label><input type="text" id="c-subject" placeholder="What's it about?" /></div>
-      <div class="form-group"><label>Message *</label><textarea id="c-message" placeholder="Tell me what you need! For custom orders, include size, colors, and intended use." required></textarea></div>
-      <button type="submit" class="submit-btn">✉️ Send Message</button>
+      <div class="form-group"><label for="contact-msg">Your Message</label><textarea id="contact-msg" placeholder="Tell us about your project goals, timeline, and layout details..." required></textarea></div>
+      <button type="submit" class="submit-btn">Send Message ✉</button>
     </form>
     <div class="contact-info">
-      <div class="contact-info-item">📧 <strong>chloe@dewydesign.com</strong></div>
-      <div class="contact-info-item">⏰ <span>Response within <strong>1–2 days</strong></span></div>
-      <div class="contact-info-item">🌏 <strong>Worldwide · Digital Delivery</strong></div>
+      <div class="contact-info-item"><strong>📍 Nampa, Idaho</strong></div>
+      <div class="contact-info-item"><strong>✉ hello@dewydesign.co</strong></div>
+      <div class="contact-info-item"><strong>🕒 Response time: &lt; 24h</strong></div>
     </div>
   </div>
 </section>
 
-<!-- ─── FOOTER ────────────────────────────── -->
-<footer>
-  <div class="footer-logo">Dewy <span>Design</span></div>
-  <div class="footer-links">
-    <a href="#">Terms of Use</a>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Refund Policy</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div class="footer-copy">© 2026 dewy design. All rights reserved.</div>
-</footer>
-
-<!-- ─── PAYMENT MODAL ─────────────────────── -->
 <div class="modal-overlay" id="payModal">
   <div class="modal">
     <div class="modal-header">
-      <div class="modal-title">Checkout</div>
-      <button class="modal-close" onclick="closePayModal()">✕</button>
+      <h3 class="modal-title">Complete Checkout</h3>
+      <button class="modal-close" onclick="closePayModal()">×</button>
     </div>
     <div class="modal-product">
-      <div class="modal-product-thumb" id="m-thumb">📊</div>
+      <div class="modal-product-thumb" id="modalThumb">📊</div>
       <div class="modal-product-info">
-        <div class="name" id="m-name">Product</div>
-        <div class="price" id="m-price">$0.00</div>
+        <div class="name" id="modalProdName">Monthly Budget Excel Pack</div>
+        <div class="price" id="modalProdPrice">$8.99</div>
       </div>
     </div>
-    <div class="modal-section-title">Payment Method</div>
+    <p class="modal-section-title">Payment Method</p>
     <div class="payment-methods">
-      <div class="pay-method selected" onclick="selectPay(this)"><span class="pay-icon">💳</span>Card</div>
-      <div class="pay-method" onclick="selectPay(this)"><span class="pay-icon">🅿️</span>PayPal</div>
-      <div class="pay-method" onclick="selectPay(this)"><span class="pay-icon">🍎</span>Apple Pay</div>
-      <div class="pay-method" onclick="selectPay(this)"><span class="pay-icon">🇬</span>Google Pay</div>
-      <div class="pay-method" onclick="selectPay(this)"><span class="pay-icon">₿</span>Crypto</div>
-      <div class="pay-method" onclick="selectPay(this)"><span class="pay-icon">🏦</span>Bank</div>
+      <div class="pay-method selected" onclick="selectPayMethod(this, 'card')"><span class="pay-icon">💳</span>Credit Card</div>
+      <div class="pay-method" onclick="selectPayMethod(this, 'paypal')"><span class="pay-icon">🅿️</span>PayPal</div>
+      <div class="pay-method" onclick="selectPayMethod(this, 'apple')"><span class="pay-icon">🍏</span>Apple Pay</div>
     </div>
-    <div class="modal-section-title">Your Details</div>
-    <div class="modal-form">
-      <input type="text" placeholder="Full name" />
-      <input type="email" placeholder="Email address (download link will be sent here)" />
-    </div>
-    <div class="modal-section-title">Card Information</div>
-    <div class="modal-form">
-      <input type="text" placeholder="Card number  1234  5678  9012  3456" maxlength="19" oninput="formatCard(this)" />
-      <div class="card-row">
-        <input type="text" placeholder="Cardholder name" />
-        <input type="text" placeholder="MM / YY" maxlength="5" oninput="formatExpiry(this)" />
-        <input type="text" placeholder="CVC" maxlength="3" />
+    <form onsubmit="handlePaymentSubmit(event)">
+      <div class="modal-form" id="cardInputs">
+        <input type="text" placeholder="Email Address" required id="billingEmail" />
+        <input type="text" placeholder="Cardholder Name" required />
+        <input type="text" placeholder="Card Number (0000 0000 0000 0000)" required id="cardNumber" oninput="formatCardNumber(this)" maxlength="19" />
+        <div class="card-row">
+          <input type="text" placeholder="MM/YY" required id="cardExpiry" oninput="formatExpiry(this)" maxlength="5" />
+          <input type="text" placeholder="CVC" required id="cardCvc" maxlength="3" />
+          <input type="text" placeholder="Zip" required />
+        </div>
       </div>
-    </div>
-    <div class="order-total">
-      <div class="total-row"><span>Subtotal</span><span id="t-sub">$0.00</span></div>
-      <div class="total-row"><span>Tax (10%)</span><span id="t-tax">$0.00</span></div>
-      <div class="total-row final"><span>Total</span><span id="t-total">$0.00</span></div>
-    </div>
-    <button class="pay-btn" onclick="handlePay()">🔒 Complete Purchase</button>
-    <p class="secure-note">🔐 SSL Encrypted · Secure Payment · Instant Email Delivery</p>
+      <div class="order-total">
+        <div class="total-row"><span>Subtotal</span><span id="orderSubtotal">$8.99</span></div>
+        <div class="total-row"><span>Sales Tax (0%)</span><span>$0.00</span></div>
+        <div class="total-row final"><span>Total Price</span><span id="orderTotal">$8.99</span></div>
+      </div>
+      <button type="submit" class="pay-btn" id="paySubmitBtn">Secure Checkout</button>
+    </form>
+    <div class="secure-note">🔒 SSL Encrypted &amp; Secure Digital Receipt Issued</div>
   </div>
 </div>
 
-<div id="toast"></div>
+<div class="cart-backdrop" id="cartBackdrop" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>Your Shopping Cart</h3>
+    <button class="close-cart-btn" onclick="toggleCart()">×</button>
+  </div>
+  <div class="cart-items-container" id="cartItemsContainer"></div>
+  <div class="cart-footer">
+    <div class="cart-total-row"><span>Total</span><span id="cartTotalSum">$0.00</span></div>
+    <button class="checkout-btn" onclick="checkoutAllCart()">Checkout All Items</button>
+  </div>
+</div>
+
+<footer>
+  <a href="#" class="footer-logo">FOOTER_<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjA0OCIgaGVpZ2h0PSIxMDI0IiB2aWV3Qm94PSIwIDAgMjA0OCAxMDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfNDRfMTApIj4KPHBhdGggZD0iTTg5OS45NTYgMzc1QzkwNy40OTUgMzczLjUzMyA5MTIuNTk0IDM3Ni45MDYgOTE5LjQ5NSAzODEuNzQzQzkyNi4zOTYgMzg1Ljc3NCA5MzMuMTIgMzg2LjAzMiA5NDIuNDk1IDM4Ni4wMzJDOTQzLjUyNiAzODUuODkyIDk0NC42NzEgMzg1LjcxNyA5NDUuODk4IDM4NS41MjlDOTU3Ljc2OSAzODMuNzE4IDk3Ny4zNDIgMzgwLjczMiA5NzUuNzM3IDM5Ni4wOTRDOTcyLjczMSA0MDcuNTc0IDk3MC41NzggNDI5LjA3MSA5NjkuODc4IDQzOC4zODRDOTY5LjY4MSA0NDMuMjMxIDk2OS45MTMgNDUwLjIxMSA5NzAuMTQyIDQ1Ny4xMTFDOTcwLjM2OSA0NjMuOTI3IDk3MC41OTIgNDcwLjY2NiA5NzAuMzk4IDQ3NS4xOTVDOTY5LjYxNyA0OTYuNjggOTY5LjE2MSA1MTkuMzM2IDk2OS4wMzEgNTQzLjE2NEM5NjkuMDMxIDU1Ni40NDUgOTY4LjE4NSA1NjkuNTMxIDk2Ni40OTIgNTgyLjQyMkM5NjQuNzk5IDYwMC4xOTUgOTYyLjE5NSA2MTIuMzcgOTU4LjU1IDYyMy44MjhDOTU1LjAzNCA2MzUuNDE3IDk1MC40MTIgNjQ2LjA5NCA5NDQuNjgyIDY1NS44NTlDOTM5LjA4NCA2NjUuNzU1IDkzMi4xODIgNjc0LjIxOSA5MjMuOTc5IDY4MS4yNUM5MTUuOTA2IDY4OC40MTEgOTA2LjQ2NiA2OTQuMDEgODk1LjY1OSA2OTguMDQ3Qzg4NC45ODIgNzAyLjA4MyA4NzIuODcyIDcwNC4xMDIgODU5LjMzMSA3MDQuMTAyQzg0Ni43MDEgNzA0LjEwMiA4MzUuNzYzIDcwMi43OTkgODI2LjUxOCA3MDAuMTk1QzgxNy4yNzQgNjk3LjU5MSA4MDkuNTkxIDY5My44OCA4MDMuNDcxIDY4OS4wNjJDNzk3LjQ4MiA2ODQuMzc1IDc5Mi45OSA2NzguNzExIDc4OS45OTUgNjcyLjA3Qzc4Ny4xMyA2NjUuNDMgNzg1LjY5OCA2NTguMTM4IDc4NS42OTggNjUwLjE5NUM3ODUuNjk4IDY0Mi4yNTMgNzg3LjA2NSA2MzUuMDI2IDc4OS44IDYyOC41MTZDNzkyLjUzNCA2MjIuMTM1IDc5Ni4xMTUgNjE2LjczMiA4MDAuNTQyIDYxMi4zMDVDODA0Ljk2OSA2MDcuODc4IDgwOS45ODIgNjA0LjQ5MiA4MTUuNTgxIDYwMi4xNDhDODIxLjE4IDU5OS42NzUgODI2Ljg0NCA1OTguNDM4IDgzMi41NzMgNTk4LjQzOEM4MzkuODY0IDU5OC40MzggODQ2Ljc2NiA2MDAuNTIxIDg1My4yNzYgNjA0LjY4OEM4NjUuMDUgNjEzLjU1NiA4NjEuMzA3IDYyMS4xNDMgODU3Ljk2NCA2MjMuODI4Qzg1Ni41MzEgNjI0LjQ3OSA4NTUuMjI5IDYyNS4zOTEgODU0LjA1NyA2MjYuNTYyQzg1Mi44ODYgNjI3LjczNCA4NTEuOTA5IDYyOS4wMzcgODUxLjEyOCA2MzAuNDY5Qzg1MC40NzcgNjMyLjAzMSA4NTAuMTUxIDYzMy42NTkgODUwLjE1MSA2MzUuMzUyQzg1MC4xNTEgNjM3LjMwNSA4NTAuNTQyIDYzOC45MzIgODUxLjMyMyA2NDAuMjM0Qzg1Mi4xMDQgNjQxLjY2NyA4NTMuMDE2IDY0Mi43NzMgODU0LjA1NyA2NDMuNTU1Qzg1NS4yMjkgNjQ0LjMzNiA4NTYuNDY2IDY0NC44NTcgODU3Ljc2OCA2NDUuMTE3Qzg1OS4yIDY0NS41MDggODYwLjUwMyA2NDUuNzAzIDg2MS42NzUgNjQ1LjcwM0M4NjMuNDk3IDY0NS43MDMgODY1Ljc3NiA2NDUuMzEyIDg2OC41MTEgNjQ0LjUzMUM4NzEuMjQ1IDY0My43NSA4NzQuMDQ1IDY0Mi4xMjIgODc2LjkwOSA2MzkuNjQ4Qzg3OS45MDQgNjM3LjE3NCA4ODIuODM0IDYzMy43MjQgODg1LjY5OCA2MjkuMjk3Qzg4OC42OTMgNjI0Ljg3IDg5MS4yOTcgNjE4Ljk0NSA4OTMuNTExIDYxMS41MjNDODk1Ljg1NCA2MDQuMjMyIDg5Ny42NzcgNTk1LjMxMiA4OTkuMTA5IDU3OS44ODNDODk5LjE3NCA1NzEuMDY3IDg5Ny41MDcgNTU1LjU5OSA4OTAuMzIgNTY0LjI1OEM4ODYuNjc0IDU2OS44NTcgODgyLjc2OCA1NzQuMjE5IDg3OC42MDEgNTc3LjM0NEM4NzQuNTY1IDU4MC40NjkgODcwLjI2OCA1ODIuNTUyIDg2NS43MTEgNTgzLjU5NEM4NjEuMjg0IDU4NC42MzUgODU2LjUzMSA1ODUuMTU2IDg1MS40NTMgNTg1LjE1NkM4NDUuMDczIDU4NS4xNTYgODM4LjM2NyA1ODQuMDQ5IDgzMS4zMzYgNTgxLjgzNkM4MjQuNDM1IDU3OS40OTIgODE4LjA1NCA1NzUuNDU2IDgxMi4xOTUgNTY5LjcyN0M4MDYuNDY2IDU2My44NjcgODAxLjcxMyA1NTUuOTI0IDc5Ny45MzcgNTQ1Ljg5OEM3OTQuMTYxIDUzNS44NzIgNzkzLjU3NSA1MjguODkxIDc5Mi4yNzMgNTA3LjYxN0M3OTEuMzUzIDQ5Mi41ODggNzkxLjM4IDQ4Mi42MzQgNzkxLjQwMyA0NzQuMTgxQzc5MS40MTMgNDcwLjY2OSA3OTEuNDIyIDQ2Ny40MTYgNzkxLjM2MiA0NjQuMTY1Qzc5MS4zNjIgNDU2Ljc0MyA3OTEuMjMyIDQ0OC4zNDUgNzkwLjk3MSA0MzguOTdDNzkwLjcxMSA0MjkuNTk1IDc5MC4xMjUgNDIwLjQxNSA3ODkuMjE0IDQxMS40MzFDNzg4LjU0MSA0MDMuNyA3ODcuNTc5IDM5OS4zIDc4Ni4zMjkgMzkzLjU3OEM3ODYuMTI2IDM5Mi42NSA3ODUuOTE2IDM5MS42ODcgNzg1LjY5OCAzOTAuNjdDNzgzLjMwOCAzNzUuNDU3IDgwMC4zMDcgMzc1LjU3MSA4MDcuODA3IDM3OC42NTdDODE1LjMwNyAzODEuNzQzIDgyNy4yMzUgMzgyLjY4NiA4MzQuOTE3IDM4Mi42ODZDODM5Ljk5NSAzODIuNjg2IDg0NC41NTIgMzgyLjM3MSA4NDguNTg5IDM4MS43NDNDODY2LjY2MyAzNzQuMjk3IDg2Ny4wNTcgMzg1LjQwNCA4NjQuOTk1IDM4OS42OTNDODY0LjYwNyAzOTEuNzYgODY0LjIxOSAzOTMuNTYzIDg2My44MzIgMzk1LjM2NUM4NjMuMDQ3IDM5OS4wMTQgODYyLjI2NCA0MDIuNjYyIDg2MS40NzkgNDA4LjUwMUM4NjAuMzA3IDQxNy4yMjUgODU5LjMzMSA0MjYuNzk1IDg1OC41NSA0MzcuMjEyQzg1OC4wNTEgNDQzLjc4MSA4NTguNDAxIDQ1My45NDUgODU4LjcxOSA0NjMuMTgxQzg1OC45IDQ2OC40MDcgODU5LjA3IDQ3My4zMzcgODU5LjA3IDQ3Ny4xNDhDODU5LjA3IDQ4NS4wOTEgODU5LjY1NiA0OTEuODYyIDg2MC44MjggNDk3LjQ2MUM4NjIgNTAzLjA2IDg2My41NjIgNTA3LjY4MiA4NjUuNTE1IDUxMS4zMjhDODY3LjU5OSA1MTQuODQ0IDg2OS45NDIgNTE3LjQ0OCA4NzIuNTQ3IDUxOS4xNDFDODc1LjI4MSA1MjAuODMzIDg3OC4yMTEgNTIxLjY4IDg4MS4zMzYgNTIxLjY4Qzg4Ni4yODQgNTIxLjY4IDg5Mi4zNzEgNTE4LjM0NCA4OTQuNSA1MTUuMzQ0Qzg5Ni42MjkgNTEyLjM0NCA4OTguOTc5IDUwNy42MTcgOTAwLjY3MiA1MDAuMzkxQzkwMi41IDQ4Ny4zNDQgOTAwLjE2NyA0NzEuNTMyIDg5OC45NzkgNDY1LjUzMkM4OTguMDE1IDQ2MC42NjIgODk3LjI1NSA0NTIuMjA3IDg5Ni41NjcgNDQ0LjU1TDg5Ni41NjYgNDQ0LjUzNUM4OTYuMTk1IDQ0MC40MDYgODk1Ljg0NSA0MzYuNTA5IDg5NS40OTUgNDMzLjUzMkM4OTUuMTg4IDQzMC45MjQgODk0Ljk2NiA0MjguMjEzIDg5NC43MzYgNDI1LjM5NEM4OTQuMjE1IDQxOS4wMjMgODkzLjY0OCA0MTIuMDg5IDg5MS45NDggNDA0LjQ5MkM4ODkuNDk1IDM5Ni4wOTQgODg4LjQ5NSAzNzUgODk5Ljk1NiAzNzVaTTQ1Mi41OTIgMzYzLjYzOEM0NjAuMDg3IDM2Mi43MTIgNDY3LjM2MiAzNjIuNjY2IDQ3NC40MTkgMzYzLjVDNDgxLjYwNCAzNjQuMzE4IDQ4OC4wMjEgMzY2LjM0NyA0OTMuNjY5IDM2OS41ODVDNDk5LjQ0NiAzNzIuODA3IDUwNC4yNjggMzc3LjMyOSA1MDguMTM2IDM4My4xNDhDNTExLjk4NyAzODguODM5IDUxNC40NjQgMzk2LjE0MiA1MTUuNTY1IDQwNS4wNTlDNTE2Ljc2MiA0MTQuNzUxIDUxNi41MDYgNDI0LjM2MSA1MTQuNzk2IDQzMy44ODdDNTEzLjIxNSA0NDMuMzk3IDUwOS4zNzQgNDUyLjEzNiA1MDMuMjc0IDQ2MC4xMDVDNDk3LjE3NCA0NjguMDc1IDQ4OC40NDIgNDc0LjkyNiA0NzcuMDggNDgwLjY1OUM0NjUuODQ3IDQ4Ni4zNzYgNDUxLjEyIDQ5MC4zNTkgNDMyLjg5OSA0OTIuNjA5QzQzNC4xOTggNDk4Ljg3NyA0MzYuMTQ1IDUwNC4wMTYgNDM4LjczOSA1MDguMDI1QzQ0MS40NjMgNTEyLjAxOCA0NDQuNDcgNTE1LjEyNCA0NDcuNzYxIDUxNy4zNDJDNDUxLjA1MyA1MTkuNTU5IDQ1NC40NTkgNTIxLjEwNiA0NTcuOTc4IDUyMS45ODNDNDYxLjQ5OCA1MjIuODYxIDQ2NC43MTEgNTIzLjM4MiA0NjcuNjE4IDUyMy41NDhDNDcwLjUyNCA1MjMuNzE0IDQ3Mi45NDcgNTIzLjY3NyA0NzQuODg2IDUyMy40MzhMNDc3Ljc5MyA1MjMuMDc5QzQ4NS42OTMgNTIxLjE4NSA0OTIuNjEgNTE4LjIzMSA0OTguNTQzIDUxNC4yMTlDNTAxLjA5NyA1MTIuNTkxIDUwMy41NDcgNTEwLjY0OCA1MDUuODkyIDUwOC4zOTFDNTA4LjIyMSA1MDYuMDA0IDUxMC4yNTIgNTAzLjMyNiA1MTEuOTg0IDUwMC4zNTdDNTE0LjIwNiA0OTYuOTM0IDUxNi40ODcgNDk2LjQgNTIwLjQ1NyA0OTUuOTFDNTIzLjYzMiA0OTUuNTE5IDUyNi44MDkgNDk5LjI5IDUyNy44MjcgNTAyLjU1N0M1MjguODQ0IDUwNS44MjQgNTMwLjc5NiA1MTQuMDQgNTMxLjU3OCA1MjAuMzcyQzUzMy4wMTQgNTMyLjAwMiA1MzIuMjA3IDU0Mi45OTIgNTI5LjE1NSA1NTMuMzRDNTI2LjIxNyA1NjMuNTQyIDUyMS41MDMgNTcyLjY1MiA1MTUuMDE1IDU4MC42NjlDNTA4LjUyNyA1ODguNjg2IDUwMC40MTggNTk1LjI2NCA0OTAuNjg4IDYwMC40MDFDNDgxLjEwMyA2MDUuNjUyIDQ3MC4zNjYgNjA5LjAxMiA0NTguNDc3IDYxMC40OEM0NDYuODQ3IDYxMS45MTcgNDM1LjM1NyA2MTEuMzAyIDQyNC4wMDggNjA4LjYzN0M0MTIuNzg3IDYwNS45NTUgNDAyLjQ0MSA2MDAuODA0IDM5Mi45NzIgNTkzLjE4NEMzODMuNjE3IDU4NS40MTggMzc1LjU1NyA1NzQuODY3IDM2OC43OTQgNTYxLjUzM0MzNjIuMTYgNTQ4LjE4MyAzNTcuNjE0IDUzMS41NTggMzU1LjE1NiA1MTEuNjU3QzM1Mi40OTEgNDkwLjA3NyAzNTMuMjMgNDcwLjU2OCAzNTcuMzc0IDQ1My4xMzJDMzYxLjUxOCA0MzUuNjk2IDM2OC4xMjkgNDIwLjcwOSAzNzcuMjA4IDQwOC4xNzRDMzg2LjI3MSAzOTUuNTA5IDM5Ny4yOTMgMzg1LjQyNCA0MTAuMjcyIDM3Ny45MTdDNDIzLjM2NSAzNzAuMjY1IDQzNy40NzIgMzY1LjUwNSA0NTIuNTkyIDM2My42MzhaTTYwNi4xODcgMzY4Ljg3NUM2MjUuNjg3IDM2Ni4zNzUgNjI1LjA4NiAzODIuNSA2MjAuNTk0IDQwMS40NDVDNjIwLjAyOSA0MDYuNjM4IDYxOS4zNjggNDEwLjgxMSA2MTguNzggNDE0LjUyNkM2MTcuOTA0IDQyMC4wNjIgNjE3LjE4NyA0MjQuNTg1IDYxNy4xODcgNDI5Ljk2MUM2MTQuNzU4IDQ0Ny4yNjYgNjE3Ljc0OCA0NTIuOTY5IDYyMC41OTQgNDU2Ljg3NUM2MjIuOTM4IDQ2MC4wOTQgNjMyLjQyMiA0NTcuMzQ3IDY0MS42ODcgNDQ1LjM3NUM2NDguMTg3IDQzNi45NzcgNjYwLjk1OCA0MjUuNTg2IDY3MC45ODQgNDQ3LjkzQzY3NS4wMSA0NTQuNyA2ODEuODk3IDQ2Mi42NjcgNjkwLjEyNSA0NTkuNjQ4QzY5Ny4xNTUgNDU3LjA2OSA2OTUuMzc0IDQ1MC42ODYgNjkzLjE2OCA0NDIuNzgyQzY5Mi4zMTcgNDM5LjczMyA2OTEuNDAyIDQzNi40NTcgNjkwLjkwNiA0MzMuMDg2QzY5MC43MSA0MzEuNzUyIDY5MC40OTQgNDMwLjM0NSA2OTAuMjcxIDQyOC44OTFDNjg4Ljg0MyA0MTkuNTYgNjg3LjExMyA0MDguMjU4IDY4OC4xODcgNDAxLjQ0NUM2ODguMDM0IDM4OC4yMjEgNjk0LjE4NyAzNzQuMzc1IDcxMC44MjggMzgwLjM1MkM3MjIuMjQzIDM4My40NzkgNzI1LjgxOSAzODMuMDYyIDczMi40MzQgMzgzLjAxM0M3MzMuMjcxIDM4My4wMDYgNzM0LjEyMiAzODMgNzM1IDM4M0M3MzguODQ4IDM4MyA3NDQuMDE2IDM4Mi41NzYgNzQ3LjA3NCAzODEuNzU3Qzc0OS40OTkgMzgxLjEwNyA3NTEuOTc0IDM4MC40NDQgNzU0Ljk2OSAzODAuMTU2Qzc3MC4yNSAzNzUuODYgNzY4LjE4NyA0MDEuMzgzIDc2Ni42ODcgNDE1LjM3NUM3NjUuOTMxIDQyMi40MjYgNzY0LjU0IDQyOS4xNzMgNzYzLjA5MSA0MzYuMjA3Qzc2MS42NjMgNDQzLjEzMSA3NjAuMTc5IDQ1MC4zMzMgNzU5LjE4NyA0NTguMzc1Qzc1Ny42NTUgNDcwLjc5MyA3NTYuMTUxIDQ4MC4yODEgNzU0LjgxMSA0ODguNzM2Qzc1My44MzEgNDk0LjkyIDc1Mi45MzkgNTAwLjU1MyA3NTIuMTg3IDUwNi4zNzVDNzUwLjc0IDUxNy41NzUgNzQ5LjI5MyA1MjYuMzYzIDc0Ny41NTUgNTM2LjkxN0M3NDYuMjkxIDU0NC41OTcgNzQ0Ljg3MiA1NTMuMjEzIDc0My4xODcgNTY0LjM3NUM3MzguNjk1IDU5NC4xMzYgNzM3LjMyNCA2MDIuODg2IDcxOC40NDUgNjA3LjY5NUM3MTAuNzQ5IDYwOS42NTYgNjkxLjY4NyA2MTEuMzQgNjgwLjc1IDYwNy44OTFDNjcyLjgzOCA2MDUuMzk2IDY3MS40NzcgNTkwLjg5IDY3MC42NzMgNTgyLjMxQzY3MC41MDUgNTgwLjUxOSA2NzAuMzYxIDU3OC45ODYgNjcwLjE4NyA1NzcuODc1QzY2OS44NjUgNTc1LjgxOSA2NjkuNTU4IDU3My41MTUgNjY5LjIyOSA1NzEuMDUzQzY2OC41MjkgNTY1LjgwNSA2NjcuNzMzIDU1OS44MzMgNjY2LjQ5MiA1NTMuOTg0QzY2NC43OTkgNTQ1LjM5MSA2NjIuNzgxIDUzNy4zMTggNjYwLjQzNyA1MjkuNzY2QzY1NS41OTQgNTIwLjQ3OCA2NDguNjUzIDUyNi4wMjYgNjQ1Ljc4OSA1MjkuOTYxQzY0NC4wOTYgNTM2LjczMiA2NDIuNjY0IDU0My44OTMgNjQxLjQ5MiA1NTEuNDQ1QzY0MC4zMiA1NTguODY3IDYzOS40NzQgNTY2Ljg3NSA2MzguOTUzIDU3NS40NjlDNjM4Ljk1MyA1OTguMTI1IDYyNy4wNjIgNjAxLjU0NyA2MTkuMTg3IDYwMy4yMDNDNjE3LjUzOSA2MDMuMzE2IDYxNS45NjYgNjAzLjQyNyA2MTQuNDU1IDYwMy41MzRDNjAwLjI2MyA2MDQuNTM4IDU5MS4zODggNjA1LjE2NiA1NzQuNSA2MDMuMjAzQzU2NC42ODcgNTk5LjM3NSA1NjMuMjcyIDU4Mi44NzUgNTYxLjgwNCA1NjEuNDA2QzU2MC43NjMgNTQ2LjE3MiA1NTkuMzk2IDUzMC45MzcgNTU3LjcwMyA1MTUuNzAzQzU1Ni4wMSA1MDAuNDY5IDU1NC4xMjIgNDg1LjU2IDU1Mi4wMzkgNDcwLjk3N0M1NTAuMDg2IDQ1Ni4zOTMgNTQ4LjAwMiA0NDIuNzIxIDU0NS43ODkgNDI5Ljk2MUM1NDMuNzA1IDQxNy4yMDEgNTQxLjYyMiA0MDUuNzQyIDUzOS41MzkgMzk1LjU4NkM1MzYgMzg1LjQzIDUzOS41MzkgMzY0LjM3NSA1NjAuMTg3IDM3MC4zNzVDNTY4LjE4NyAzNzUuMzc1IDU3NS41ODUgMzc3LjkxMiA1ODAuNjg3IDM3Ny4zNzVDNTg1LjY3IDM3Ni44NSA1OTAuMTQgMzc0LjgzMyA1OTQuNDcxIDM3Mi44NzhDNTk4LjM5OCAzNzEuMTA2IDYwMi4yMTEgMzY5LjM4NSA2MDYuMTg3IDM2OC44NzVaTTIwOS44NTEgMzIwQzIxOC43MDUgMzIwIDIyOC4wMTUgMzIwLjY1MSAyMzcuNzgxIDMyMS45NTNDMjQ3LjY3NyAzMjMuMTI1IDI1Ny4zMTIgMzI1LjUzNCAyNjYuNjg3IDMyOS4xOEMyNzYuMTkyIDMzMi44MjYgMjg1LjI0MiAzMzcuOTY5IDI5My44MzYgMzQ0LjYwOUMzMDIuNDI5IDM1MS4yNSAzMDkuOTgyIDM1OS45NzQgMzE2LjQ5MiAzNzAuNzgxQzMyMy4wMDIgMzgxLjU4OSAzMjguMTQ2IDM5NC44MDUgMzMxLjkyMiA0MTAuNDNDMzM1LjgyOCA0MjUuOTI0IDMzNy43ODEgNDQ0LjQxNCAzMzcuNzgxIDQ2NS44OThDMzM3Ljc4MSA0ODcuMTIyIDMzNS40MzcgNTA1LjM1MiAzMzAuNzUgNTIwLjU4NkMzMjYuMDYyIDUzNS44MiAzMjMuMTgyIDU0OS4zNjIgMzE1LjUgNTYwLjAzOUMzMDYuODA1IDU3Ny41ODYgMjkxLjUgNTg3LjUgMjc5LjUgNTkzQzI1MCA2MDQuNSAxNzMuMTg3IDYwNy44NDkgMTQ2LjU3IDYwNi4zMjhDMTEzLjY3NiA2MDQuNDQ5IDExMS45MDEgNTc2LjExOCAxMTUuMTI1IDU2Mi4xODhDMTE3LjA3OCA1NTMuNTk0IDExOC43MDUgNTQ0LjkzNSAxMjAuMDA4IDUzNi4yMTFDMTIxLjQ0IDUyNy4zNTcgMTIyLjYxMiA1MTguODI4IDEyMy41MjMgNTEwLjYyNUMxMjUuNjA3IDQ5MS4zNTQgMTI2Ljc3OCA0NzEuNTYyIDEyNy4wMzkgNDUxLjI1QzEyNi43NzggNDMxLjA2OCAxMjUuODAyIDQxMi4xMjIgMTI0LjEwOSAzOTQuNDE0QzEyMy4zMjggMzg2Ljg2MiAxMjIuMzUxIDM3OS4zMSAxMjEuMTc5IDM3MS43NThDMTIwLjEzOCAzNjQuMDc2IDExOC44MzYgMzU2Ljg0OSAxMTcuMjczIDM1MC4wNzhDMTE1LjcxMSAzNDMuMTc3IDExMy44MjMgMzM2Ljk5MiAxMTEuNjA5IDMzMS41MjNDMTA3LjkyOSAzMjAgMTIxLjc4OCAzMjAuOTIgMTI5Ljk5MiAzMjEuNDY0QzEzMC41MzEgMzIxLjUgMTMxLjA0NyAzMjEuNTM0IDEzMS41MzEgMzIxLjU2MkMxNDAuMjU1IDMyMi4wODMgMTQ3LjkzNyAzMjIuMzQ0IDE1NC41NzggMzIyLjM0NEMxNTguODc1IDMyMi4zNDQgMTYzLjA0MiAzMjIuMjE0IDE2Ny4wNzggMzIxLjk1M0MxNzEuMTE0IDMyMS42OTMgMTc1LjI4MSAzMjEuNDMyIDE3OS41NzggMzIxLjE3MkMxODMuODc1IDMyMC45MTEgMTg4LjQzMiAzMjAuNjUxIDE5My4yNSAzMjAuMzkxQzE5OC4xOTggMzIwLjEzIDIwMy43MzIgMzIwIDIwOS44NTEgMzIwWk0yMjEuMzc1IDM4MS45MTRDMjE4LjM4IDM4MS45MTQgMjE1LjY0NiAzODMuNDc3IDIxMy4xNzIgMzg2LjYwMkMyMTAuODI4IDM4OS41OTYgMjA4LjgxIDM5NC40NzkgMjA3LjExNyA0MDEuMjVDMjA1LjQyNCA0MDguMDIxIDIwNC4xMjIgNDE2Ljc0NSAyMDMuMjExIDQyNy40MjJDMjAyLjI5OSA0MzcuOTY5IDIwMS44NDQgNDUwLjc5NCAyMDEuODQ0IDQ2NS44OThDMjAxLjg0NCA0ODEuNzg0IDIwMi4yMzQgNDk1LjA2NSAyMDMuMDE1IDUwNS43NDJDMjAzLjkyNyA1MTYuMjg5IDIwNS4xNjQgNTI0Ljc1MyAyMDYuNzI2IDUzMS4xMzNDMjA4LjQxOSA1MzcuNTEzIDIxMC40MzcgNTQyLjA3IDIxMi43ODEgNTQ0LjgwNUMyMTUuMjU1IDU0Ny40MDkgMjE4LjEyIDU0OC43MTEgMjIxLjM3NSA1NDguNzExQzIyNy43NTUgNTQ4LjcxMSAyMzIuODMzIDU0MS43NDUgMjM2LjYwOSA1MjcuODEyQzI0MC4zODUgNTEzLjg4IDI0Mi4yNzMgNDkxLjgxIDI0Mi4yNzMgNDYxLjYwMkMyNDIuMjczIDQ0Ni4zNjcgMjQxLjgxNyA0MzMuNjcyIDI0MC45MDYgNDIzLjUxNkMyMzkuOTk1IDQxMy4zNTkgMjM4LjYyNyA0MDUuMjIxIDIzNi44MDQgMzk5LjEwMkMyMzUuMTEyIDM5Mi44NTIgMjMyLjk2MyAzODguNDI0IDIzMC4zNTkgMzg1LjgyQzIyNy43NTUgMzgzLjIxNiAyMjQuNzYgMzgxLjkxNCAyMjEuMzc1IDM4MS45MTRaTTQ2MS44MzYgNDE5LjM3QzQ1OS41NDUgNDE3LjgxNiA0NTYuNzg0IDQxNy4yMzkgNDUzLjU1MyA0MTcuNjM4QzQ0OS4wMzEgNDE4LjE5NiA0NDUuMTE5IDQxOS45OTEgNDQxLjgyIDQyMy4wMjJDNDM4LjY1IDQyNi4wMzggNDM2LjAxMyA0MjkuNjQ0IDQzMy45MDcgNDMzLjg0QzQzMS45MzEgNDM4LjAyIDQzMC40NTMgNDQyLjUzMSA0MjkuNDc3IDQ0Ny4zNzVDNDI4LjUwMSA0NTIuMjE5IDQyOC4wNjcgNDU2LjY2OCA0MjguMTc0IDQ2MC43MjJDNDMxLjc3NiA0NjAuMTQ2IDQzNS44ODkgNDU4LjkxNiA0NDAuNTExIDQ1Ny4wMzNDNDQ1LjExNiA0NTUuMDIxIDQ0OS40IDQ1Mi41MjQgNDUzLjM2MSA0NDkuNTQyQzQ1Ny4zMjIgNDQ2LjU2IDQ2MC41MDEgNDQzLjA4NSA0NjIuODk3IDQzOS4xMTVDNDY1LjQyMiA0MzUuMTMgNDY2LjM5NyA0MzAuODExIDQ2NS44MjMgNDI2LjE1OUM0NjUuNDU2IDQyMy4xODcgNDY0LjEyNyA0MjAuOTI0IDQ2MS44MzYgNDE5LjM3WiIgZmlsbD0iIzdBQUE5MSIvPgo8cGF0aCBkPSJNMTA5MS41MiA1ODMuOTZDMTA4OC4zNSA1ODMuOTYgMTA4NS44MyA1ODMuNCAxMDgzLjk2IDU4Mi4yOEMxMDgyLjI4IDU4MS4xNiAxMDgxLjA3IDU3OS42NjcgMTA4MC4zMiA1NzcuOEMxMDc5LjU3IDU3NS43NDcgMTA3OS4yIDU3My41MDcgMTA3OS4yIDU3MS4wOFY0MDAuODRDMTA3OS4yIDM5OC40MTMgMTA3OS40OCAzOTYuMjY3IDEwODAuMDQgMzk0LjRDMTA4MC43OSAzOTIuNTMzIDEwODIuMDkgMzkxLjA0IDEwODMuOTYgMzg5LjkyQzEwODUuODMgMzg4LjggMTA4OC40NCAzODguMjQgMTA5MS44IDM4OC4yNEwxMTQ2Ljk2IDM4OC41MkMxMTYwLjc3IDM4OC41MiAxMTczLjI4IDM5MC44NTMgMTE4NC40OCAzOTUuNTJDMTE5NS44NyA0MDAgMTIwNS41NyA0MDYuNDQgMTIxMy42IDQxNC44NEMxMjIxLjYzIDQyMy4yNCAxMjI3Ljc5IDQzMy40MTMgMTIzMi4wOCA0NDUuMzZDMTIzNi4zNyA0NTcuMzA3IDEyMzguNTIgNDcwLjU2IDEyMzguNTIgNDg1LjEyQzEyMzguNTIgNTAwLjI0IDEyMzYuMzcgNTEzLjg2NyAxMjMyLjA4IDUyNkMxMjI3Ljc5IDUzOC4xMzMgMTIyMS41MyA1NDguNDkzIDEyMTMuMzIgNTU3LjA4QzEyMDUuMjkgNTY1LjY2NyAxMTk1LjU5IDU3Mi4yOTMgMTE4NC4yIDU3Ni45NkMxMTcyLjgxIDU4MS42MjcgMTE2MC4xMiA1ODMuOTYgMTE0Ni4xMiA1ODMuOTZIMTA5MS41MlpNMTEwNC40IDU1OC40OEgxMTQ2Ljk2QzExNjAuNTkgNTU4LjQ4IDExNzIuMzUgNTU1LjU4NyAxMTgyLjI0IDU0OS44QzExOTIuMTMgNTQzLjgyNyAxMTk5Ljc5IDUzNS41MiAxMjA1LjIgNTI0Ljg4QzEyMTAuNjEgNTE0LjA1MyAxMjEzLjMyIDUwMS4yNjcgMTIxMy4zMiA0ODYuNTJDMTIxMy4zMiA0NzEuNTg3IDEyMTAuNjEgNDU4LjcwNyAxMjA1LjIgNDQ3Ljg4QzExOTkuNzkgNDM3LjA1MyAxMTkyLjA0IDQyOC43NDcgMTE4MS45NiA0MjIuOTZDMTE3Mi4wNyA0MTYuOTg3IDExNjAuMzEgNDE0IDExNDYuNjggNDE0SDExMDQuNFY1NTguNDhaIiBmaWxsPSIjMkYyNDIxIi8+CjxwYXRoIGQ9Ik0xMzQ0Ljc1IDU4NS4zNkMxMzMzLjU1IDU4NS4zNiAxMzIzLjU2IDU4My40OTMgMTMxNC43OSA1NzkuNzZDMTMwNi4wMSA1NzYuMDI3IDEyOTguNTUgNTcwLjk4NyAxMjkyLjM5IDU2NC42NEMxMjg2LjQxIDU1OC4xMDcgMTI4MS44NCA1NTAuNjQgMTI3OC42NyA1NDIuMjRDMTI3NS40OSA1MzMuODQgMTI3My45MSA1MjQuNzg3IDEyNzMuOTEgNTE1LjA4QzEyNzMuOTEgNTAyLjIgMTI3Ni44OSA0OTAuNzIgMTI4Mi44NyA0ODAuNjRDMTI4OC44NCA0NzAuNTYgMTI5Ny4wNSA0NjIuNjI3IDEzMDcuNTEgNDU2Ljg0QzEzMTguMTUgNDUwLjg2NyAxMzMwLjI4IDQ0Ny44OCAxMzQzLjkxIDQ0Ny44OEMxMzUzLjI0IDQ0Ny44OCAxMzYxLjU1IDQ0OS4zNzMgMTM2OC44MyA0NTIuMzZDMTM3Ni4yOSA0NTUuMTYgMTM4Mi42NCA0NTguOTg3IDEzODcuODcgNDYzLjg0QzEzOTMuMDkgNDY4LjY5MyAxMzk3LjExIDQ3NC4xMDcgMTM5OS45MSA0ODAuMDhDMTQwMi43MSA0ODYuMDUzIDE0MDQuMTEgNDkyLjAyNyAxNDA0LjExIDQ5OEMxNDA0LjExIDUwNy41MiAxNDAxLjg3IDUxNC4yNCAxMzk3LjM5IDUxOC4xNkMxMzkyLjkxIDUyMS44OTMgMTM4Ny40IDUyMy43NiAxMzgwLjg3IDUyMy43NkgxMjk5Ljk1QzEyOTkuNzYgNTMxLjk3MyAxMzAxLjkxIDUzOS4wNjcgMTMwNi4zOSA1NDUuMDRDMTMxMS4wNSA1NTAuODI3IDEzMTYuODQgNTU1LjMwNyAxMzIzLjc1IDU1OC40OEMxMzMwLjg0IDU2MS42NTMgMTMzNy45MyA1NjMuMjQgMTM0NS4wMyA1NjMuMjRDMTM1MC4yNSA1NjMuMjQgMTM1NC43MyA1NjIuOTYgMTM1OC40NyA1NjIuNEMxMzYyLjIgNTYxLjg0IDEzNjUuNDcgNTYxLjA5MyAxMzY4LjI3IDU2MC4xNkMxMzcxLjA3IDU1OS4yMjcgMTM3My40OSA1NTguMjkzIDEzNzUuNTUgNTU3LjM2QzEzNzcuNiA1NTYuNDI3IDEzNzkuMzcgNTU1LjQ5MyAxMzgwLjg3IDU1NC41NkMxMzgyLjU1IDU1My42MjcgMTM4NC4xMyA1NTIuOTczIDEzODUuNjMgNTUyLjZDMTM4Ny4zMSA1NTIuMjI3IDEzODguODkgNTUyLjQxMyAxMzkwLjM5IDU1My4xNkMxMzkyLjA3IDU1My43MiAxMzkzLjM3IDU1NC45MzMgMTM5NC4zMSA1NTYuOEMxMzk1LjQzIDU1OC4yOTMgMTM5Ni4xNyA1NTkuNjkzIDEzOTYuNTUgNTYxQzEzOTYuOTIgNTYyLjMwNyAxMzk3LjExIDU2My43MDcgMTM5Ny4xMSA1NjUuMkMxMzk3LjExIDU2Ny44MTMgMTM5NC44NyA1NzAuNzA3IDEzOTAuMzkgNTczLjg4QzEzODUuOTEgNTc3LjA1MyAxMzc5LjY1IDU3OS43NiAxMzcxLjYzIDU4MkMxMzYzLjc5IDU4NC4yNCAxMzU0LjgzIDU4NS4zNiAxMzQ0Ljc1IDU4NS4zNlpNMTI5OS45NSA1MDcuMjRIMTM3MC4yM0MxMzczLjc3IDUwNy4yNCAxMzc2LjM5IDUwNi43NzMgMTM3OC4wNyA1MDUuODRDMTM3OS45MyA1MDQuOTA3IDEzODAuODcgNTAyLjM4NyAxMzgwLjg3IDQ5OC4yOEMxMzgwLjg3IDQ5My4wNTMgMTM3OS4yOCA0ODguMzg3IDEzNzYuMTEgNDg0LjI4QzEzNzIuOTMgNDc5Ljk4NyAxMzY4LjU1IDQ3Ni41MzMgMTM2Mi45NSA0NzMuOTJDMTM1Ny41MyA0NzEuMzA3IDEzNTEuMjggNDcwIDEzNDQuMTkgNDcwQzEzMzUuOTcgNDcwIDEzMjguNDEgNDcxLjY4IDEzMjEuNTEgNDc1LjA0QzEzMTQuNzkgNDc4LjIxMyAxMzA5LjQ3IDQ4Mi42IDEzMDUuNTUgNDg4LjJDMTMwMS42MyA0OTMuOCAxMjk5Ljc2IDUwMC4xNDcgMTI5OS45NSA1MDcuMjRaIiBmaWxsPSIjMkYyNDIxIi8+CjxwYXRoIGQ9Ik0xNDg1LjYgNTg1LjM2QzE0ODEuMTIgNTg1LjM2IDE0NzYuNDUgNTg0Ljg5MyAxNDcxLjYgNTgzLjk2QzE0NjYuNzQgNTgzLjAyNyAxNDYxLjk4IDU4MS43MiAxNDU3LjMyIDU4MC4wNEMxNDUyLjg0IDU3OC4xNzMgMTQ0OC44MiA1NzYuMDI3IDE0NDUuMjggNTczLjZDMTQ0MS45MiA1NzEuMTczIDE0MzkuNCA1NjguNDY3IDE0MzcuNzIgNTY1LjQ4QzE0MzYuNzggNTYzLjYxMyAxNDM2LjIyIDU2MS45MzMgMTQzNi4wNCA1NjAuNDRDMTQzNS44NSA1NTguNzYgMTQzNi4xMyA1NTcuMTczIDE0MzYuODggNTU1LjY4QzE0MzcuNjIgNTU0LjE4NyAxNDM4Ljc0IDU1Mi42OTMgMTQ0MC4yNCA1NTEuMkMxNDQyLjEgNTQ4Ljk2IDE0NDMuOTcgNTQ3LjkzMyAxNDQ1Ljg0IDU0OC4xMkMxNDQ3LjcgNTQ4LjEyIDE0NTAuMDQgNTQ5LjMzMyAxNDUyLjg0IDU1MS43NkMxNDU0Ljg5IDU1My4wNjcgMTQ1Ny4zMiA1NTQuNTYgMTQ2MC4xMiA1NTYuMjRDMTQ2Mi45MiA1NTcuNzMzIDE0NjUuODEgNTU5LjEzMyAxNDY4LjggNTYwLjQ0QzE0NzEuNzggNTYxLjU2IDE0NzQuNzcgNTYyLjU4NyAxNDc3Ljc2IDU2My41MkMxNDgwLjkzIDU2NC4yNjcgMTQ4NC4wMSA1NjQuNjQgMTQ4NyA1NjQuNjRDMTQ5NS41OCA1NjQuNjQgMTUwMi40OSA1NjMuMDUzIDE1MDcuNzIgNTU5Ljg4QzE1MTIuOTQgNTU2LjUyIDE1MTUuNTYgNTUyLjEzMyAxNTE1LjU2IDU0Ni43MkMxNTE1LjU2IDU0My41NDcgMTUxNC45IDU0MC44NCAxNTEzLjYgNTM4LjZDMTUxMi4yOSA1MzYuMzYgMTUxMC41MiA1MzQuNDkzIDE1MDguMjggNTMzQzE1MDYuMDQgNTMxLjMyIDE1MDMuNTIgNTI5LjkyIDE1MDAuNzIgNTI4LjhDMTQ5Ny45MiA1MjcuNjggMTQ5NC43NCA1MjYuNjUzIDE0OTEuMiA1MjUuNzJDMTQ4Ny44NCA1MjQuNiAxNDg0LjQ4IDUyMy41NzMgMTQ4MS4xMiA1MjIuNjRDMTQ3Ni4wOCA1MjEuMzMzIDE0NzEuMTMgNTE5Ljg0IDE0NjYuMjggNTE4LjE2QzE0NjEuNDIgNTE2LjQ4IDE0NTcuMDQgNTE0LjMzMyAxNDUzLjEyIDUxMS43MkMxNDQ5LjIgNTA4LjkyIDE0NDYuMDIgNTA1LjQ2NyAxNDQzLjYgNTAxLjM2QzE0NDEuMTcgNDk3LjA2NyAxNDM5Ljk2IDQ5MS42NTMgMTQzOS45NiA0ODUuMTJDMTQzOS45NiA0NzcuNDY3IDE0NDEuOTIgNDcwLjg0IDE0NDUuODQgNDY1LjI0QzE0NDkuNzYgNDU5LjY0IDE0NTUuMjYgNDU1LjM0NyAxNDYyLjM2IDQ1Mi4zNkMxNDY5LjQ1IDQ0OS4xODcgMTQ3Ny43NiA0NDcuNiAxNDg3LjI4IDQ0Ny42QzE0OTEuMzggNDQ3LjYgMTQ5NS4yMSA0NDcuODggMTQ5OC43NiA0NDguNDRDMTUwMi4zIDQ0OSAxNTA1LjY2IDQ0OS45MzMgMTUwOC44NCA0NTEuMjRDMTUxMi4yIDQ1Mi4zNiAxNTE1LjM3IDQ1My43NiAxNTE4LjM2IDQ1NS40NEMxNTIxLjM0IDQ1Ni45MzMgMTUyNC4yNCA0NTguOCAxNTI3LjA0IDQ2MS4wNEMxNTMwLjQgNDYzLjI4IDE1MzIuMTcgNDY1LjcwNyAxNTMyLjM2IDQ2OC4zMkMxNTMyLjU0IDQ3MC45MzMgMTUzMS41MiA0NzMuNjQgMTUyOS4yOCA0NzYuNDRDMTUyNy42IDQ3OC44NjcgMTUyNS43MyA0ODAuNDUzIDE1MjMuNjggNDgxLjJDMTUyMS42MiA0ODEuNzYgMTUxOS41NyA0ODEuMiAxNTE3LjUyIDQ3OS41MkMxNTE0LjUzIDQ3Ny4yOCAxNTExLjM2IDQ3NS4zMiAxNTA4IDQ3My42NEMxNTA0LjY0IDQ3MS45NiAxNTAxLjE4IDQ3MC41NiAxNDk3LjY0IDQ2OS40NEMxNDk0LjA5IDQ2OC4zMiAxNDkwLjQ1IDQ2Ny43NiAxNDg2LjcyIDQ2Ny43NkMxNDgyLjA1IDQ2Ny43NiAxNDc3Ljg1IDQ2OC41MDcgMTQ3NC4xMiA0NzBDMTQ3MC41NyA0NzEuMzA3IDE0NjcuNzcgNDczLjM2IDE0NjUuNzIgNDc2LjE2QzE0NjMuODUgNDc4Ljc3MyAxNDYyLjkyIDQ4MS43NiAxNDYyLjkyIDQ4NS4xMkMxNDYyLjkyIDQ4OC4xMDcgMTQ2My42NiA0OTAuNTMzIDE0NjUuMTYgNDkyLjRDMTQ2Ni44NCA0OTQuMjY3IDE0NjguODkgNDk1Ljg1MyAxNDcxLjMyIDQ5Ny4xNkMxNDczLjkzIDQ5OC40NjcgMTQ3Ni45MiA0OTkuNjggMTQ4MC4yOCA1MDAuOEMxNDgzLjgyIDUwMS43MzMgMTQ4Ny40NiA1MDIuNjY3IDE0OTEuMiA1MDMuNkMxNDk2LjYxIDUwNC45MDcgMTUwMi4xMiA1MDYuNDkzIDE1MDcuNzIgNTA4LjM2QzE1MTMuNSA1MTAuMDQgMTUxOC42NCA1MTIuMzczIDE1MjMuMTIgNTE1LjM2QzE1MjcuNzggNTE4LjE2IDE1MzEuNTIgNTIxLjk4NyAxNTM0LjMyIDUyNi44NEMxNTM3LjMgNTMxLjUwNyAxNTM4LjggNTM3Ljc2IDE1MzguOCA1NDUuNkMxNTM4LjggNTU3LjkyIDE1MzMuOTQgNTY3LjYyNyAxNTI0LjI0IDU3NC43MkMxNTE0LjUzIDU4MS44MTMgMTUwMS42NSA1ODUuMzYgMTQ4NS42IDU4NS4zNloiIGZpbGw9IiMyRjI0MjEiLz4KPHBhdGggZD0iTTE1OTEuMTUgNTgzLjk2QzE1ODcuNjEgNTgzLjk2IDE1ODQuOSA1ODMuNCAxNTgzLjAzIDU4Mi4yOEMxNTgxLjM1IDU4MS4zNDcgMTU4MC4yMyA1NzkuOTQ3IDE1NzkuNjcgNTc4LjA4QzE1NzkuMTEgNTc2LjIxMyAxNTc4LjgzIDU3My45NzMgMTU3OC44MyA1NzEuMzZWNDYwLjc2QzE1NzguODMgNDU4LjE0NyAxNTc5LjExIDQ1NS45MDcgMTU3OS42NyA0NTQuMDRDMTU4MC4yMyA0NTIuMTczIDE1ODEuMzUgNDUwLjc3MyAxNTgzLjAzIDQ0OS44NEMxNTg0LjkgNDQ4LjkwNyAxNTg3LjcgNDQ4LjQ0IDE1OTEuNDMgNDQ4LjQ0QzE1OTQuOTggNDQ4LjQ0IDE1OTcuNTkgNDQ5IDE1OTkuMjcgNDUwLjEyQzE2MDAuOTUgNDUxLjA1MyAxNjAyLjA3IDQ1Mi40NTMgMTYwMi42MyA0NTQuMzJDMTYwMy4xOSA0NTYuMTg3IDE2MDMuNDcgNDU4LjUyIDE2MDMuNDcgNDYxLjMyVjU3MS42NEMxNjAzLjQ3IDU3NC4yNTMgMTYwMy4xOSA1NzYuNDkzIDE2MDIuNjMgNTc4LjM2QzE2MDIuMDcgNTgwLjIyNyAxNjAwLjg2IDU4MS42MjcgMTU5OC45OSA1ODIuNTZDMTU5Ny4zMSA1ODMuNDkzIDE1OTQuNyA1ODMuOTYgMTU5MS4xNSA1ODMuOTZaTTE1OTEuMTUgNDE0Ljg0QzE1ODcuMDUgNDE0Ljg0IDE1ODMuOTcgNDE0LjI4IDE1ODEuOTEgNDEzLjE2QzE1NzkuODYgNDExLjg1MyAxNTc4LjQ2IDQxMC4wOCAxNTc3LjcxIDQwNy44NEMxNTc3LjE1IDQwNS42IDE1NzYuODcgNDAyLjk4NyAxNTc2Ljg3IDQwMEMxNTc2Ljg3IDM5Ny4wMTMgMTU3Ny4yNSAzOTQuNDkzIDE1NzcuOTkgMzkyLjQ0QzE1NzguNzQgMzkwLjIgMTU4MC4xNCAzODguNjEzIDE1ODIuMTkgMzg3LjY4QzE1ODQuMjUgMzg2LjU2IDE1ODcuMzMgMzg2IDE1OTEuNDMgMzg2QzE1OTUuMzUgMzg2IDE1OTguMzQgMzg2LjU2IDE2MDAuMzkgMzg3LjY4QzE2MDIuNDUgMzg4LjggMTYwMy43NSAzOTAuNDggMTYwNC4zMSAzOTIuNzJDMTYwNS4wNiAzOTQuOTYgMTYwNS40MyAzOTcuNTczIDE2MDUuNDMgNDAwLjU2QzE2MDUuNDMgNDAzLjU0NyAxNjA1LjA2IDQwNi4xNiAxNjA0LjMxIDQwOC40QzE2MDMuNzUgNDEwLjQ1MyAxNjAyLjQ1IDQxMi4wNCAxNjAwLjM5IDQxMy4xNkMxNTk4LjM0IDQxNC4yOCAxNTk1LjI2IDQxNC44NCAxNTkxLjE1IDQxNC44NFoiIGZpbGw9IiMyRjI0MjEiLz4KPHBhdGggZD0iTTE3MDUuNTcgNjM4Ljg0QzE2OTkuMDQgNjM4Ljg0IDE2OTIuNzggNjM4LjA5MyAxNjg2LjgxIDYzNi42QzE2ODAuODQgNjM1LjEwNyAxNjc1LjYxIDYzMy4xNDcgMTY3MS4xMyA2MzAuNzJDMTY2Ni42NSA2MjguMjkzIDE2NjMuMSA2MjUuNjggMTY2MC40OSA2MjIuODhDMTY1Ny44OCA2MjAuMDggMTY1Ni41NyA2MTcuNDY3IDE2NTYuNTcgNjE1LjA0QzE2NTYuNTcgNjEzLjE3MyAxNjU2Ljg1IDYxMS41ODcgMTY1Ny40MSA2MTAuMjhDMTY1Ny45NyA2MDkuMTYgMTY1OC44MSA2MDcuOTQ3IDE2NTkuOTMgNjA2LjY0QzE2NjEuOCA2MDQuNzczIDE2NjMuMjkgNjAzLjQ2NyAxNjY0LjQxIDYwMi43MkMxNjY1LjUzIDYwMS45NzMgMTY2Ny4wMiA2MDEuNiAxNjY4Ljg5IDYwMS42QzE2NzAuNzYgNjAxLjYgMTY3Mi42MiA2MDIuMzQ3IDE2NzQuNDkgNjAzLjg0QzE2NzYuMzYgNjA1LjUyIDE2NzguNiA2MDcuMjkzIDE2ODEuMjEgNjA5LjE2QzE2ODQuMDEgNjExLjIxMyAxNjg3LjM3IDYxMi45ODcgMTY5MS4yOSA2MTQuNDhDMTY5NS40IDYxNi4xNiAxNzAwLjQ0IDYxNyAxNzA2LjQxIDYxN0MxNzEyLjU3IDYxNyAxNzE4LjA4IDYxNi4wNjcgMTcyMi45MyA2MTQuMkMxNzI3Ljc4IDYxMi4zMzMgMTczMS45OCA2MDkuNTMzIDE3MzUuNTMgNjA1LjhDMTczOS4wOCA2MDIuMDY3IDE3NDEuNzggNTk3LjQ5MyAxNzQzLjY1IDU5Mi4wOEMxNzQ1LjUyIDU4Ni44NTMgMTc0Ni40NSA1ODAuODggMTc0Ni40NSA1NzQuMTZMMTc0NS44OSA0NTcuNjhDMTc0Ni4wOCA0NTQuMTMzIDE3NDcuMSA0NTEuNjEzIDE3NDguOTcgNDUwLjEyQzE3NTEuMDIgNDQ4LjYyNyAxNzU0LjIgNDQ3Ljg4IDE3NTguNDkgNDQ3Ljg4QzE3NjIuMDQgNDQ3Ljg4IDE3NjQuNTYgNDQ4LjQ0IDE3NjYuMDUgNDQ5LjU2QzE3NjcuNzMgNDUwLjQ5MyAxNzY4Ljc2IDQ1MS44OTMgMTc2OS4xMyA0NTMuNzZDMTc2OS42OSA0NTUuNDQgMTc2OS45NyA0NTcuNTg3IDE3NjkuOTcgNDYwLjJWNTc2LjEyQzE3NjkuOTcgNTg2LjAxMyAxNzY4LjM4IDU5NC43ODcgMTc2NS4yMSA2MDIuNDRDMTc2Mi4wNCA2MTAuMjggMTc1Ny41NiA2MTYuOTA3IDE3NTEuNzcgNjIyLjMyQzE3NDUuOTggNjI3LjczMyAxNzM5LjE3IDYzMS44NCAxNzMxLjMzIDYzNC42NEMxNzIzLjQ5IDYzNy40NCAxNzE0LjkgNjM4Ljg0IDE3MDUuNTcgNjM4Ljg0Wk0xNzA0LjczIDU4MC44OEMxNjk1Ljc3IDU4MC44OCAxNjg3LjQ2IDU3OS4yOTMgMTY3OS44MSA1NzYuMTJDMTY3Mi4zNCA1NzIuNzYgMTY2NS43MiA1NjguMDkzIDE2NTkuOTMgNTYyLjEyQzE2NTQuMzMgNTU2LjE0NyAxNjQ5Ljk0IDU0OS4xNDcgMTY0Ni43NyA1NDEuMTJDMTY0My43OCA1MzMuMDkzIDE2NDIuMjkgNTI0LjMyIDE2NDIuMjkgNTE0LjhDMTY0Mi4yOSA1MDUuMjggMTY0My43OCA0OTYuNTA3IDE2NDYuNzcgNDg4LjQ4QzE2NDkuOTQgNDgwLjQ1MyAxNjU0LjMzIDQ3My40NTMgMTY1OS45MyA0NjcuNDhDMTY2NS41MyA0NjEuNTA3IDE2NzIuMDYgNDU2LjkzMyAxNjc5LjUzIDQ1My43NkMxNjg3LjE4IDQ1MC40IDE2OTUuNDkgNDQ4LjcyIDE3MDQuNDUgNDQ4LjcyQzE3MTIuNjYgNDQ4LjcyIDE3MjAuMTMgNDUwLjMwNyAxNzI2Ljg1IDQ1My40OEMxNzMzLjU3IDQ1Ni42NTMgMTczOS4yNiA0NjEuMjI3IDE3NDMuOTMgNDY3LjJDMTc0OC43OCA0NzIuOTg3IDE3NTIuNDIgNDc5Ljg5MyAxNzU0Ljg1IDQ4Ny45MkMxNzU3LjI4IDQ5NS45NDcgMTc1OC40OSA1MDQuOTA3IDE3NTguNDkgNTE0LjhDMTc1OC40OSA1MjguMjQgMTc1Ni4zNCA1MzkuOTA3IDE3NTIuMDUgNTQ5LjhDMTc0Ny43NiA1NTkuNjkzIDE3NDEuNiA1NjcuMzQ3IDE3MzMuNTcgNTcyLjc2QzE3MjUuNTQgNTc4LjE3MyAxNzE1LjkzIDU4MC44OCAxNzA0LjczIDU4MC44OFpNMTcwNi4xMyA1NTcuOTJDMTcxMy42IDU1Ny45MiAxNzIwLjMyIDU1Ni4wNTMgMTcyNi4yOSA1NTIuMzJDMTczMi4yNiA1NDguNTg3IDE3MzcuMDIgNTQzLjQ1MyAxNzQwLjU3IDUzNi45MkMxNzQ0LjEyIDUzMC4zODcgMTc0NS44OSA1MjIuODI3IDE3NDUuODkgNTE0LjI0QzE3NDUuODkgNTA1Ljg0IDE3NDQuMTIgNDk4LjQ2NyAxNzQwLjU3IDQ5Mi4xMkMxNzM3LjAyIDQ4NS41ODcgMTczMi4xNyA0ODAuNTQ3IDE3MjYuMDEgNDc3QzE3MjAuMDQgNDczLjQ1MyAxNzEzLjIyIDQ3MS42OCAxNzA1LjU3IDQ3MS42OEMxNjk3LjkyIDQ3MS42OCAxNjkxLjEgNDczLjQ1MyAxNjg1LjEzIDQ3N0MxNjc5LjE2IDQ4MC41NDcgMTY3NC40OSA0ODUuNTg3IDE2NzEuMTMgNDkyLjEyQzE2NjcuOTYgNDk4LjQ2NyAxNjY2LjM3IDUwNS45MzMgMTY2Ni4zNyA1MTQuNTJDMTY2Ni4zNyA1MjMuMTA3IDE2NjguMDUgNTMwLjY2NyAxNjcxLjQxIDUzNy4yQzE2NzQuNzcgNTQzLjU0NyAxNjc5LjQ0IDU0OC41ODcgMTY4NS40MSA1NTIuMzJDMTY5MS4zOCA1NTYuMDUzIDE2OTguMjkgNTU3LjkyIDE3MDYuMTMgNTU3LjkyWiIgZmlsbD0iIzJGMjQyMSIvPgo8cGF0aCBkPSJNMTgyNy40OSA1ODMuNjhDMTgyMy45NCA1ODMuNjggMTgyMS4yNCA1ODMuMTIgMTgxOS4zNyA1ODJDMTgxNy42OSA1ODEuMDY3IDE4MTYuNTcgNTc5LjY2NyAxODE2LjAxIDU3Ny44QzE4MTUuNjQgNTc1LjkzMyAxODE1LjQ1IDU3My42OTMgMTgxNS40NSA1NzEuMDhWNDU5LjkyQzE4MTUuNDUgNDU3LjQ5MyAxODE1LjczIDQ1NS40NCAxODE2LjI5IDQ1My43NkMxODE2Ljg1IDQ1Mi4wOCAxODE3Ljk3IDQ1MC43NzMgMTgxOS42NSA0NDkuODRDMTgyMS41MiA0NDguOTA3IDE4MjQuMjIgNDQ4LjQ0IDE4MjcuNzcgNDQ4LjQ0QzE4MzAuNTcgNDQ4LjQ0IDE4MzIuNzIgNDQ4LjgxMyAxODM0LjIxIDQ0OS41NkMxODM1Ljg5IDQ1MC4xMiAxODM3LjAxIDQ1MC45NiAxODM3LjU3IDQ1Mi4wOEMxODM4LjMyIDQ1My4yIDE4MzguNzggNDU0LjQxMyAxODM4Ljk3IDQ1NS43MkMxODM5LjE2IDQ1Ny4wMjcgMTgzOS4yNSA0NTguMjQgMTgzOS4yNSA0NTkuMzZMMTgzOC42OSA0NzIuMjRDMTg0MC41NiA0NjkuMDY3IDE4NDIuODkgNDY2LjA4IDE4NDUuNjkgNDYzLjI4QzE4NDguNDkgNDYwLjI5MyAxODUxLjc2IDQ1Ny42OCAxODU1LjQ5IDQ1NS40NEMxODU5LjIyIDQ1My4wMTMgMTg2My4yNCA0NTEuMTQ3IDE4NjcuNTMgNDQ5Ljg0QzE4NzIuMDEgNDQ4LjUzMyAxODc2Ljc3IDQ0Ny44OCAxODgxLjgxIDQ0Ny44OEMxODkwLjAyIDQ0Ny44OCAxODk3LjU4IDQ0OS4zNzMgMTkwNC40OSA0NTIuMzZDMTkxMS40IDQ1NS4xNiAxOTE3LjI4IDQ1OS4zNiAxOTIyLjEzIDQ2NC45NkMxOTI3LjE3IDQ3MC4zNzMgMTkzMSA0NzYuOTA3IDE5MzMuNjEgNDg0LjU2QzE5MzYuNDEgNDkyLjIxMyAxOTM3LjgxIDUwMC44OTMgMTkzNy44MSA1MTAuNlY1NzEuMzZDMTkzNy44MSA1NzMuOTczIDE5MzcuNTMgNTc2LjIxMyAxOTM2Ljk3IDU3OC4wOEMxOTM2LjYgNTc5Ljk0NyAxOTM1LjQ4IDU4MS4zNDcgMTkzMy42MSA1ODIuMjhDMTkzMS45MyA1ODMuMjEzIDE5MjkuMzIgNTgzLjY4IDE5MjUuNzcgNTgzLjY4QzE5MjIuMDQgNTgzLjY4IDE5MTkuMjQgNTgzLjEyIDE5MTcuMzcgNTgyQzE5MTUuNjkgNTgxLjA2NyAxOTE0LjU3IDU3OS42NjcgMTkxNC4wMSA1NzcuOEMxOTEzLjQ1IDU3NS45MzMgMTkxMy4xNyA1NzMuNjkzIDE5MTMuMTcgNTcxLjA4VjUxMC4zMkMxOTEzLjE3IDUwMi40OCAxOTExLjg2IDQ5NS42NjcgMTkwOS4yNSA0ODkuODhDMTkwNi42NCA0ODQuMDkzIDE5MDIuNzIgNDc5LjYxMyAxODk3LjQ5IDQ3Ni40NEMxODkyLjI2IDQ3My4wOCAxODg1LjY0IDQ3MS40IDE4NzcuNjEgNDcxLjRDMTg2OS45NiA0NzEuNCAxODYzLjI0IDQ3My4wOCAxODU3LjQ1IDQ3Ni40NEMxODUxLjg1IDQ3OS42MTMgMTg0Ny40NiA0ODQuMDkzIDE4NDQuMjkgNDg5Ljg4QzE4NDEuMyA0OTUuNjY3IDE4MzkuODEgNTAyLjQ4IDE4MzkuODEgNTEwLjMyVjU3MS4zNkMxODM5LjgxIDU3My45NzMgMTgzOS41MyA1NzYuMjEzIDE4MzguOTcgNTc4LjA4QzE4MzguNDEgNTc5Ljk0NyAxODM3LjIgNTgxLjM0NyAxODM1LjMzIDU4Mi4yOEMxODMzLjY1IDU4My4yMTMgMTgzMS4wNCA1ODMuNjggMTgyNy40OSA1ODMuNjhaIiBmaWxsPSIjMkYyNDIxIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfNDRfMTAiPgo8cmVjdCB3aWR0aD0iMjA0OCIgaGVpZ2h0PSIxMDI0IiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=" alt="dewy design logo" style="height:44px;width:auto;object-fit:contain;" /></a>
+  <div class="footer-links">
+    <a href="#categories">Shop</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 dewy design. Built beautifully by Chloe. All rights reserved.</div>
+</footer>
+
+<div id="toast">🛒 Added!</div>
+</div>
+
+<div id="product-page" class="product-page-container" style="display:none;">
+  <div class="back-btn-container">
+    <button class="back-btn" onclick="showStore()">← Back to Store</button>
+  </div>
+  <div class="p-hero">
+    <div class="p-badge">Dewy Studio</div>
+    <h1>The Only Financial System<br><span>You'll Ever Need</span></h1>
+    <p>Multi-currency · Up to 5 users · Excel &amp; Google Sheets<br>Light &amp; Dark Mode · Audit-Ready</p>
+    <div class="p-tags">
+      <span>💱 Global Currency Support</span><span>👨‍👩‍👧 Up to 5 Users</span><span>🔒 Sheet Protected</span><span>📊 Auto Dashboard</span><span>🧾 Audit-Ready</span><span>🌙 Dark Mode</span>
+    </div>
+  </div>
+  <div class="p-divider"></div>
+  <section>
+    <p class="p-section-label">What it does</p>
+    <h2>Built for real life.<br><strong>Designed to last.</strong></h2>
+    <div class="p-features-grid">
+      <div class="p-feature-card"><div class="icon">💱</div><h3>Multi-Currency Support</h3><p>Track income and expenses in any currency. Switch between USD, KRW, JPY, EUR and more with one click.</p></div>
+      <div class="p-feature-card"><div class="icon">👨‍👩‍👧</div><h3>Up to 5 Users</h3><p>Manage finances for the whole household. Each user gets their own filtered view — shared or individual.</p></div>
+      <div class="p-feature-card"><div class="icon">📊</div><h3>Auto Dashboard</h3><p>Everything updates as you log. Income, expenses, balances, and top spending — all visualized instantly.</p></div>
+      <div class="p-feature-card"><div class="icon">🔁</div><h3>Fixed &amp; Variable Income</h3><p>Track recurring salary and irregular income separately. Know what's expected and what actually arrived.</p></div>
+      <div class="p-feature-card"><div class="icon">🧾</div><h3>Audit-Ready Records</h3><p>Perfect for tax filing, visa applications (I-751), or any situation that requires a clean financial trail.</p></div>
+      <div class="p-feature-card"><div class="icon">🌙</div><h3>Light &amp; Dark Mode</h3><p>Two complete visual themes included. Premium minimal aesthetic that works in any environment.</p></div>
+    </div>
+  </section>
+  <div class="p-divider"></div>
+  <section>
+    <p class="p-section-label">Package contents</p>
+    <h2>Everything <strong>included.</strong></h2>
+    <div class="p-included-grid">
+      <div class="p-included-item"><div class="file-icon">📗</div><h4>Google Sheets — Light</h4><p>Single User Version</p></div>
+      <div class="p-included-item"><div class="file-icon">📗</div><h4>Google Sheets — Light</h4><p>Multi User Version</p></div>
+      <div class="p-included-item"><div class="file-icon">📘</div><h4>Google Sheets — Dark</h4><p>Single User Version</p></div>
+      <div class="p-included-item"><div class="file-icon">📘</div><h4>Google Sheets — Dark</h4><p>Multi User Version</p></div>
+      <div class="p-included-item"><div class="file-icon">📒</div><h4>Excel — Light</h4><p>Single User Version</p></div>
+      <div class="p-included-item"><div class="file-icon">📒</div><h4>Excel — Light</h4><p>Multi User Version</p></div>
+      <div class="p-included-item"><div class="file-icon">📓</div><h4>Excel — Dark</h4><p>Single User Version</p></div>
+      <div class="p-included-item"><div class="file-icon">📓</div><h4>Excel — Dark</h4><p>Multi User Version</p></div>
+      <div class="p-included-item"><div class="file-icon">📄</div><h4>Setup Guide PDF</h4><p>Font &amp; Macro Installation</p></div>
+    </div>
+  </section>
+  <div class="p-divider"></div>
+  <section>
+    <p class="p-section-label">Download</p>
+    <h2>Get your <strong>copy now.</strong></h2>
+    <div class="p-lock-section" id="p-lock-box">
+      <div class="lock-icon">🔐</div>
+      <h3>Enter your purchase code</h3>
+      <p>Check your Etsy order confirmation email for your unique access code.</p>
+      <div class="p-pw-row">
+        <input class="p-pw-input" id="p-pw-input" type="password" placeholder="Enter code" onkeydown="if(event.key==='Enter') checkProductPassword()" />
+        <button class="p-btn-unlock" onclick="checkProductPassword()">Unlock ↗</button>
+      </div>
+      <p class="p-error-msg" id="p-error-msg">Incorrect code. Please check your Etsy confirmation email.</p>
+    </div>
+    <div id="p-download-box" style="display:none;">
+      <div class="p-unlock-success">✅ Access granted. Choose your version below.</div>
+      <div class="p-download-grid">
+        <div class="p-download-card"><div class="d-icon">📗</div><div class="p-dl-badge">Google Sheets</div><h4>Light Mode</h4><p>Works in any browser.<br>No installation needed.</p><a class="p-btn-download" href="https://docs.google.com/spreadsheets/d/1xVsDrvch7VYoxHPqCWLeklur80HM0LTLKbjpc6LWvAs/copy" target="_blank">Open &amp; Copy ↗</a></div>
+        <div class="p-download-card"><div class="d-icon">📘</div><div class="p-dl-badge">Google Sheets</div><h4>Dark Mode</h4><p>Works in any browser.<br>No installation needed.</p><a class="p-btn-download" href="https://docs.google.com/spreadsheets/d/1BbnNKpKLR3uFkEScFUwjXYkszb_ZIjsY0z0qdmiWthE/copy" target="_blank">Open &amp; Copy ↗</a></div>
+        <div class="p-download-card"><div class="d-icon">📒</div><div class="p-dl-badge">Excel .xlsm</div><h4>Light Mode</h4><p>Requires Microsoft 365.<br>Enable macros on open.</p><a class="p-btn-download outline" href="https://drive.google.com/uc?export=download&id=1ZrYn_ZFmMnGTZnhtEptZOcL6xp3k2PqZ" target="_blank">Download ↓</a></div>
+        <div class="p-download-card"><div class="d-icon">📓</div><div class="p-dl-badge">Excel .xlsm</div><h4>Dark Mode</h4><p>Requires Microsoft 365.<br>Enable macros on open.</p><a class="p-btn-download outline" href="https://drive.google.com/uc?export=download&id=1jKfU_4oQWtSd7Rjbw_VhnSSctPbEpPde" target="_blank">Download ↓</a></div>
+      </div>
+      <div class="p-download-note">💡 <strong>Google Sheets:</strong> Clicking "Open &amp; Copy" saves a copy to your own Google Drive. A free Google account is required.<br><br>💡 <strong>Excel:</strong> After downloading, right-click the file → Properties → check <strong>Unblock</strong> → OK. Then open and click <strong>"Enable Content"</strong> in the yellow bar.</div>
+    </div>
+  </section>
+  <div class="p-divider"></div>
+  <section>
+    <p class="p-section-label">Getting started</p>
+    <h2>Up and running<br><strong>in minutes.</strong></h2>
+    <div class="p-tab-wrapper">
+      <div class="p-tabs">
+        <button class="p-tab-btn active" onclick="switchProductTab(event,'gs')">Google Sheets</button>
+        <button class="p-tab-btn" onclick="switchProductTab(event,'xl')">Excel</button>
+      </div>
+      <div class="p-tab-content active" id="p-tab-gs">
+        <div class="p-steps">
+          <div class="p-step"><div class="p-step-num">1</div><div class="p-step-content"><h3>Click "Open &amp; Copy"</h3><p>Click the download button above. You'll be prompted to make a copy into your own Google Drive.</p></div></div>
+          <div class="p-step"><div class="p-step-num">2</div><div class="p-step-content"><h3>Set Up Your Profile</h3><p>Open the <strong>Setup</strong> sheet. Enter your name, currency, and any fixed income or expenses.</p></div></div>
+          <div class="p-step"><div class="p-step-num">3</div><div class="p-step-content"><h3>Start Logging</h3><p>Go to <strong>Daily Log</strong> and start entering transactions. The dashboard updates automatically.</p></div></div>
+        </div>
+      </div>
+      <div class="p-tab-content" id="p-tab-xl">
+        <div class="p-steps">
+          <div class="p-step"><div class="p-step-num">1</div><div class="p-step-content"><h3>Download the File</h3><p>Click the Download button above. Save the <code>.xlsm</code> file to your computer.</p></div></div>
+          <div class="p-step"><div class="p-step-num">2</div><div class="p-step-content"><h3>Unblock the File</h3><p>Right-click the file → <strong>Properties</strong> → check <strong>"Unblock"</strong> → OK.</p></div></div>
+          <div class="p-step"><div class="p-step-num">3</div><div class="p-step-content"><h3>Install Fonts</h3><p>Download and install <strong>Inter</strong> and <strong>Pretendard</strong> fonts. Links included in the PDF guide. Restart Excel after installing.</p></div></div>
+          <div class="p-step"><div class="p-step-num">4</div><div class="p-step-content"><h3>Enable Macros</h3><p>Open the file → click <strong>"Enable Content"</strong> in the yellow bar at the top.</p></div></div>
+          <div class="p-step"><div class="p-step-num">5</div><div class="p-step-content"><h3>Set Up &amp; Start Logging</h3><p>Open the <strong>Setup</strong> sheet, enter your details, then go to <strong>Daily Log</strong> to begin.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="p-highlight">💡 <strong>Tip:</strong> Always start from the Setup sheet. Your currency, user names, and fixed items registered there power everything else automatically.</div>
+  </section>
+  <div class="p-divider"></div>
+  <section>
+    <p class="p-section-label">Common questions</p>
+    <h2><strong>FAQ</strong></h2>
+    <div class="p-faq-list">
+      <div class="p-faq-item"><button class="p-faq-q" onclick="toggleProductFaq(this)">Do I need a paid Google account? <span>＋</span></button><div class="p-faq-a">No. A free Google account is all you need. The file works in any browser on any device.</div></div>
+      <div class="p-faq-item"><button class="p-faq-q" onclick="toggleProductFaq(this)">Which version of Excel do I need? <span>＋</span></button><div class="p-faq-a">Microsoft 365 (Office 365) is recommended. The file uses modern functions like LET, FILTER, and LAMBDA which require a recent version.</div></div>
+      <div class="p-faq-item"><button class="p-faq-q" onclick="toggleProductFaq(this)">Can I use this for multiple currencies at the same time? <span>＋</span></button><div class="p-faq-a">Yes. You can assign a different currency to each user. The dashboard filters by currency and shows totals per user.</div></div>
+      <div class="p-faq-item"><button class="p-faq-q" onclick="toggleProductFaq(this)">Is the file protected? Can I customize it? <span>＋</span></button><div class="p-faq-a">The Daily Log and Setup sheets are open for editing. Dashboard and calculation sheets are protected to prevent accidental edits.</div></div>
+      <div class="p-faq-item"><button class="p-faq-q" onclick="toggleProductFaq(this)">Can I use this for visa or tax documentation? <span>＋</span></button><div class="p-faq-a">Yes. The system is designed to produce a clean, audit-ready transaction history. Particularly useful for I-751 marriage visa evidence or annual tax filing.</div></div>
+      <div class="p-faq-item"><button class="p-faq-q" onclick="toggleProductFaq(this)">What happens after I make a copy in Google Sheets? <span>＋</span></button><div class="p-faq-a">The copy is entirely yours. Any updates are saved automatically to your own Google Drive. The original template is not affected.</div></div>
+      <div class="p-faq-item"><button class="p-faq-q" onclick="toggleProductFaq(this)">I have a question not listed here. How do I reach you? <span>＋</span></button><div class="p-faq-a">Send a message through Etsy and we'll get back to you within 1–2 business days.</div></div>
+    </div>
+  </section>
+  <div class="p-divider"></div>
+  <div class="p-footer">
+    <strong>DEWY STUDIO</strong>
+    <p>Design that works. Beauty that stays.</p>
+    <p style="margin-top:16px; font-size:12px; opacity:0.5;">Digital download. No physical item will be shipped.</p>
+  </div>
+</div>
 
 <script>
-  function openPayModal(name, price) {
-    const emoji = name.charAt(0);
-    document.getElementById('m-thumb').textContent = emoji;
-    document.getElementById('m-name').textContent = name.slice(2).trim();
-    document.getElementById('m-price').textContent = price;
-    const raw = parseFloat(price.replace(/[^0-9.]/g,''));
-    const tax = (raw * 0.1).toFixed(2);
-    const total = (raw + parseFloat(tax)).toFixed(2);
-    document.getElementById('t-sub').textContent = '$' + raw.toFixed(2);
-    document.getElementById('t-tax').textContent = '$' + tax;
-    document.getElementById('t-total').textContent = '$' + total;
-    document.getElementById('payModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
+  let cart = [];
+  let currentPaymentMethod = 'card';
+
+  function updateCartUI() {
+    const cartBtn = document.getElementById('cart-nav-btn');
+    cartBtn.textContent = `Cart (${cart.length})`;
+    const container = document.getElementById('cartItemsContainer');
+    container.innerHTML = '';
+    if (cart.length === 0) {
+      container.innerHTML = `<div class="cart-empty-message">Your shopping cart is currently empty.</div>`;
+      document.getElementById('cartTotalSum').textContent = '$0.00';
+      return;
+    }
+    let sum = 0;
+    cart.forEach((item, index) => {
+      sum += item.price;
+      const row = document.createElement('div');
+      row.className = 'cart-item-row';
+      row.innerHTML = `<div class="cart-item-emoji">${item.emoji}</div><div class="cart-item-details"><div class="cart-item-name">${item.name}</div><div class="cart-item-price">$${item.price.toFixed(2)}</div></div><button class="remove-item-btn" onclick="removeFromCart(${index})">Remove</button>`;
+      container.appendChild(row);
+    });
+    document.getElementById('cartTotalSum').textContent = `$${sum.toFixed(2)}`;
   }
-  function closePayModal() {
-    document.getElementById('payModal').classList.remove('open');
-    document.body.style.overflow = '';
+
+  function addToCart(name, price, emoji) {
+    if (cart.some(item => item.name === name)) { showToast('✨ Item is already in your cart!'); toggleCart(true); return; }
+    cart.push({ name, price, emoji });
+    updateCartUI();
+    showToast(`Added ${name} to cart!`);
+    toggleCart(true);
   }
-  document.getElementById('payModal').addEventListener('click', function(e) { if (e.target === this) closePayModal(); });
-  function selectPay(el) {
-    document.querySelectorAll('.pay-method').forEach(m => m.classList.remove('selected'));
-    el.classList.add('selected');
+
+  function removeFromCart(index) {
+    const removedItemName = cart[index].name;
+    cart.splice(index, 1);
+    updateCartUI();
+    showToast(`Removed ${removedItemName}`);
   }
-  function handlePay() { closePayModal(); showToast('🎉 Payment complete! Check your email for the download link 📧'); }
-  function formatCard(input) { let v = input.value.replace(/\D/g,'').substring(0,16); input.value = v.replace(/(.{4})/g,'$1 ').trim(); }
-  function formatExpiry(input) { let v = input.value.replace(/\D/g,'').substring(0,4); if (v.length>2) v = v.substring(0,2)+' / '+v.substring(2); input.value = v; }
-  function handleContact(e) {
-    e.preventDefault();
-    const name = document.getElementById('c-name').value;
-    showToast(`✉️ Message sent, ${name}! I'll get back to you soon 💌`);
-    e.target.reset();
+
+  function toggleCart(forceOpen = null) {
+    const sidebar = document.getElementById('cartSidebar');
+    const backdrop = document.getElementById('cartBackdrop');
+    let open = forceOpen !== null ? forceOpen : !sidebar.classList.contains('open');
+    if (open) { sidebar.classList.add('open'); backdrop.classList.add('show'); }
+    else { sidebar.classList.remove('open'); backdrop.classList.remove('show'); }
   }
+
+  function checkoutAllCart() {
+    if (cart.length === 0) { showToast('Your cart is empty!'); return; }
+    let names = cart.map(i => i.name).join(', ');
+    let totalCost = cart.reduce((acc, i) => acc + i.price, 0);
+    toggleCart(false);
+    openPayModal(names, `$${totalCost.toFixed(2)}`, '🛍️');
+  }
+
   function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = msg; t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 3500);
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => { toast.classList.remove('show'); }, 2500);
+  }
+
+  function openPayModal(prodName, prodPrice, emoji = '📊') {
+    document.getElementById('modalThumb').textContent = emoji;
+    document.getElementById('modalProdName').textContent = prodName;
+    document.getElementById('modalProdPrice').textContent = prodPrice;
+    document.getElementById('orderSubtotal').textContent = prodPrice;
+    document.getElementById('orderTotal').textContent = prodPrice;
+    document.getElementById('payModal').classList.add('open');
+  }
+
+  function closePayModal() { document.getElementById('payModal').classList.remove('open'); }
+
+  function selectPayMethod(element, method) {
+    document.querySelectorAll('.pay-method').forEach(btn => btn.classList.remove('selected'));
+    element.classList.add('selected');
+    currentPaymentMethod = method;
+    const cardInputs = document.getElementById('cardInputs');
+    if (method === 'card') { cardInputs.style.display = 'flex'; document.getElementById('paySubmitBtn').textContent = 'Secure Checkout'; }
+    else if (method === 'paypal') { cardInputs.style.display = 'none'; document.getElementById('paySubmitBtn').textContent = 'Pay securely with PayPal'; }
+    else { cardInputs.style.display = 'none'; document.getElementById('paySubmitBtn').textContent = 'Pay seamlessly with Apple Pay'; }
+  }
+
+  function formatCardNumber(input) {
+    let v = input.value.replace(/\D/g, '');
+    let matches = v.match(/\d{4,16}/g);
+    let match = matches && matches[0] || '';
+    let parts = [];
+    for (let i=0, len=match.length; i<len; i+=4) { parts.push(match.substring(i, i+4)); }
+    input.value = parts.length > 0 ? parts.join(' ') : v;
+  }
+
+  function formatExpiry(input) {
+    let v = input.value.replace(/\D/g, '');
+    if (v.length > 2) { input.value = v.substring(0, 2) + '/' + v.substring(2, 4); } else { input.value = v; }
+  }
+
+  function handlePaymentSubmit(event) {
+    event.preventDefault();
+    const email = document.getElementById('billingEmail').value || 'your registered email';
+    showToast('Processing payment securely...');
+    setTimeout(() => { closePayModal(); cart = []; updateCartUI(); showToast(`🎉 Order confirmed! We've sent download links to ${email}`); }, 2000);
+  }
+
+  function handleContactSubmit(event) {
+    event.preventDefault();
+    showToast('✉ Custom order inquiry submitted successfully!');
+    event.target.reset();
+  }
+
+  function showProductPage() {
+    document.getElementById('store-view').style.display = 'none';
+    document.getElementById('product-page').style.display = 'block';
+    window.scrollTo(0,0);
+  }
+
+  function showStore() {
+    document.getElementById('product-page').style.display = 'none';
+    document.getElementById('store-view').style.display = 'block';
+    window.scrollTo(0,0);
+  }
+
+  const PRODUCT_CORRECT_CODE = 'DWEY2026';
+
+  function checkProductPassword() {
+    const input = document.getElementById('p-pw-input').value.trim().toUpperCase();
+    const lockBox = document.getElementById('p-lock-box');
+    const downloadBox = document.getElementById('p-download-box');
+    const errorMsg = document.getElementById('p-error-msg');
+    const pwInput = document.getElementById('p-pw-input');
+    if (input === PRODUCT_CORRECT_CODE) { lockBox.style.display = 'none'; downloadBox.style.display = 'block'; errorMsg.style.display = 'none'; }
+    else { errorMsg.style.display = 'block'; pwInput.style.borderColor = '#b94040'; }
+  }
+
+  function switchProductTab(e, id) {
+    document.querySelectorAll('.p-tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.p-tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('p-tab-' + id).classList.add('active');
+    e.target.classList.add('active');
+  }
+
+  function toggleProductFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const icon = btn.querySelector('span');
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.p-faq-a').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.p-faq-q span').forEach(s => s.textContent = '＋');
+    if (!isOpen) { answer.classList.add('open'); icon.textContent = '－'; }
   }
 </script>
 </body>
