@@ -112,7 +112,7 @@
     .buy-btn:hover { background:var(--teal-dark); color:var(--white); }
 
    #about { background:linear-gradient(135deg,rgba(93,222,200,0.10) 0%, #f0e8df 100%); }
-.about-inner { max-width:1200px; width:100%; padding:0 1rem; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+.about-inner { max-width:900px; width:100%; padding:0; margin:0 0 0 5%; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
 .about-visual { width:100%; max-width:320px; margin:0 auto 0 0; background:var(--white); border-radius:24px; padding:2.5rem 1.5rem; text-align:center; box-shadow:0 8px 32px var(--shadow); }
 .about-avatar { width:130px; height:130px; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:50%; }
 .about-avatar img { width:100%; height:100%; object-fit:cover; }
@@ -335,7 +335,7 @@
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-card" onclick="showProductPage()">
+      <div class="hero-card" onclick="javascript:void(0)">
         <div class="card-icon">📊</div>
         <div class="card-name">2026 Budget Planner</div>
         <div class="card-sub">Excel Template</div>
@@ -377,7 +377,7 @@
     <p class="section-desc">Elevate your everyday with thoughtful design.</p>
   </div>
   <div class="product-grid">
-    <div class="product-card" onclick="showProductPage()">
+    <div class="product-card">
       <div class="product-thumb" style="background:#fdf0e8;">📊<span class="badge">BEST</span></div>
       <div class="product-body">
         <div class="product-tag">Excel Template</div>
@@ -385,7 +385,7 @@
         <div class="product-desc">Auto-calculated income &amp; expense tracker in a fresh pastel layout — make budgeting enjoyable.</div>
         <div class="product-footer">
           <span class="product-price">$28.00</span>
-          <button class="buy-btn" onclick="showProductPage(); event.stopPropagation();">View Details</button>
+          <button class="buy-btn" onclick="addToCart('2026 Dewy Budget Planner', 28, '📊'); event.stopPropagation();">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -554,117 +554,6 @@
 <div id="toast">🛒 Added!</div>
 </div>
 
-<div id="product-page" class="product-page-container" style="display:none;">
-  <div class="back-btn-container">
-    <button class="back-btn" onclick="showStore()">← Back to Store</button>
-  </div>
-  <div class="p-hero">
-    <div class="p-badge">Dewy Studio</div>
-    <h1>The Only Financial System<br><span>You'll Ever Need</span></h1>
-    <p>Multi-currency · Up to 5 users · Excel &amp; Google Sheets<br>Light &amp; Dark Mode · Audit-Ready</p>
-    <div class="p-tags">
-      <span>💱 Global Currency Support</span><span>👨‍👩‍👧 Up to 5 Users</span><span>🔒 Sheet Protected</span><span>📊 Auto Dashboard</span><span>🧾 Audit-Ready</span><span>🌙 Dark Mode</span>
-    </div>
-  </div>
-  <div class="p-divider"></div>
-  <section>
-    <p class="p-section-label">What it does</p>
-    <h2>Built for real life.<br><strong>Designed to last.</strong></h2>
-    <div class="p-features-grid">
-      <div class="p-feature-card"><div class="icon">💱</div><h3>Multi-Currency Support</h3><p>Track income and expenses in any currency. Switch between USD, KRW, JPY, EUR and more with one click.</p></div>
-      <div class="p-feature-card"><div class="icon">👨‍👩‍👧</div><h3>Up to 5 Users</h3><p>Manage finances for the whole household. Each user gets their own filtered view — shared or individual.</p></div>
-      <div class="p-feature-card"><div class="icon">📊</div><h3>Auto Dashboard</h3><p>Everything updates as you log. Income, expenses, balances, and top spending — all visualized instantly.</p></div>
-      <div class="p-feature-card"><div class="icon">🔁</div><h3>Fixed &amp; Variable Income</h3><p>Track recurring salary and irregular income separately. Know what's expected and what actually arrived.</p></div>
-      <div class="p-feature-card"><div class="icon">🧾</div><h3>Audit-Ready Records</h3><p>Perfect for tax filing, visa applications (I-751), or any situation that requires a clean financial trail.</p></div>
-      <div class="p-feature-card"><div class="icon">🌙</div><h3>Light &amp; Dark Mode</h3><p>Two complete visual themes included. Premium minimal aesthetic that works in any environment.</p></div>
-    </div>
-  </section>
-  <div class="p-divider"></div>
-  <section>
-    <p class="p-section-label">Package contents</p>
-    <h2>Everything <strong>included.</strong></h2>
-    <div class="p-included-grid">
-      <div class="p-included-item"><div class="file-icon">📗</div><h4>Google Sheets — Light</h4><p>Multi User Version</p></div>
-      <div class="p-included-item"><div class="file-icon">📘</div><h4>Google Sheets — Dark</h4><p>Multi User Version</p></div>
-      <div class="p-included-item"><div class="file-icon">📒</div><h4>Excel — Light</h4><p>Multi User Version</p></div>
-      <div class="p-included-item"><div class="file-icon">📓</div><h4>Excel — Dark</h4><p>Multi User Version</p></div>
-      <div class="p-included-item"><div class="file-icon">📄</div><h4>Setup Guide PDF</h4><p>Font &amp; Macro Installation</p></div>
-    </div>
-  </section>
-  <div class="p-divider"></div>
-  <section>
-    <p class="p-section-label">Download</p>
-    <h2>Get your <strong>copy now.</strong></h2>
-    <div class="p-lock-section" id="p-lock-box">
-      <div class="lock-icon">🔐</div>
-      <h3>Enter your purchase code</h3>
-      <p>Check your Etsy order confirmation email for your unique access code.</p>
-      <div class="p-pw-row">
-        <input class="p-pw-input" id="p-pw-input" type="password" placeholder="Enter code" onkeydown="if(event.key==='Enter') checkProductPassword()" />
-        <button class="p-btn-unlock" onclick="checkProductPassword()">Unlock ↗</button>
-      </div>
-      <p class="p-error-msg" id="p-error-msg">Incorrect code. Please check your Etsy confirmation email.</p>
-    </div>
-    <div id="p-download-box" style="display:none;">
-      <div class="p-unlock-success">✅ Access granted. Choose your version below.</div>
-      <div class="p-download-grid">
-        <div class="p-download-card"><div class="d-icon">📗</div><div class="p-dl-badge">Google Sheets</div><h4>Light Mode</h4><p>Works in any browser.<br>No installation needed.</p><a class="p-btn-download" href="https://docs.google.com/spreadsheets/d/1xVsDrvch7VYoxHPqCWLeklur80HM0LTLKbjpc6LWvAs/copy" target="_blank">Open &amp; Copy ↗</a></div>
-        <div class="p-download-card"><div class="d-icon">📘</div><div class="p-dl-badge">Google Sheets</div><h4>Dark Mode</h4><p>Works in any browser.<br>No installation needed.</p><a class="p-btn-download" href="https://docs.google.com/spreadsheets/d/1BbnNKpKLR3uFkEScFUwjXYkszb_ZIjsY0z0qdmiWthE/copy" target="_blank">Open &amp; Copy ↗</a></div>
-        <div class="p-download-card"><div class="d-icon">📒</div><div class="p-dl-badge">Excel .xlsm</div><h4>Light Mode</h4><p>Requires Microsoft 365.<br>Enable macros on open.</p><a class="p-btn-download outline" href="https://drive.google.com/uc?export=download&id=1ZrYn_ZFmMnGTZnhtEptZOcL6xp3k2PqZ" target="_blank">Download ↓</a></div>
-        <div class="p-download-card"><div class="d-icon">📓</div><div class="p-dl-badge">Excel .xlsm</div><h4>Dark Mode</h4><p>Requires Microsoft 365.<br>Enable macros on open.</p><a class="p-btn-download outline" href="https://drive.google.com/uc?export=download&id=1jKfU_4oQWtSd7Rjbw_VhnSSctPbEpPde" target="_blank">Download ↓</a></div>
-      </div>
-      <div class="p-download-note">💡 <strong>Google Sheets:</strong> Clicking "Open &amp; Copy" saves a copy to your own Google Drive. A free Google account is required.<br><br>💡 <strong>Excel:</strong> After downloading, right-click the file → Properties → check <strong>Unblock</strong> → OK. Then open and click <strong>"Enable Content"</strong> in the yellow bar.</div>
-    </div>
-  </section>
-  <div class="p-divider"></div>
-  <section>
-    <p class="p-section-label">Getting started</p>
-    <h2>Up and running<br><strong>in minutes.</strong></h2>
-    <div class="p-tab-wrapper">
-      <div class="p-tabs">
-        <button class="p-tab-btn active" onclick="switchProductTab(event,'gs')">Google Sheets</button>
-        <button class="p-tab-btn" onclick="switchProductTab(event,'xl')">Excel</button>
-      </div>
-      <div class="p-tab-content active" id="p-tab-gs">
-        <div class="p-steps">
-          <div class="p-step"><div class="p-step-num">1</div><div class="p-step-content"><h3>Click "Open &amp; Copy"</h3><p>Click the download button above. You'll be prompted to make a copy into your own Google Drive.</p></div></div>
-          <div class="p-step"><div class="p-step-num">2</div><div class="p-step-content"><h3>Set Up Your Profile</h3><p>Open the <strong>Setup</strong> sheet. Enter your name, currency, and any fixed income or expenses.</p></div></div>
-          <div class="p-step"><div class="p-step-num">3</div><div class="p-step-content"><h3>Start Logging</h3><p>Go to <strong>Daily Log</strong> and start entering transactions. The dashboard updates automatically.</p></div></div>
-        </div>
-      </div>
-      <div class="p-tab-content" id="p-tab-xl">
-        <div class="p-steps">
-          <div class="p-step"><div class="p-step-num">1</div><div class="p-step-content"><h3>Download the File</h3><p>Click the Download button above. Save the <code>.xlsm</code> file to your computer.</p></div></div>
-          <div class="p-step"><div class="p-step-num">2</div><div class="p-step-content"><h3>Unblock the File</h3><p>Right-click the file → <strong>Properties</strong> → check <strong>"Unblock"</strong> → OK.</p></div></div>
-          <div class="p-step"><div class="p-step-num">3</div><div class="p-step-content"><h3>Install Fonts</h3><p>Download and install <strong>Inter</strong> and <strong>Pretendard</strong> fonts. Links included in the PDF guide. Restart Excel after installing.</p></div></div>
-          <div class="p-step"><div class="p-step-num">4</div><div class="p-step-content"><h3>Enable Macros</h3><p>Open the file → click <strong>"Enable Content"</strong> in the yellow bar at the top.</p></div></div>
-          <div class="p-step"><div class="p-step-num">5</div><div class="p-step-content"><h3>Set Up &amp; Start Logging</h3><p>Open the <strong>Setup</strong> sheet, enter your details, then go to <strong>Daily Log</strong> to begin.</p></div></div>
-        </div>
-      </div>
-    </div>
-    <div class="p-highlight">💡 <strong>Tip:</strong> Always start from the Setup sheet. Your currency, user names, and fixed items registered there power everything else automatically.</div>
-  </section>
-  <div class="p-divider"></div>
-  <section>
-    <p class="p-section-label">Common questions</p>
-    <h2><strong>FAQ</strong></h2>
-    <div class="p-faq-list">
-      <div class="p-faq-item"><button class="p-faq-q" onclick="toggleProductFaq(this)">Do I need a paid Google account? <span>＋</span></button><div class="p-faq-a">No. A free Google account is all you need. The file works in any browser on any device.</div></div>
-      <div class="p-faq-item"><button class="p-faq-q" onclick="toggleProductFaq(this)">Which version of Excel do I need? <span>＋</span></button><div class="p-faq-a">Microsoft 365 (Office 365) is recommended. The file uses modern functions like LET, FILTER, and LAMBDA which require a recent version.</div></div>
-      <div class="p-faq-item"><button class="p-faq-q" onclick="toggleProductFaq(this)">Can I use this for multiple currencies at the same time? <span>＋</span></button><div class="p-faq-a">Yes. You can assign a different currency to each user. The dashboard filters by currency and shows totals per user.</div></div>
-      <div class="p-faq-item"><button class="p-faq-q" onclick="toggleProductFaq(this)">Is the file protected? Can I customize it? <span>＋</span></button><div class="p-faq-a">The Daily Log and Setup sheets are open for editing. Dashboard and calculation sheets are protected to prevent accidental edits.</div></div>
-      <div class="p-faq-item"><button class="p-faq-q" onclick="toggleProductFaq(this)">Can I use this for visa or tax documentation? <span>＋</span></button><div class="p-faq-a">Yes. The system is designed to produce a clean, audit-ready transaction history. Particularly useful for I-751 marriage visa evidence or annual tax filing.</div></div>
-      <div class="p-faq-item"><button class="p-faq-q" onclick="toggleProductFaq(this)">What happens after I make a copy in Google Sheets? <span>＋</span></button><div class="p-faq-a">The copy is entirely yours. Any updates are saved automatically to your own Google Drive. The original template is not affected.</div></div>
-      <div class="p-faq-item"><button class="p-faq-q" onclick="toggleProductFaq(this)">I have a question not listed here. How do I reach you? <span>＋</span></button><div class="p-faq-a">Send a message through Etsy and we'll get back to you within 1–2 business days.</div></div>
-    </div>
-  </section>
-  <div class="p-divider"></div>
-  <div class="p-footer">
-    <strong>DEWY STUDIO</strong>
-    <p>Design that works. Beauty that stays.</p>
-    <p style="margin-top:16px; font-size:12px; opacity:0.5;">Digital download. No physical item will be shipped.</p>
-  </div>
-</div>
 
 <script>
   let cart = [];
@@ -810,8 +699,6 @@
     document.getElementById('store-view').style.display = 'block';
     window.scrollTo(0,0);
   }
-
-  const PRODUCT_CORRECT_CODE = 'DWEY2026';
 
   function checkProductPassword() {
     const input = document.getElementById('p-pw-input').value.trim().toUpperCase();
