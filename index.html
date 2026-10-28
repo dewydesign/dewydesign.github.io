@@ -324,9 +324,6 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 
-  <div class="nav-actions">
-    <button class="nav-cart" id="cart-nav-btn" onclick="toggleCart()">Cart (0)</button>
-  </div>
 </nav>
 
 <section id="hero">
@@ -491,59 +488,6 @@
   </div>
 </section>
 
-<div class="modal-overlay" id="payModal">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 class="modal-title">Complete Checkout</h3>
-      <button class="modal-close" onclick="closePayModal()">×</button>
-    </div>
-    <div class="modal-product">
-      <div class="modal-product-thumb" id="modalThumb">📊</div>
-      <div class="modal-product-info">
-        <div class="name" id="modalProdName">Monthly Budget Excel Pack</div>
-        <div class="price" id="modalProdPrice">$28</div>
-      </div>
-    </div>
-    <p class="modal-section-title">Payment Method</p>
-    <div class="payment-methods">
-      <div class="pay-method" onclick="selectPayMethod(this, 'paypal')"><span class="pay-icon">🅿️</span>PayPal</div>
-      <div class="pay-method" onclick="selectPayMethod(this, 'apple')"><span class="pay-icon">🍏</span>Apple Pay</div>
-    </div>
-    <form onsubmit="handlePaymentSubmit(event)">
-      <div class="modal-form" id="cardInputs">
-        <input type="text" placeholder="Email Address" required id="billingEmail" />
-        <input type="text" placeholder="Cardholder Name" required />
-        <input type="text" placeholder="Card Number (0000 0000 0000 0000)" required id="cardNumber" oninput="formatCardNumber(this)" maxlength="19" />
-        <div class="card-row">
-          <input type="text" placeholder="MM/YY" required id="cardExpiry" oninput="formatExpiry(this)" maxlength="5" />
-          <input type="text" placeholder="CVC" required id="cardCvc" maxlength="3" />
-          <input type="text" placeholder="Zip" required />
-        </div>
-      </div>
-      <div class="order-total">
-        <div class="total-row"><span>Subtotal</span><span id="orderSubtotal">$28</span></div>
-        <div class="total-row"><span>Sales Tax (0%)</span><span>$0.00</span></div>
-        <div class="total-row final"><span>Total Price</span><span id="orderTotal">$28</span></div>
-      </div>
-      <button type="submit" class="pay-btn" id="paySubmitBtn">Secure Checkout</button>
-    </form>
-    <div class="secure-note">🔒 SSL Encrypted &amp; Secure Digital Receipt Issued</div>
-  </div>
-</div>
-
-<div class="cart-backdrop" id="cartBackdrop" onclick="toggleCart()"></div>
-<div class="cart-sidebar" id="cartSidebar">
-  <div class="cart-header">
-    <h3>Your Shopping Cart</h3>
-    <button class="close-cart-btn" onclick="toggleCart()">×</button>
-  </div>
-  <div class="cart-items-container" id="cartItemsContainer"></div>
-  <div class="cart-footer">
-    <div class="cart-total-row"><span>Total</span><span id="cartTotalSum">$0.00</span></div>
-    <button class="checkout-btn" onclick="checkoutAllCart()">Checkout All Items</button>
-  </div>
-</div>
-
 <footer>
   <a href="#" class="footer-logo">
   <img src="img/Logo.svg" alt="Dewy Design Logo" style="height: 44px; width: auto; object-fit: contain;">
@@ -562,108 +506,11 @@
 
 
 <script>
-  let cart = [];
-  let currentPaymentMethod = 'card';
-
-  function updateCartUI() {
-    const cartBtn = document.getElementById('cart-nav-btn');
-    cartBtn.textContent = `Cart (${cart.length})`;
-    const container = document.getElementById('cartItemsContainer');
-    container.innerHTML = '';
-    if (cart.length === 0) {
-      container.innerHTML = `<div class="cart-empty-message">Your shopping cart is currently empty.</div>`;
-      document.getElementById('cartTotalSum').textContent = '$0.00';
-      return;
-    }
-    let sum = 0;
-    cart.forEach((item, index) => {
-      sum += item.price;
-      const row = document.createElement('div');
-      row.className = 'cart-item-row';
-      row.innerHTML = `<div class="cart-item-emoji">${item.emoji}</div><div class="cart-item-details"><div class="cart-item-name">${item.name}</div><div class="cart-item-price">$${item.price.toFixed(2)}</div></div><button class="remove-item-btn" onclick="removeFromCart(${index})">Remove</button>`;
-      container.appendChild(row);
-    });
-    document.getElementById('cartTotalSum').textContent = `$${sum.toFixed(2)}`;
-  }
-
-  function addToCart(name, price, emoji) {
-    if (cart.some(item => item.name === name)) { showToast('✨ Item is already in your cart!'); toggleCart(true); return; }
-    cart.push({ name, price, emoji });
-    updateCartUI();
-    showToast(`Added ${name} to cart!`);
-    toggleCart(true);
-  }
-
-  function removeFromCart(index) {
-    const removedItemName = cart[index].name;
-    cart.splice(index, 1);
-    updateCartUI();
-    showToast(`Removed ${removedItemName}`);
-  }
-
-  function toggleCart(forceOpen = null) {
-    const sidebar = document.getElementById('cartSidebar');
-    const backdrop = document.getElementById('cartBackdrop');
-    let open = forceOpen !== null ? forceOpen : !sidebar.classList.contains('open');
-    if (open) { sidebar.classList.add('open'); backdrop.classList.add('show'); }
-    else { sidebar.classList.remove('open'); backdrop.classList.remove('show'); }
-  }
-
-  function checkoutAllCart() {
-    if (cart.length === 0) { showToast('Your cart is empty!'); return; }
-    let names = cart.map(i => i.name).join(', ');
-    let totalCost = cart.reduce((acc, i) => acc + i.price, 0);
-    toggleCart(false);
-    openPayModal(names, `$${totalCost.toFixed(2)}`, '🛍️');
-  }
-
   function showToast(msg) {
     const toast = document.getElementById('toast');
     toast.textContent = msg;
     toast.classList.add('show');
     setTimeout(() => { toast.classList.remove('show'); }, 2500);
-  }
-
-  function openPayModal(prodName, prodPrice, emoji = '📊') {
-    document.getElementById('modalThumb').textContent = emoji;
-    document.getElementById('modalProdName').textContent = prodName;
-    document.getElementById('modalProdPrice').textContent = prodPrice;
-    document.getElementById('orderSubtotal').textContent = prodPrice;
-    document.getElementById('orderTotal').textContent = prodPrice;
-    document.getElementById('payModal').classList.add('open');
-  }
-
-  function closePayModal() { document.getElementById('payModal').classList.remove('open'); }
-
-  function selectPayMethod(element, method) {
-    document.querySelectorAll('.pay-method').forEach(btn => btn.classList.remove('selected'));
-    element.classList.add('selected');
-    currentPaymentMethod = method;
-    const cardInputs = document.getElementById('cardInputs');
-    if (method === 'card') { cardInputs.style.display = 'flex'; document.getElementById('paySubmitBtn').textContent = 'Secure Checkout'; }
-    else if (method === 'paypal') { cardInputs.style.display = 'none'; document.getElementById('paySubmitBtn').textContent = 'Pay securely with PayPal'; }
-    else { cardInputs.style.display = 'none'; document.getElementById('paySubmitBtn').textContent = 'Pay seamlessly with Apple Pay'; }
-  }
-
-  function formatCardNumber(input) {
-    let v = input.value.replace(/\D/g, '');
-    let matches = v.match(/\d{4,16}/g);
-    let match = matches && matches[0] || '';
-    let parts = [];
-    for (let i=0, len=match.length; i<len; i+=4) { parts.push(match.substring(i, i+4)); }
-    input.value = parts.length > 0 ? parts.join(' ') : v;
-  }
-
-  function formatExpiry(input) {
-    let v = input.value.replace(/\D/g, '');
-    if (v.length > 2) { input.value = v.substring(0, 2) + '/' + v.substring(2, 4); } else { input.value = v; }
-  }
-
-  function handlePaymentSubmit(event) {
-    event.preventDefault();
-    const email = document.getElementById('billingEmail').value || 'your registered email';
-    showToast('Processing payment securely...');
-    setTimeout(() => { closePayModal(); cart = []; updateCartUI(); showToast(`🎉 Order confirmed! We've sent download links to ${email}`); }, 2000);
   }
 
   function handleContactSubmit(event) {
